@@ -17,7 +17,7 @@ class CreateAdminsTable extends Migration
             $table->id();
             $table->string('user_name');
             $table->string('item_name');
-            $table->text('description');
+            $table->text('description')->length(7,100);
             $table->integer('recommend_flag')->length(1)->unique()->comment('商品おすすめフラグ');
             $table->integer('item_category')->length(1)->unique()->comment('商品カテゴリー');
             $table->timestamps();
