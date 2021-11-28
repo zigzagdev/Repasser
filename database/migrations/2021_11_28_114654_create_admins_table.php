@@ -15,6 +15,11 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->string('user_name');
+            $table->string('item_name');
+            $table->text('description');
+            $table->integer('recommend_flag')->length(1)->unique()->comment('商品おすすめフラグ');
+            $table->integer('item_category')->length(1)->unique()->comment('商品カテゴリー');
             $table->timestamps();
         });
     }
