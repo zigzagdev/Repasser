@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix' => 'admin'],function (){
+
+    Route::post('/deedCreateAccount','App\Http\Controllers\AccountController@deedCreateAccount')->name('deedCreateAccount');
+    //アカウント編集画面
+    Route::get('/deedEditAccount','App\Http\Controllers\AccountController@deedEditAccount')->name('deedEditAccount');
+    //アカウント削除画面
+    Route::delete('/deedDeleteAccount','App\Http\Controllers\AccountController@deedDeleteAccount')->name('deedDeleteAccount');
 });
 
 
