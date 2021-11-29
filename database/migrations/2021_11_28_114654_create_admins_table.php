@@ -14,12 +14,12 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('user_name');
             $table->string('item_name');
-            $table->text('description')->length(7,100);
-            $table->integer('recommend_flag')->length(1)->unique()->comment('商品おすすめフラグ');
-            $table->integer('item_category')->length(1)->unique()->comment('商品カテゴリー');
+            $table->string('description','40')->comment('商品説明');
+            $table->string('recommend_flag')->comment('商品おすすめフラグ')->default('0');
+            $table->string('item_category','5')->comment('商品カテゴリー');
             $table->timestamps();
         });
     }

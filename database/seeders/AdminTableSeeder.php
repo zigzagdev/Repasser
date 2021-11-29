@@ -21,9 +21,9 @@ class AdminTableSeeder extends Seeder
         DB::table('admins')->insert([
             'user_name' => Str::random(10),
             'item_name' => Str::random(10),
-            'description' => Text::randomLetter(),
-            'recommend_flag' => 1,
-            'item_category' => 2
+            'description' => Str::random(10),
+            'recommend_flag' => 0,
+            'item_category' => 1
         ]);
     }
 }
