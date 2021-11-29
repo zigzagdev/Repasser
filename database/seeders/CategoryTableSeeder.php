@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Psy\Util\Str;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -18,7 +19,8 @@ class CategoryTableSeeder extends Seeder
 
         $datas = [
             [
-              'item_category'=>'1','category_name'=>'本','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')
+              'item_category'=>'1','category_name'=>'本','content'=>'testです。testです。testです。',
+                'created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')
             ],
         ];
 
