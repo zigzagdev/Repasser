@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::group(['prefix' => 'admin'],function (){
@@ -24,7 +24,4 @@ Route::group(['prefix' => 'admin'],function (){
     //アカウント削除画面
     Route::delete('/deedDeleteAccount','App\Http\Controllers\AccountController@deedDeleteAccount')->name('deedDeleteAccount');
 });
-
-
-
 
