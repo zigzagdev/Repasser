@@ -23,5 +23,7 @@ Route::group(['prefix' => 'admin'],function (){
     Route::get('/deedEditAccount','App\Http\Controllers\AccountController@deedEditAccount')->name('deedEditAccount');
     //アカウント削除画面
     Route::delete('/deedDeleteAccount','App\Http\Controllers\AccountController@deedDeleteAccount')->name('deedDeleteAccount');
+    //アカウント詳細画面
+    Route::get('deedShowAccount','App\Http\Controllers\AccountController@deedShowAccount')->name('deedShowAccount');
 });
 
