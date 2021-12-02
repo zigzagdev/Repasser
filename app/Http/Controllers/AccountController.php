@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Session;
 
 class AccountController extends Controller
 {
@@ -19,8 +19,15 @@ class AccountController extends Controller
 
       $result = $this->createAdminUser($inputData);
 
-      //session使ってデータを保存しておく。ファサードとの兼ね合いについて見ておく。
+         Session::get('user_name','xxx');
 
+         Session::forget('email');
+         Session::forget('item_name');
+         Session::forget('description');
+         Session::forget('recommend_flag');
+         Session::forget('item_category');
+
+        redirect('admin/deedShowAccount')->with('flash_message', 'Register is Success！');
 
     }
 }
