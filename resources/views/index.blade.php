@@ -12,7 +12,7 @@
     </header>
     <main class="main_body">
       <div class="initial_body">
-        <h1 style="color: lightsalmon"> Fuck you</h1>
+        <h1 style="color: lightsalmon">Main here</h1>
       </div>
     </main>
   </div>
