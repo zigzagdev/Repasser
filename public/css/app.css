@@ -14,7 +14,13 @@
     padding-right: 80px;
     text-decoration: none;
 }
-
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+li {
+    display: inline-block;
+}
 .body_wrapper {
     width: 100%;
     position:relative;
