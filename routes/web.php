@@ -7,23 +7,31 @@ use App\Http\Controllers\AccountController;
     Route::get('/', function () {
     return view('index');
     });
-    //アカウント詳細画面
+    //each_account_index
     Route::get('/admin/deedShowAccount', [AccountController::class, function(){
         return view('admin/deedShowAccount');
     }]);
 
-    //アカウント編集画面
-    Route::get('/admin/deedEditAccount/{id}', [AccountController::class, function(){
+    //account_edit
+    Route::put('/admin/deedEditAccount/{id}', [AccountController::class, function(){
     return view('admin/deedEditAccount');
     }]);
 
-    //アカウント削除画面
-    Route::delete('/deedDeleteAccount','App\Http\Controllers\AccountController@deedDeleteAccount')->name('deedDeleteAccount');
+    //account_delete
     Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
     return view('admin/deedDeleteAccount');
 }   ]);
 
-    //アカウント登録画面
+    //account_register
     Route::post('/admin/deedCreateAccount', [AccountController::class, function(){
     return view('admin/deedCreateAccount');
     }]);
+
+    //register_item(already_registered_account)
+    Route::post('/admin/item/deedCreateAccount', [ItemController::class, function(){
+    return view('/admin/item/CreateAccount');
+    }]);
+
+    Route::post('/item/deedCreateAccount', [AccountController::class, function(){
+    return view('item/CreateAccount');
+}   ]);
