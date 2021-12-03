@@ -49,3 +49,13 @@ li {
 .create_main {
     background-color: #ced4da;
 }
+
+.index_reccomend{
+  padding-top: 97px;
+}
+
+.index_reccomend_spell{
+  text-align: center;
+  color: #7886d7;
+  size: 38px;
+}

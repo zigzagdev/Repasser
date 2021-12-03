@@ -12,8 +12,10 @@
     </header>
     <main class="main_body">
       <div class="initial_body">
-        <h1 style="color: lightsalmon">Main here</h1>
-          <a href="admin/deedShowAccount" style="text-decoration: none">click here</a>
+        <h1 style="color: lightsalmon">Search Item</h1>
+          <div class="index_reccomend">
+            <h1 class="index_reccomend_spell">Reccomend Items</h1>
+          </div>
       </div>
     </main>
   </div>
