@@ -13,6 +13,7 @@
     <main class="main_body">
       <div class="initial_body">
         <h1 style="color: lightsalmon">Main here</h1>
+          <a href="admin/deedShowAccount" style="text-decoration: none">click here</a>
       </div>
     </main>
   </div>
