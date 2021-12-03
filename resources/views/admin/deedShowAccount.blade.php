@@ -9,9 +9,12 @@
   <header>
     @include('layouts/header')
   </header>
-    <main class="create_main">
-      <h1>fuck you</h1>
-    </main>
+  <main class="create_main">
+    <h1>fuck you</h1>
+  </main>
+  <footer>
+    @include('layouts/footer')
+  </footer>
 </body>
 
 

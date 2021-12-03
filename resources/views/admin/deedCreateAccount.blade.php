@@ -10,6 +10,8 @@
     @include('../layouts/header')
   </header>
   <main class="create_main">
-
   </main>
+  <footer>
+    @include('layouts/footer')
+  </footer>
 </body>
