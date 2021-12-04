@@ -59,3 +59,8 @@ li {
   color: #7886d7;
   size: 38px;
 }
+
+.search_index {
+    color: lightsalmon;
+    text-align: center;
+}
