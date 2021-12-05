@@ -19,8 +19,8 @@
               <input type="submit" value="検索" class="search_btn_info">
             </div>
           </form>
-          <div class="index_reccomend">
-            <h1 class="index_reccomend_spell">Reccomend Items</h1>
+          <div class="index_recommend">
+            <h1 class="index_recommend_spell">Reccomend Items</h1>
           </div>
       </div>
     </main>

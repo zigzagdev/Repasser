@@ -24,7 +24,6 @@ class AdminTableSeeder extends Seeder
             'email'          => Str::random(15).'@gmail.com',
             'item_name'      => Str::random(10),
             'description'    => Str::random(20),
-            'recommend_flag' => 0,
             'item_category'  => 1
         ]);
     }
