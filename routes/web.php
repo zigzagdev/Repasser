@@ -32,10 +32,6 @@ use App\Http\Controllers\AccountController;
     return view('/admin/item/CreateAccount');
     }]);
 
-    Route::post('/item/deedCreateAccount', [AccountController::class, function(){
-    return view('item/CreateAccount');
-    }]);
-
     Route::get('/SearchItem', [SearchController::class, function(){
     return view('/SearchItem');
 }   ]);
