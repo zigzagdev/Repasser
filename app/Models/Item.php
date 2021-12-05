@@ -10,8 +10,8 @@ class Item extends Model
     protected $guarded = ['id'];
     protected $fillable = ['item_name','item_description','category_name','recommend_flag'];
 
-//    public function admins()
-//    {
-//        return $this->belongsTo(Admin::class);
-//    }
+    public function admins()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
