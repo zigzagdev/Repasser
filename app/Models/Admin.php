@@ -12,6 +12,11 @@ class Admin extends Model
    protected $guarded = ['id'];
    protected $fillable = ['user_name','password','email','item_name','description','recommend_flag','item_category'];
 
+//    public function items()
+//    {
+//        return $this->hasMany(Item::class);
+//    }
+
 }
 
 
