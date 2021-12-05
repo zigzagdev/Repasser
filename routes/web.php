@@ -34,4 +34,10 @@ use App\Http\Controllers\AccountController;
 
     Route::post('/item/deedCreateAccount', [AccountController::class, function(){
     return view('item/CreateAccount');
+    }]);
+
+    Route::get('/SearchItem', [SearchController::class, function(){
+    return view('/SearchItem');
 }   ]);
+
+

@@ -13,7 +13,7 @@
     <main class="main_body">
       <div class="initial_body">
         <h1 class="search_index">Search Item</h1>
-          <form>
+          <form method="post" action="{{url('/ItemSearch')}}">
 
           </form>
           <div class="index_reccomend">
