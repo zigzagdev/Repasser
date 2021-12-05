@@ -64,3 +64,15 @@ li {
     color: lightsalmon;
     text-align: center;
 }
+
+.search_form {
+    text-align: center;
+    padding-top:10px;
+    margin-top: 10px;
+}
+
+.form_content {
+    font-size:25px;
+    width: 35%;
+    text-align: center;
+}
