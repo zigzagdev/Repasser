@@ -10,7 +10,7 @@ class Admin extends Model
    protected $table = 'admins';
 
    protected $guarded = ['id'];
-   protected $fillable = ['user_name','password','email','item_name','description','recommend_flag','item_category'];
+   protected $fillable = ['user_name','password','email','item_name','description','item_category'];
 
     public function items()
     {

@@ -31,7 +31,6 @@ class AccountController extends Controller
          Session::forget('email');
          Session::forget('item_name');
          Session::forget('description');
-         Session::forget('recommend_flag');
          Session::forget('item_category');
 
         return view('admin/deedShowAccount')->with('flash_message', 'Register is Success！');
