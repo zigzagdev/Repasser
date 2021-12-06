@@ -21,9 +21,7 @@ class AdminTableSeeder extends Seeder
         DB::table('admins')->insert([
             'user_name'      => Str::random(10),
             'password'       => Str::random(10),
-            'email'          => Str::random(15).'@gmail.com',
-            'item_name'      => Str::random(10),
-            'description'    => Str::random(20)
+            'email'          => Str::random(15).'@gmail.com'
         ]);
     }
 }
