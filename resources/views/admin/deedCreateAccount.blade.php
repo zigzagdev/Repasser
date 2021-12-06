@@ -31,8 +31,12 @@
               <input type="text" name="admin_name" class="name_css" placeholder="15文字以内" id="admin_name">
             </div>
             <div class="password_around">
-              <label for="admin_password">Password </label>
+              <label for="admin_password">Password</label>
               <input type="password" name="admin_password" class="password_css" id="admin_password" placeholder="半角英数字20字以内">
+            </div>
+            <div class="email_around">
+              <label for="admin_email">E-mail</label>
+              <input type="email" name="admin_email" class="email_css" id="admin_email" placeholder="ex).test@com">
             </div>
           </form>
         </div>
