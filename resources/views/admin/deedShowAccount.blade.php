@@ -10,7 +10,7 @@
     @include('layouts/header')
   </header>
   <main class="create_main">
-    <h1>fuck you</h1>
+    <h1 class="account_mot">Detail your account & Items</h1>
   </main>
   <footer>
     @include('layouts/footer')

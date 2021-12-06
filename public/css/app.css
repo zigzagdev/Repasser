@@ -48,6 +48,9 @@ li {
 
 .create_main {
     background-color: #ced4da;
+    height: calc(100vh - 100px);
+
+    /*how to fix header footer calc in height ? */
 }
 
 .index_recommend{
@@ -82,4 +85,10 @@ li {
 .search_btn_info {
     display: inline-block;
     font-size:20px;
+}
+
+.account_mot {
+    margin-left: 40px;
+    font-family: Arial;
+    padding-top: 27px;
 }

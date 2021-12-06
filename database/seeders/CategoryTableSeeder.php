@@ -19,7 +19,7 @@ class CategoryTableSeeder extends Seeder
 
         $datas = [
             [
-              'item_category'=>'1','category_name'=>'本','content'=>'testです。testです。testです。',
+              'item_category_cd'=>'1','category_name'=>'本','content'=>'testです。testです。testです。',
                 'created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')
             ],
         ];

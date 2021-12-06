@@ -21,7 +21,6 @@ class AccountController extends Controller
       $inputData['email']           = $request->email;
       $inputData['item_name']       = $request->item_name;
       $inputData['description']     = $request->description;
-      $inputData['recommend_flag']  = $request->recommend_flag;
       $inputData['item_category']   = $request->item_category;
 
       $result = $this->save();
