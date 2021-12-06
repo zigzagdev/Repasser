@@ -7,9 +7,10 @@ use App\Http\Controllers\AccountController;
     Route::get('/', function () {
     return view('index');
     });
+
     //each_account_index
     Route::get('/admin/deedShowAccount', [AccountController::class, function(){
-        return view('admin/deedShowAccount');
+    return view('/admin/deedShowAccount');
     }]);
 
     //account_edit
@@ -29,10 +30,11 @@ use App\Http\Controllers\AccountController;
 
 //    account_register
     Route::get('/admin/deedCreateAccount', [AccountController::class, function(){
-    return view('admin/deedCreateAccount');
+    return view('/admin/deedCreateAccount');
     }]);
 
-Route::get('/SearchItem', [SearchController::class, function(){
+//     ItemSearch
+    Route::get('/SearchItem', [SearchController::class, function(){
     return view('/SearchItem');
 }   ]);
 

@@ -21,7 +21,6 @@
           </form>
           <div class="index_recommend">
             <h1 class="index_recommend_spell">Recommend Items</h1>
-              @foreach()
           </div>
       </div>
     </main>

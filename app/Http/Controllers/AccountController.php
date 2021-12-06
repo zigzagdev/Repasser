@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class AccountController extends Controller
 {
-    public function deedShowAccount(Request $request) {
+    public function deedShowAccount() {
 
 
 
@@ -19,8 +19,6 @@ class AccountController extends Controller
       $inputData['user_name']       = $request->user_name;
       $inputData['password']        = $request->password;
       $inputData['email']           = $request->email;
-      $inputData['item_name']       = $request->item_name;
-      $inputData['description']     = $request->description;
 
       $result = $this->save();
 
@@ -28,10 +26,16 @@ class AccountController extends Controller
 
          Session::forget('email');
          Session::forget('item_name');
-         Session::forget('description');
-         Session::forget('item_category');
 
         return view('admin/deedShowAccount')->with('flash_message', 'Register is Success！');
+
+    }
+
+    public function deedEditAccount (Request $id) {
+
+    }
+
+    public function deedDeleteAccount (Request $id) {
 
     }
 

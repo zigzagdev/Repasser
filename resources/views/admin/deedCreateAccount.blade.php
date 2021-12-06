@@ -17,11 +17,21 @@
           <div class="error_message">
             <ul>
               @foreach($errors->all() as $error)
-
+                <li style="color: #ff6666; text-align: center">{{$error}}</li>
               @endforeach
             </ul>
           </div>
         @endif
+{{--        form area--}}
+        <div class="account_form">
+          <form action="{action('AccountController@deedCreateAccount')}" method="post">
+          @csrf
+            <div class="admin_name">
+              <label for="admin_name">Account Name</label>
+              <input type="text" name="admin_name" class="name_css" placeholder="15文字以内" id="admin_name">
+            </div>
+          </form>
+        </div>
     </div>
   </main>
   <footer>
