@@ -30,6 +30,10 @@
               <label for="admin_name">Account Name</label>
               <input type="text" name="admin_name" class="name_css" placeholder="15文字以内" id="admin_name">
             </div>
+            <div class="password_around">
+              <label for="admin_password">Password </label>
+              <input type="password" name="admin_password" class="password_css" id="admin_password" placeholder="半角英数字20字以内">
+            </div>
           </form>
         </div>
     </div>

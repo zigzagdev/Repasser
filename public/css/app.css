@@ -108,7 +108,7 @@ li {
   background-color: snow;
   width: 40%;
   margin-left: 380px;
-  height: 70px;
+  height: 390px;
 }
 
 .admin_name {
@@ -120,4 +120,16 @@ li {
 .name_css {
     font-size: 20px;
     width: 42%;
+}
+
+.password_around {
+     margin-top: 30px;
+    padding-left: 39px;
+    font-size: 30px;
+}
+
+.password_css {
+    margin-left: 20px;
+    font-size: 20px;
+    width: 278px;
 }
