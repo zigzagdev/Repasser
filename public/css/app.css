@@ -146,3 +146,22 @@ li {
     width: 278px;
     padding-top: 3px;
 }
+
+.btn-primary {
+    width: 66px;
+    height: 30px;
+    background-color: mediumpurple;
+    margin-left: 180px;
+    margin-top: 14px;
+}
+
+.btn-secondary {
+    width: 66px;
+    height: 30px;
+    background-color: seashell;
+    margin-left: 9px;
+}
+
+.base_button {
+    display: inline-block;
+}
