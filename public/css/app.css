@@ -92,3 +92,14 @@ li {
     font-family: Arial;
     padding-top: 27px;
 }
+
+.account_register{
+  padding: 20px 40px;
+
+}
+
+.account_name {
+  color: cornsilk;
+  font-family: "Tamil MN";
+  font-size: 30px;
+}

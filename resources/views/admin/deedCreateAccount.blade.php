@@ -10,6 +10,9 @@
     @include('../layouts/header')
   </header>
   <main class="create_main">
+    <div class="account_register">
+      <h1 class="account_name">Account Register</h1>
+    </div>
   </main>
   <footer>
     @include('layouts/footer')

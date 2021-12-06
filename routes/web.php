@@ -19,20 +19,20 @@ use App\Http\Controllers\AccountController;
 
     //account_delete
     Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
-    return view('admin/deedDeleteAccount');
+    return view('/');
 }   ]);
 
-    //account_register
-    Route::post('/admin/deedCreateAccount', [AccountController::class, function(){
-    return view('admin/deedCreateAccount');
-    }]);
-
     //register_item(already_registered_account)
-    Route::post('/admin/item/deedCreateAccount', [ItemController::class, function(){
+    Route::get('/admin/item/deedCreateAccount', [ItemController::class, function(){
     return view('/admin/item/CreateAccount');
     }]);
 
-    Route::get('/SearchItem', [SearchController::class, function(){
+//    account_register
+    Route::get('/admin/deedCreateAccount', [AccountController::class, function(){
+    return view('admin/deedCreateAccount');
+    }]);
+
+Route::get('/SearchItem', [SearchController::class, function(){
     return view('/SearchItem');
 }   ]);
 
