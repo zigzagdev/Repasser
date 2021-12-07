@@ -21,10 +21,41 @@ class AdminCreateRequest extends FormRequest
      *
      * @return array
      */
+//    絶対的にValidationが必要な時にここに記載する。
+
     public function rules()
     {
         return [
             //
         ];
+    }
+//
+//    とある条件下の時にここに記載する。(例えば、flag == 1 の時だけ等)
+    public function withValidator($validator) {
+
+
+        $validator->sometimes('','',function ($input){
+            return ;
+        });
+
+
+        $validator->sometimes('','',function ($input){
+            return ;
+        });
+
+
+        $validator->sometimes('','',function ($input){
+            return ;
+        });
+
+
+        $validator->sometimes('','',function ($input){
+            return ;
+        });
+
+
+        $validator->sometimes('','',function ($input){
+            return ;
+        });
     }
 }
