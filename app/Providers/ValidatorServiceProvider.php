@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
+
+//基本的なValidationはここに記述する。
 
 class ValidatorServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,50 @@ class ValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
+
+        Validator::extend('',function ($attribute,$value,$parameters,$validator){
+            return preg_match('',$value);
+        });
     }
 }
