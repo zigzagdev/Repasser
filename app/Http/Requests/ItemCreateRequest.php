@@ -21,10 +21,11 @@ class ItemCreateRequest extends FormRequest
      *
      * @return array
      */
+    //    とある条件下の時にここに記載する。(例えば、flag == 1 の時だけ等)
     public function rules()
     {
         return [
-            //
+
         ];
     }
 }
