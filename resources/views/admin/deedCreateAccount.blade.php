@@ -38,11 +38,14 @@
               <label for="admin_email">E-mail</label>
               <input type="email" name="admin_email" class="email_css" id="admin_email" placeholder="ex).test@com">
             </div>
-            <div class="base_button">
-              <input class="btn-primary" type="submit" name="first" value="submit">
-              <input class="btn-secondary" type="submit" name="first" value="return">
-            </div>
           </form>
+            <div class="base_button">
+              <button class="btn-primary" type="submit" name="first" value="submit">Submit</button>
+{{--              <button class="btn-secondary" type="submit" name="second" value="return" onclick="location.href='https://127.0.0.1:8000'">Return</button>--}}
+              <a href="/">
+                <button type="submit" class="btn-secondary">Return Home</button>
+              </a>
+            </div>
         </div>
     </div>
   </main>
