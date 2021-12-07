@@ -9,7 +9,7 @@ use App\Http\Controllers\AccountController;
     });
 
     //each_account_index
-    Route::get('/admin/deedShowAccount', [AccountController::class, function(){
+    Route::get('/admin/deedShowAccount/{id}', [AccountController::class, function(){
     return view('/admin/deedShowAccount');
     }]);
 

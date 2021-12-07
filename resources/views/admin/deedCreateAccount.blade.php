@@ -40,10 +40,12 @@
             </div>
           </form>
             <div class="base_button">
-              <button class="btn-primary" type="submit" name="first" value="submit">Submit</button>
+              <a href={{route('/admin/deedShowAccount',['id'=>$inputData['id'] ->id])}}>
+                <button type="submit" class="btn-primary" name="first" value="submit">Submit</button>
+              </a>
 {{--              <button class="btn-secondary" type="submit" name="second" value="return" onclick="location.href='https://127.0.0.1:8000'">Return</button>--}}
               <a href="/">
-                <button type="submit" class="btn-secondary">Return Home</button>
+                <button type="submit" class="btn-secondary">Return Top</button>
               </a>
             </div>
         </div>
