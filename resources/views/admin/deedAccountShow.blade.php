@@ -16,13 +16,13 @@
         <h3 class="showaccount_email">Account Email</h3>
 {{--        {{$data->email}}    --}}
     <div class="account_btn">
-      <a href="">
+      <a href="" class="edit_btn">
         <button type="submit">Edit Account</button>
       </a>
-      <a href="">
+      <a href="" class="delete_btn">
         <button type="submit">Delete Account</button>
       </a>
-      <a href="">
+      <a href="" class="create_btn">
         <button type="submit">Item Create</button>
       </a>
     </div>
