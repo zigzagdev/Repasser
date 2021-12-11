@@ -196,6 +196,19 @@ li {
     font-size: 28px;
 }
 
-. {
+.account_btn {
+    text-align: center;
+    margin-top: 49px;
+}
 
+.edit_btn {
+    display: inline-block;
+}
+
+.delete_btn {
+    display: inline-block;
+}
+
+.create_btn {
+    display: inline-block;
 }
