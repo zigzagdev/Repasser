@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+.html,body {
+    height: 100%;
+}
+
 .header_content {
     width: 100%;
     padding-top:39px;
@@ -48,8 +52,10 @@ li {
 
 .create_main {
     background-color: #ced4da;
-    height: calc(100vh - 100px);
-
+    min-height: 200vh;
+    padding-bottom: 60px;
+    min-height: 100vh;
+    position: relative;
     /*how to fix header footer calc in height ? */
 }
 
@@ -164,4 +170,28 @@ li {
 
 .base_button {
     display: inline-block;
+}
+
+.showaccount_footer{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    margin-top: auto;
+    height: 20px;
+}
+
+.showaccount_mot {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.showaccount_name {
+  margin: 10px 0px 0px 80px ;
+  font-size: 28px;
+}
+
+.showaccount_email {
+    margin: 50px 0px 0px 80px ;
+    font-size: 28px;
 }

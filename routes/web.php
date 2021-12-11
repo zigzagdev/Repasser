@@ -1,41 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountController;
-
 
     Route::get('/', function () {
     return view('index');
     });
 
     //each_account_index
-    Route::get('/admin/deedShowAccount/{id}', [AccountController::class, function(){
-    return view('/admin/deedShowAccount');
-    }]);
+    Route::get('/admin/deedAccountShow/{id}', 'AccountController@deedAccountShow');
 
-    //account_edit
-    Route::put('/admin/deedEditAccount/{id}', [AccountController::class, function(){
-    return view('admin/deedEditAccount');
-    }]);
+//    //account_edit
+    Route::put('/admin/deedAccountShow/{id}', 'AccountController@deedAccountEdit');
 
-    //account_delete
-    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
-    return view('/');
-}   ]);
+//    //account_delete
+//    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
+//    return view('/');
+//}   ]);　　　
+     Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount');
+//
+//    //register_item(already_registered_account)
+     Route::post('/admin/item/deedCreateAccount', 'ItemController@deedCreateAccount');
 
-    //register_item(already_registered_account)
-    Route::get('/admin/item/deedCreateAccount', [ItemController::class, function(){
-    return view('/admin/item/CreateAccount');
-    }]);
-
-//    account_register
-    Route::get('/admin/deedCreateAccount', [AccountController::class, function(){
-    return view('/admin/deedCreateAccount');
-    }]);
-
-//     ItemSearch
-    Route::get('/SearchItem', [SearchController::class, function(){
-    return view('/SearchItem');
-}   ]);
+       //account_register
+     Route::get('/admin/deedCreateAccount', 'AccountController@deedCreateAccount');
+//     Route::post('/admin/deedCreateAccount', 'AccountController@deedCreateAccount');
+////     ItemSearch
+//    Route::get('/SearchItem', [SearchController::class, function(){
+//    return view('/SearchItem');
+//}   ]);
 
 

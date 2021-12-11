@@ -24,7 +24,7 @@
         @endif
 {{--        form area--}}
         <div class="account_form">
-          <form action="{action('AccountController@deedCreateAccount')}" method="post">
+          <form action="{{route('admin/deedAccountShow')}}}" method="POST">
           @csrf
             <div class="admin_name">
               <label for="admin_name">Account Name</label>
@@ -38,16 +38,13 @@
               <label for="admin_email">E-mail</label>
               <input type="email" name="admin_email" class="email_css" id="admin_email" placeholder="ex).test@com">
             </div>
-          </form>
             <div class="base_button">
-              <a href={{route('/admin/deedShowAccount',['id'=>$inputData['id'] ->id])}}>
-                <button type="submit" class="btn-primary" name="first" value="submit">Submit</button>
-              </a>
-{{--              <button class="btn-secondary" type="submit" name="second" value="return" onclick="location.href='https://127.0.0.1:8000'">Return</button>--}}
-              <a href="/">
-                <button type="submit" class="btn-secondary">Return Top</button>
-              </a>
+              <button type="submit" class="btn-primary">Submit</button>
+                <a href="/">
+                  <button type="submit" class="btn-secondary">Return Top</button>
+                </a>
             </div>
+          </form>
         </div>
     </div>
   </main>

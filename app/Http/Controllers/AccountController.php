@@ -2,40 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
+
 
 class AccountController extends Controller
 {
-    public function deedShowAccount(Request $id) {
+    public function deedCreateAccount (Request $request){
 
-        $Accounts = Account::findOrFail($id);
+        $data = new  Admin;
+
+        $data->create([
+            'id' => $request->id,
+            'user_name' => $request->user_name,
+            'password' => $request->password,
+            'email' => $request->email
+        ]);
 
 
-      redirect('admin_deedShowAccount/{id}');
+        Session::get('id','xxx');
+        Session::get('user_name');
+        Session::forget('email');
+        Session::forget('password');
+
+        return redirect()->route('admin/deedCreateAccount');
     }
 
-    public function deedCreateAccount (Request $request){
-      $inputData['id']              = $request->input('id');
-      $inputData['user_name']       = $request->input('user_name');
-      $inputData['password']        = $request->input('password');
-      $inputData['email']           = $request->input('email');
-
-      $inputData->save();
-
-         Session::get('user_name','xxx');
-         Session::get('id','xxx');
-         Session::forget('email');
-         Session::forget('password');
-
-        return view('admin/deedShowAccount/{id}')->with('flash_message', 'Register is Success！');
-
+    public function deedAccountShow (Request $id) {
+        $data = Admin::find($id);
+//        var_dump($data);
+        return view('admin/deedAccountShow',compact('data'));
     }
 
     public function deedEditAccount (Request $id) {
 
     }
-
     public function deedDeleteAccount (Request $id) {
 
     }
