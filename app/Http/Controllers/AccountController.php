@@ -47,4 +47,8 @@ class AccountController extends Controller
 
     }
 
+    public function deedUpdateAccount (Request $id) {
+
+    }
+
 }
