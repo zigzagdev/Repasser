@@ -242,3 +242,12 @@ li {
     color: whitesmoke;
     background-color: black;
 }
+
+.variable_email{
+    margin: 20px 0 0 120px;
+    font-size: 28px;
+}
+.variable_name {
+    margin: 20px 0 0 120px;
+    font-size: 28px;
+}

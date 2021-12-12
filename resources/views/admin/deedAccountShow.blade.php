@@ -12,9 +12,13 @@
   <main class="create_main">
     <h1 class="account_mot">Detail your account & Items</h1>
       <h2 class="showaccount_name">Account Name</h2>
-{{--        {{$data->user_name}}--}}
-        <h3 class="showaccount_email">Account Email</h3>
-{{--        {{$data->email}}    --}}
+        <div class="variable_name">
+          {{$datas->user_name}}
+        </div>
+      <h3 class="showaccount_email">Account Email</h3>
+        <div class="variable_email">
+          {{$datas->email}}
+        </div>
     <div class="account_btn">
       <a href="">
         <button type="submit" class="edit_btn">Edit Account</button>

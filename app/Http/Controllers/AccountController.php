@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\View;
 
 
 class AccountController extends Controller
@@ -32,10 +31,10 @@ class AccountController extends Controller
         return redirect()->route('admin/deedCreateAccount');
     }
 
-    public function deedAccountShow (Request $id) {
-        $data = Admin::find($id);
-//        var_dump($data);
-        return view('admin/deedAccountShow',compact('data'));
+    public function deedAccountShow (Request $request, $id) {
+        $datas = DB::table('admins')->find($id);
+
+        return view('admin/deedAccountShow',compact('datas'));
     }
 
     public function deedEditAccount (Request $id) {
