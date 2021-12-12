@@ -17,10 +17,11 @@
       {{--        {{$data->email}}    --}}
       <div class="account_btn">
           <a href="">
-              <button type="submit" class="editac_btn">Edit Account</button>
+              <button type="submit" class="editac_btn">Edit Submit</button>
           </a>
-          <a href="">
-              <button type="submit" class="editac2_btn">Delete Account</button>
+          <a href="javascript:history.go(-1)">
+{{--              can return to previous page but URL isn't correctly--}}
+              <button type="submit" class="editac2_btn">Return to previous page</button>
           </a>
       </div>
   </main>
