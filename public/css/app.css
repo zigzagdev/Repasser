@@ -198,14 +198,14 @@ li {
 
 .account_btn {
     text-align: center;
-    margin-top: 49px;
+    margin-top: 71px;
 }
 
 .edit_btn {
     display: inline-block;
     background-color: purple;
     color: whitesmoke;
-    width: 110px;
+    width: 120px;
     height: 50px;
 }
 
@@ -213,14 +213,32 @@ li {
     display: inline-block;
     background-color: blue;
     color: whitesmoke;
-    width: 110px;
+    width: 120px;
     height: 50px;
+    margin-left: 20px;
 }
 
 .create_btn {
     display: inline-block;
     background-color: #c3e6cb;
     color: whitesmoke;
-    width: 110px;
+    width: 120px;
     height: 50px;
+    margin-left: 20px;
+}
+
+.editac_btn {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+    color: whitesmoke;
+    background-color: midnightblue;
+}
+
+.editac2_btn {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+    color: whitesmoke;
+    background-color: black;
 }

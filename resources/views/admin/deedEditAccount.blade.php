@@ -10,19 +10,22 @@
     @include('layouts/header')
   </header>
   <main class="create_main">
-    <h1>fuck you</h1>
-
-      <div class="admin_common_btn">
-          <a href={{route('/admin/deedShowAccount',['id'=>$inputData['id'] ->id])}}>
-            <button type="submit" class="btn-primary" name="first" value="submit">Edit Submit</button>
+    <h1 class="account_mot">Here is Edit Page</h1>
+      <h2 class="showaccount_name">Account Name</h2>
+      {{--        {{$data->user_name}}--}}
+      <h3 class="showaccount_email">Account Email</h3>
+      {{--        {{$data->email}}    --}}
+      <div class="account_btn">
+          <a href="">
+              <button type="submit" class="editac_btn">Edit Account</button>
           </a>
-          <a href={{route('/admin/deedShowAccount',['id'=>$inputData['id'] ->id])}}>
-            <button type="submit" class="btn-primary" name="first" value="submit">Return to ShowPage</button>
+          <a href="">
+              <button type="submit" class="editac2_btn">Delete Account</button>
           </a>
       </div>
   </main>
-  <footer>
-    @include('layouts/footer')
-  </footer>
+{{--  <footer>--}}
+{{--    @include('layouts/footer')--}}
+{{--  </footer>--}}
 </body>
 

@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Route;
     //each_account_index
     Route::get('/admin/deedAccountShow/{id}', 'AccountController@deedAccountShow');
 
-//    //account_edit
-    Route::put('/admin/deedAccountShow/{id}', 'AccountController@deedAccountEdit');
+//    //account_edit_screen_show
+    Route::get('/admin/deedEditAccount/{id}', 'AccountController@deedEditAccount');
+
+//    account_update_deed
+    Route::put('/admin/deedUpdateAccount/{id}','AccountController@deedUpdateAccount');
 
 //    //account_delete
 //    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
