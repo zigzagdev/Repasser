@@ -20,7 +20,7 @@
           {{$datas->email}}
         </div>
     <div class="account_btn">
-      <a href="">
+      <a href="{{ url('admin/deedEditAccount/'.$datas->id) }}">
         <button type="submit" class="edit_btn">Edit Account</button>
       </a>
       <a href="">

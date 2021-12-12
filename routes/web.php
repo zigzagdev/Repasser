@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/admin/deedEditAccount/{id}', 'AccountController@deedEditAccount');
 
 //    account_update_deed
-    Route::put('/admin/deedUpdateAccount/{id}','AccountController@deedUpdateAccount');
+    Route::put('/admin/deedEditAccount/{id}','AccountController@deedUpdateAccount');
 
 //    //account_delete
 //    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
