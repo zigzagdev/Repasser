@@ -44,6 +44,9 @@ class AccountController extends Controller
         return \view('admin/deedEditAccount',compact('data'));
     }
     public function deedDeleteAccount (Request $id) {
+        $data = Admin::find($id);
+
+        return view('admin/deedEditAccount',compact('data'));
 
     }
 
