@@ -38,9 +38,10 @@ class AccountController extends Controller
     }
 
     public function deedEditAccount (Request $id) {
-        $data = Admin::find($id);
+        $datas = DB::table('admins')->find($id);
 
-        return \view('admin/deedEditAccount',compact('data'));
+
+        return \view('admin/deedEditAccount',compact('datas'));
     }
     public function deedDeleteAccount (Request $id) {
         $data = Admin::find($id);
@@ -49,7 +50,11 @@ class AccountController extends Controller
 
     }
 
-    public function deedUpdateAccount (Request $id) {
+    public function deedUpdateAccount (Request $request, $id) {
+        $datas = DB::table('admins')->find($id);
+
+         var_dump($datas);
+        return \view('admin/deedEditAccount',compact('datas'));
 
     }
 

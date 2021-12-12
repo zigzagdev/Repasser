@@ -22,7 +22,7 @@
             </ul>
           </div>
         @endif
-{{--        form area--}}
+
         <div class="account_form">
           <form action="{{route('admin/deedAccountShow')}}}" method="POST">
           @csrf

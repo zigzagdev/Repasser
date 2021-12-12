@@ -11,10 +11,24 @@
   </header>
   <main class="create_main">
     <h1 class="account_mot">Here is Edit Page</h1>
+      @if($errors->any())
+        <div class="error_message">
+          <ul>
+            @foreach($errors->all() as $error)
+              <li style="color: #ff6666; text-align: center">{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       <h2 class="showaccount_name">Account Name</h2>
-      {{--        {{$data->user_name}}--}}
+        <div class="variable_name">
+            <?php  var_dump($datas); ?>
+
+        </div>
       <h3 class="showaccount_email">Account Email</h3>
-      {{--        {{$data->email}}    --}}
+        <div class="variable_email">
+          {{$datas->email}}
+        </div>
       <div class="account_btn">
           <a href="">
               <button type="submit" class="editac_btn">Edit Submit</button>
