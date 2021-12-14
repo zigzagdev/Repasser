@@ -45,10 +45,7 @@
           <a href="">
               <button type="submit" class="editac_btn">Edit Submit</button>
           </a>
-          <a href="javascript:history.go(-1)">
-{{--              can return to previous page but URL isn't correctly--}}
-              <button type="submit" class="editac2_btn">Return to previous page</button>
-          </a>
+          <button type="button" class="editac2_btn" onClick="history.back()">Return to previous page</button>
       </div>
     </form>
   </main>
