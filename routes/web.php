@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
     //each_account_index
     Route::get('/admin/deedAccountShow/{id}', 'AccountController@deedAccountShow');
 
-//    //account_edit_screen_show
+//    account_edit_screen_show
     Route::get('/admin/deedEditAccount/{id}', 'AccountController@deedEditAccount');
 
 //    account_update_deed
@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 //    //account_delete
 //    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
 //    return view('/');
-//}   ]);　　　
+//}   ]);　
+     Route::get('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount');
+
      Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount');
 //
 //    //register_item(already_registered_account)

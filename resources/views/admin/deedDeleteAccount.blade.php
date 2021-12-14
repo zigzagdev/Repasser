@@ -12,14 +12,18 @@
     <main class="create_main">
         <h1 class="account_mot">Here is Delete Account Page</h1>
           <h2 class="showaccount_name">Account Name</h2>
-          {{--        {{$data->user_name}}--}}
+            <div class="variable_name">
+              {{$datas->user_name}}
+            </div>
           <h3 class="showaccount_email">Account Email</h3>
-          {{--        {{$data->email}}    --}}
+            <div class="variable_email">
+              {{$datas->email}}
+            </div>
         <div class="account_btn">
           <a href="">
             <button type="submit" class="editac_btn">Delete Account</button>
           </a>
-          <a href="{{ action('AccountController@deedAccountShow', $data->id) }}">
+          <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
             <button type="submit" class="editac2_btn"> Return to Account Page</button>
           </a>
         </div>

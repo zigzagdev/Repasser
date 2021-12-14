@@ -43,10 +43,10 @@ class AccountController extends Controller
 
         return \view('admin/deedEditAccount',compact('datas'));
     }
-    public function deedDeleteAccount (Request $id) {
-        var_dump($id);
+    public function deedDeleteAccount (Request $request,$id) {
+        $datas = DB::table('admins')->find($id);
 
-        return view('admin/deedEditAccount',compact('id'));
+        return view('admin/deedDeleteAccount',compact('datas'));
 
     }
 

@@ -42,7 +42,7 @@
           <input id="id" class="edit_form" type="text" value="{{ old('$datas->email', $datas->email) }}" placeholder="新しいEmailを入力してください。">
         </div>
       <div class="account_btn">
-          <a href="">
+          <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
               <button type="submit" class="editac_btn">Edit Submit</button>
           </a>
           <button type="button" class="editac2_btn" onClick="history.back()">Return to previous page</button>
