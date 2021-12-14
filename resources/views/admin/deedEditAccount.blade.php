@@ -20,14 +20,17 @@
           </ul>
         </div>
       @endif
+
+    <form action="" method="post">
+    @csrf
+    @method('PUT')
       <h2 class="showaccount_name">Account Name</h2>
         <div class="variable_name">
-            <?php  var_dump($datas); ?>
-
+          <input id="id" class="edit_form" type="text" value="{{ old('$datas->user_name', $datas->user_name) }}">
         </div>
       <h3 class="showaccount_email">Account Email</h3>
         <div class="variable_email">
-          {{$datas->email}}
+
         </div>
       <div class="account_btn">
           <a href="">
@@ -38,6 +41,7 @@
               <button type="submit" class="editac2_btn">Return to previous page</button>
           </a>
       </div>
+    </form>
   </main>
 {{--  <footer>--}}
 {{--    @include('layouts/footer')--}}
