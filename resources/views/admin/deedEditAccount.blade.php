@@ -26,11 +26,20 @@
     @method('PUT')
       <h2 class="showaccount_name">Account Name</h2>
         <div class="variable_name">
-          <input id="id" class="edit_form" type="text" value="{{ old('$datas->user_name', $datas->user_name) }}">
+          <input id="id" class="edit_form" type="text" value="{{ old('$datas->user_name', $datas->user_name) }}" placeholder="新しい名前を入力してください。">
         </div>
+{{--        パスワードは変更する時にのみ入力する。--}}
+{{--      <h3 class="showaccount_email">Account Email</h3>--}}
+{{--        <div class="variable_email">--}}
+{{--          <input id="id" class="edit_form" type="text" value="{{ old('$datas->email', $datas->email) }}" placeholder="新しいEmailを入力してください。">--}}
+{{--        </div>--}}
+{{--      <h3 class="showaccount_email">Account Email</h3>--}}
+{{--        <div class="variable_email">--}}
+{{--          <input id="id" class="edit_form" type="text" value="{{ old('$datas->email', $datas->email) }}" placeholder="新しいEmailを入力してください。">--}}
+{{--        </div>--}}
       <h3 class="showaccount_email">Account Email</h3>
         <div class="variable_email">
-
+          <input id="id" class="edit_form" type="text" value="{{ old('$datas->email', $datas->email) }}" placeholder="新しいEmailを入力してください。">
         </div>
       <div class="account_btn">
           <a href="">

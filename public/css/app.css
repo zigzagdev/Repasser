@@ -251,3 +251,8 @@ li {
     margin: 20px 0 0 120px;
     font-size: 28px;
 }
+
+.edit_form {
+    height: 30px;
+    width: 300px;
+}
