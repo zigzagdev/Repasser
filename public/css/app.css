@@ -241,6 +241,7 @@ li {
     display: inline-block;
     color: whitesmoke;
     background-color: black;
+    margin-left: 40px;
 }
 
 .variable_email{
