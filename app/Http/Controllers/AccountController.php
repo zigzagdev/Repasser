@@ -40,7 +40,6 @@ class AccountController extends Controller
     public function deedEditAccount (Request $request, $id) {
         $datas = DB::table('admins')->find($id);
 
-
         return \view('admin/deedEditAccount',compact('datas'));
     }
     public function deedDeleteAccount (Request $request,$id) {
@@ -50,11 +49,17 @@ class AccountController extends Controller
 
     }
 
-//    public function deedUpdateAccount (Request $request, $id) {
-//        $data = DB::table('admins')->find($id);
-//        var_dump($data);
-//        return view('admin/deedAccountShow',compact('data'));
-//
-//    }
+    public function deedUpdateAccount (Request $request, $id) {
+        $datas = DB::table('admins')->find($id);
+        $message =  'User not extist' ;
+        if ($datas === null) {
+            print $message ;
+        }
+        $datas-> user_name = $request->user_name;
+        $datas-> email     = $request->email;
+        $datas->save();
+        return view('admin/deedAccountShow',compact('datas'));
+
+    }
 
 }

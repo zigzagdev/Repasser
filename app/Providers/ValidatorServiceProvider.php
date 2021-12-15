@@ -27,7 +27,7 @@ class ValidatorServiceProvider extends ServiceProvider
     public function boot()
     {
 //        半角英数字のみ（空文字OK）
-        Validator::extend('h_alphanum',function ($attribute,$value,$parameters,$validator){
+        Validator::extend('h_alpha_num',function ($attribute,$value,$parameters,$validator){
             return preg_match('/^[0-9a-zA-Z]*$/',$value);
         });
 
@@ -37,7 +37,7 @@ class ValidatorServiceProvider extends ServiceProvider
         });
 
 //        半角英数記号のみ（空文字OK）
-        Validator::extend('h_alpanumnote',function ($attribute,$value,$parameters,$validator){
+        Validator::extend('h_alpha_num_note',function ($attribute,$value,$parameters,$validator){
             return preg_match('^[a-zA-Z0-9!-/:-@¥[-`{-~]*$',$value);
         });
 

@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/admin/deedEditAccount/{id}', 'AccountController@deedEditAccount');
 
 //    account_update_deed
-    Route::put('/admin/deedEditAccount/{id}','AccountController@deedEditAccount');
+//      actionでControllerの内容書いてあげると、GETとPUT等のメソッドを書いてあげる。
+    Route::put('/admin/deedEditAccount/{id}','AccountController@deedUpdateAccount');
 
 //    //account_delete
 //    Route::delete('/admin/deedDeleteAccount/{id}', [AccountController::class, function(){
 //    return view('/');
 //}   ]);　
-     Route::get('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount');
+     Route::get('/admin/deedDeleteAccount/{id}', 'AccountController@deedEditAccount');
 
      Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount');
 //
