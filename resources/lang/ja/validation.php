@@ -20,8 +20,6 @@ return [
     'alpha'                => ':attributeはアルファベットのみがご利用できます。',
     'alpha_dash'           => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
     'alpha_num'            => ':attributeはアルファベット数字がご利用できます。',
-    'h_alpha_num'          => ':attributeはアルファベット数字(空欄あり)がご利用できます。',
-    'h_alpha_num_note'     => ':attributeはアルファベット数字記号(空欄あり)がご利用できます。）',
     'array'                => ':attributeは配列でなくてはなりません。',
     'before'               => ':attributeには、:dateより前の日付をご利用ください。',
     'before_or_equal'      => ':attributeには、:date以前の日付をご利用ください。',
@@ -44,6 +42,7 @@ return [
     'email'                => ':attributeには、有効なメールアドレスを指定してください。',
     'ends_with'            => ':attributeには、:valuesのどれかで終わる値を指定してください。',
     'exists'               => '選択された:attributeは正しくありません。',
+    'f_hira'               => ':attributeには全角ひらがなのみご利用出来ます。',
     'file'                 => ':attributeにはファイルを指定してください。',
     'filled'               => ':attributeに値を指定してください。',
     'gt'                   => [
@@ -58,6 +57,8 @@ return [
         'string'  => ':attributeは、:value文字以上で指定してください。',
         'array'   => ':attributeには、:value個以上のアイテムを指定してください。',
     ],
+    'h_alpha_num'          => ':attributeはアルファベット数字(空欄あり)がご利用できます。',
+    'h_alpha_num_note'     => ':attributeはアルファベット数字記号(空欄あり)がご利用できます。）',
     'image'                => ':attributeには画像ファイルを指定してください。',
     'in'                   => '選択された:attributeは正しくありません。',
     'in_array'             => ':attributeには:otherの値を指定してください。',
@@ -95,6 +96,7 @@ return [
     'not_in'               => '選択された:attributeは正しくありません。',
     'not_regex'            => ':attributeの形式が正しくありません。',
     'numeric'              => ':attributeには、数字を指定してください。',
+    'postal'               => ':attributeには、半角の郵便番号ハイフン(-)ありで入力してください。',
     'present'              => ':attributeが存在していません。',
     'regex'                => ':attributeに正しい形式を指定してください。',
     'required'             => ':attributeは必ず指定してください。',
@@ -118,6 +120,7 @@ return [
     'uploaded'             => ':attributeのアップロードに失敗しました。',
     'url'                  => ':attributeに正しい形式を指定してください。',
     'uuid'                 => ':attributeに有効なUUIDを指定してください。',
+    'tel_mobile'           => ':attributeにはハイフン(-)なしで携帯番号を入力してください。',
 
     /*
     |--------------------------------------------------------------------------

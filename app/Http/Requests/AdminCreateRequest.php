@@ -31,6 +31,7 @@ class AdminCreateRequest extends FormRequest
             'h_alpha_num_note'   => 'h_alpha_num_note',
             'postal'             => 'postal',
             'tel_mobile'         => 'tel_mobile',
+            'email'              => 'email',
 
 
         ];

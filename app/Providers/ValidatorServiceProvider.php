@@ -51,9 +51,9 @@ class ValidatorServiceProvider extends ServiceProvider
             return preg_match('^0[789]0(-\d{4}-\d{4}|\d{8})$',$value);
         });
 
-
-        Validator::extend('',function ($attribute,$value,$parameters,$validator){
-            return preg_match('',$value);
+//        メールアドレス(緩め)
+        Validator::extend('email',function ($attribute,$value,$parameters,$validator){
+            return preg_match('[^\s]+@[^\s]+',$value);
         });
 
 
