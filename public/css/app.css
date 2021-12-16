@@ -269,3 +269,10 @@ li {
     color: black;
     text-decoration: none;
 }
+
+.index {
+    margin-left: 40px;
+    padding-top: 40px;
+    font-size: 20px;
+    color: #0056b3;
+}
