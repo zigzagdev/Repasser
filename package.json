@@ -17,5 +17,9 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.43.5",
         "sass-loader": "^12.3.0"
+    },
+    "dependencies": {
+        "jquery": "^3.6.0",
+        "jQuery": "^1.7.4"
     }
 }

@@ -24,7 +24,7 @@
         @endif
 
         <div class="account_form">
-          <form action="{{route('admin/deedAccountShow')}}}" method="POST">
+          <form method="POST" action="{{ action('AccountController@deedAccountShow')}}">
           @csrf
             <div class="admin_name">
               <label for="admin_name">Account Name</label>

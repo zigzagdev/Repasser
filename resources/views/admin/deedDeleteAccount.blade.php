@@ -20,8 +20,8 @@
               {{$datas->email}}
             </div>
         <div class="account_btn">
-          <a href="">
-            <button type="submit" class="editac_btn">Delete Account</button>
+          <a href="/">
+            <button type="submit" class="editac_btn" id="push" >Delete Account</button>
           </a>
           <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
             <button type="submit" class="editac2_btn"> Return to Account Page</button>
