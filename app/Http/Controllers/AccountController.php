@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use http\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -86,7 +87,10 @@ class AccountController extends Controller
         return view('admin/deedIndexAll',compact('datas'));
     }
 
-    public function deedSearchAccount(Request $request,$id) {
+    public function SearchResult(Request $request) {
+        $keyword = $request->input('keyword');
 
+        $nothing = "Nothing was found. Try other words to find something";
+        return view('admin/SearchResult')->with(Message::$nothing);
     }
 }

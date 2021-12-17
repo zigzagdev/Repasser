@@ -276,3 +276,8 @@ li {
     font-size: 20px;
     color: #0056b3;
 }
+
+.form_group {
+    text-align: center;
+    font-size: 0;
+}
