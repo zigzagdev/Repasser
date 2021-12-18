@@ -64,6 +64,7 @@ class AccountController extends Controller
         if ($datas === null) {
             print $message;
         }
+
         $datas->user_name = $request->user_name;
         $datas->email = $request->email;
         $datas->save();
@@ -81,29 +82,26 @@ class AccountController extends Controller
 
     public function deedIndexSearch(Request $request)
     {
-
         $datas = DB::table('admins')
             ->
             select('user_name', 'email')
             ->get();
-        return view('admin/deedIndexSearch',compact('datas'));
+        $count = count($datas);
+        return view('admin/deedIndexSearch', compact('count'));
     }
 
     public function SearchResult(Request $request)
     {
+        $keyword = $request->input('data');
 
-        $keyword = $request->input('email');
-
-        //クエリ作成
         $query = Admin::query();
 
-        //キーワードが入力されている場合
         if (!empty($keyword)) {
             $query->where('user_name', 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%');
         }
         $results = $query->paginate(10);
-        $counts  = count($results);
-        return view('admin/SearchResult', compact('results','keyword','counts'));
+        $counts = count($results);
+        return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
