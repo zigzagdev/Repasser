@@ -57,15 +57,16 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
-        $datas = DB::table('admins')->find($id);
+        $datas = Admin::find($id);
         $message = 'User not extist';
         if ($datas === null) {
             print $message;
-        }
+        }else {
 
-        $datas->user_name = $request->user_name;
-        $datas->email = $request->email;
-        $datas->save();
+            $datas->user_name = $request->user_name;
+            $datas->email = $request->email;
+            $datas->save();
+        }
         return view('admin/deedAccountShow', compact('datas'));
 
     }

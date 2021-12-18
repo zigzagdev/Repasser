@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <form action="{{action('App\Http\Controllers\AccountController@deedUpdateAccount ')}}" method="post">
+    <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount',$datas->id)}}" method="post">
         @csrf
         @method('PUT')
         <h2 class="showaccount_name">Account Name</h2>
