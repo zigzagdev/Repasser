@@ -21,13 +21,13 @@
         </div>
     @endif
 
-    <form action="" method="post">
+    <form action="{{action('App\Http\Controllers\AccountController@deedUpdateAccount ')}}" method="post">
         @csrf
         @method('PUT')
         <h2 class="showaccount_name">Account Name</h2>
         <div class="variable_name">
-            <input id="id" class="edit_form" type="text" value="{{ old('$datas->user_name', $datas->user_name) }}"
-                   placeholder="新しい名前を入力してください。">
+            <input type="text"  id="id" name="user_name" class="edit_form" value="{{ old('$datas->user_name', $datas->user_name) }}"
+                   placeholder="Submit your Name">
         </div>
         {{--        パスワードは変更する時にのみ入力する。--}}
         {{--      <h3 class="showaccount_email">Account Email</h3>--}}
@@ -40,8 +40,8 @@
         {{--        </div>--}}
         <h3 class="showaccount_email">Account Email</h3>
         <div class="variable_email">
-            <input id="id" class="edit_form" type="text" value="{{ old('$datas->email', $datas->email) }}"
-                   placeholder="新しいEmailを入力してください。">
+            <input type="email" id="id" name="email" class="edit_form"  value="{{ old('$datas->email', $datas->email) }}"
+                   placeholder="Submit your  Address.">
         </div>
         <div class="account_btn">
             <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
