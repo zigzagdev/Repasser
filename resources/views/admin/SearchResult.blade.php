@@ -10,9 +10,18 @@
     @include('layouts/header')
 </header>
 <main class="create_main">
-    @foreach($email as $address)
-        <td>{{ $address->email }}</td>
-        <td>{{ $address->updated_at }}</td>
-        </tr>
-    @endforeach
+    <h1 class="index">Your Search Results.</h1>
+
 </main>
+</body>
+
+
+
+
+
+{{--@foreach($email as $address)--}}
+{{--    <td>{{ $address->email }}</td>--}}
+{{--    <td>{{ $address->updated_at }}</td>--}}
+{{--    </tr>--}}
+{{--@endforeach--}}
+
