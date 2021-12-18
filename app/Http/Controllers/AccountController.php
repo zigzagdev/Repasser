@@ -102,7 +102,8 @@ class AccountController extends Controller
             $query->where('user_name', 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%');
         }
-        $email = $query->paginate(10);
-        return view('admin/SearchResult', compact('email','keyword'));
+        $results = $query->paginate(10);
+        $counts  = count($results);
+        return view('admin/SearchResult', compact('results','keyword','counts'));
     }
 }

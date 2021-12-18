@@ -11,17 +11,22 @@
 </header>
 <main class="create_main">
     <h1 class="index">Your Search Results.</h1>
-
+      <div class="result">
+          <table class="table">
+              <tr>
+                  <th style="padding-top: 40px; padding-left: 70px">{{$counts}}hits !</th>
+                  <th style="padding-top: 40px">Name</th>
+                  <th style="padding-top: 40px">Address</th>
+              </tr>
+              @foreach($results as $result)
+                  <tr>
+                      <td style="font-size: 28px; color: #040505; padding-left: 75px">・</td>
+                      <td style="font-size: 28px; color: #040505; padding-left: 30px">{{$result->user_name}}</td>
+                      <td style="font-size: 28px; color: #040505; padding-left: 60px">{{$result->email}}</td>
+                  </tr>
+              @endforeach
+          </table>
+      </div>
 </main>
 </body>
-
-
-
-
-
-{{--@foreach($email as $address)--}}
-{{--    <td>{{ $address->email }}</td>--}}
-{{--    <td>{{ $address->updated_at }}</td>--}}
-{{--    </tr>--}}
-{{--@endforeach--}}
 
