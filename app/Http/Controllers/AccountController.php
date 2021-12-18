@@ -21,18 +21,16 @@ class AccountController extends Controller
     {
 
         $datas = new Admin;
-
         $datas->user_name = $request->user_name;
-        $datas->email = $request->email;
         $datas->password = $request->password;
+        $datas->email = $request->email;
         $datas->save();
 
 //        Session::get('id', 'xxx');
 //        Session::get('user_name');
 //        Session::forget('email');
 //        Session::forget('password');
-
-        return view('admin/deedAccountShow')->with($datas->id);
+        return redirect('admin/deedAccountShow/'.$datas->id);
     }
 
     public function deedAccountShow(Request $request, $id)

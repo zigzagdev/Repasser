@@ -27,7 +27,7 @@ Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteComp
 //     register_item(already_registered_account)
 Route::post('/admin/item/deedCreateAccount', 'ItemController@deedCreateAccount');
 
-//     account_register
+//     account_register_form
 Route::get('/admin/deedCreateAccount', 'AccountController@deedCreateAccount');
 
 //  account_search
