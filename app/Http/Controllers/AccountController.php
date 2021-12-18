@@ -35,7 +35,7 @@ class AccountController extends Controller
         return view('admin/deedAccountShow')->with($datas->id);
     }
 
-    public function deedAccountShow(Request $request,$id)
+    public function deedAccountShow(Request $request, $id)
     {
         $datas = DB::table('admins')->find($id);
 
@@ -74,23 +74,35 @@ class AccountController extends Controller
     public function deedDeleteComplete(Request $request, $id)
     {
         $data = DB::table('admins')->find($id);
-        var_dump($data);
         $data->delete();
 
         return view('/');
     }
 
-    public function deedIndexAll () {
+    public function deedIndexSearch(Request $request)
+    {
 
-        $datas = DB::table('admins');
-
-        return view('admin/deedIndexAll',compact('datas'));
+        $datas = DB::table('admins')
+            ->
+            select('user_name', 'email')
+            ->get();
+        return view('admin/deedIndexSearch',compact('datas'));
     }
 
-    public function SearchResult(Request $request) {
-        $keyword = $request->input('keyword');
+    public function SearchResult(Request $request)
+    {
 
-        $nothing = "Nothing was found. Try other words to find something";
-        return view('admin/SearchResult')->with(Message::$nothing);
+        $keyword = $request->input('email');
+
+        //クエリ作成
+        $query = Admin::query();
+
+        //キーワードが入力されている場合
+        if (!empty($keyword)) {
+            $query->where('user_name', 'like', '%' . $keyword . '%')
+                ->orWhere('email', 'like', '%' . $keyword . '%');
+        }
+        $email = $query->paginate(10);
+        return view('admin/SearchResult', compact('email','keyword'));
     }
 }
