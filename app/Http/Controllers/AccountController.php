@@ -67,17 +67,16 @@ class AccountController extends Controller
             $datas->email = $request->email;
             $datas->save();
         }
-
         return redirect('admin/deedAccountShow/' . $datas->id);
-
     }
 
     public function deedDeleteComplete(Request $request, $id)
     {
-        $data = DB::table('admins')->find($id);
+        $data = DB::table('admins')->where('id', $id);
         $data->delete();
 
-        return view('/');
+        session()->flash('message', 'Your Account was deleted');
+        return redirect('/');
     }
 
     public function deedIndexSearch(Request $request)
@@ -87,6 +86,7 @@ class AccountController extends Controller
             select('user_name', 'email')
             ->get();
         $count = count($datas);
+
         return view('admin/deedIndexSearch', compact('count'));
     }
 
@@ -102,6 +102,7 @@ class AccountController extends Controller
         }
         $results = $query->paginate(10);
         $counts = count($results);
+
         return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
