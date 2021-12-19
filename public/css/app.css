@@ -286,3 +286,7 @@ li {
     text-align: center;
 
 }
+.alert-alert-danger {
+    color: #5a6268;
+    font-size: 40px;
+}

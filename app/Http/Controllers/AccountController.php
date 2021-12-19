@@ -61,13 +61,14 @@ class AccountController extends Controller
         $message = 'User not extist';
         if ($datas === null) {
             print $message;
-        }else {
+        } else {
 
             $datas->user_name = $request->user_name;
             $datas->email = $request->email;
             $datas->save();
         }
-        return view('admin/deedAccountShow', compact('datas'));
+
+        return redirect('admin/deedAccountShow/' . $datas->id);
 
     }
 

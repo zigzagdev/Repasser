@@ -20,13 +20,19 @@
             </ul>
         </div>
     @endif
+    {{--    @if (session('message'))--}}
+    {{--        <div class="alert_alert-danger">--}}
+    {{--            {{ session('message') }}--}}
+    {{--        </div>--}}
+    {{--    @endif--}}
 
     <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount',$datas->id)}}" method="post">
         @csrf
         @method('PUT')
         <h2 class="showaccount_name">Account Name</h2>
         <div class="variable_name">
-            <input type="text"  id="id" name="user_name" class="edit_form" value="{{ old('$datas->user_name', $datas->user_name) }}"
+            <input type="text" id="id" name="user_name" class="edit_form"
+                   value="{{ old('$datas->user_name', $datas->user_name) }}"
                    placeholder="Submit your Name">
         </div>
         {{--        パスワードは変更する時にのみ入力する。--}}
@@ -40,7 +46,7 @@
         {{--        </div>--}}
         <h3 class="showaccount_email">Account Email</h3>
         <div class="variable_email">
-            <input type="email" id="id" name="email" class="edit_form"  value="{{ old('$datas->email', $datas->email) }}"
+            <input type="email" id="id" name="email" class="edit_form" value="{{ old('$datas->email', $datas->email) }}"
                    placeholder="Submit your  Address.">
         </div>
         <div class="account_btn">
