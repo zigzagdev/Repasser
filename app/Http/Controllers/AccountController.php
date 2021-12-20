@@ -75,8 +75,8 @@ class AccountController extends Controller
         $data = DB::table('admins')->where('id', $id);
         $data->delete();
 
-        session()->flash('message', 'Your Account was deleted');
-        return redirect('/');
+        return redirect('/')->with('message','Your account was deleted.');;
+
     }
 
     public function deedIndexSearch(Request $request)
