@@ -30,10 +30,14 @@
             <button type="submit" class="create_btn">Item Create</button>
         </a>
     </div>
+      {{--    Item_Display  --}}
+      <div class="item_display">
+
+      </div>
   </main>
-{{--  <footer class="showaccount_footer">--}}
-{{--    <h1 class="showaccount_mot"></h1>--}}
-{{--  </footer>--}}
+  {{--  <footer class="showaccount_footer">--}}
+  {{--    <h1 class="showaccount_mot"></h1>--}}
+  {{--  </footer>--}}
 </body>
 
 

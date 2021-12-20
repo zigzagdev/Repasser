@@ -38,6 +38,9 @@ Route::get(' admin/{id}/item/deedCreateItem','ItemController@deedCreateitem');
 //  register_item(already_registered_account)
 Route::post('/admin/{id}/item/deedCreateItem', 'ItemController@deedCreateItemAction');
 
+//  show_item
+Route::get('/admin/{id}/item/deedShowItem/{id}', 'ItemController@deedShowItem');
+
 //  item_edit
 Route::get(' admin/{id}/item/deedEditItem','ItemController@deedEdititem');
 
