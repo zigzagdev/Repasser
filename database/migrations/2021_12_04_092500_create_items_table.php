@@ -13,7 +13,7 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('item', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item_name','20')->comment('商品名');
             $table->string('item_category','5')->comment('商品カテゴリー');
@@ -31,6 +31,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('item');
     }
 }

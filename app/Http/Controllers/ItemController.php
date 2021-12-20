@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function  ItemCreate() {
+    public function  deedCreateitem (Request $id) {
 
+        return view('item/deedCreateItem');
     }
 }

@@ -5,3 +5,6 @@
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
+<main class="create_main">
+    <h1 class="account_mot">Fuck you</h1>
+</main>

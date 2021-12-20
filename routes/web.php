@@ -24,9 +24,6 @@ Route::get('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount
 //    delete_action
 Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteComplete');
 
-//     register_item(already_registered_account)
-Route::post('/admin/item/deedCreateAccount', 'ItemController@deedCreateAccount');
-
 //     account_register_form
 Route::get('/admin/deedCreateAccount', 'AccountController@deedCreateAccount');
 
@@ -35,9 +32,9 @@ Route::get('/admin/SearchResult', 'AccountController@SearchResult');
 //     account_register_function
 Route::post('/admin/deedCreateAccount', 'AccountController@deedCreateAccountAction');
 
-////     ItemSearch
-//    Route::get('/SearchItem', [SearchController::class, function(){
-//    return view('/SearchItem');
-//}   ]);
+//  item_create
+Route::get(' admin/{id}/item/deedCreateItem','ItemController@deedCreateitem');
 
+//     register_item(already_registered_account)
+Route::post('/admin/{id}/item/deedCreateItem', 'ItemController@deedCreateItemAction');
 

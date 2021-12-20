@@ -36,7 +36,7 @@ class ItemTableSeeder extends Seeder
         ];
 
         foreach ($datas as $data) {
-            DB::table('items')->insert($data);
+            DB::table('item')->insert($data);
         }
     }
 }

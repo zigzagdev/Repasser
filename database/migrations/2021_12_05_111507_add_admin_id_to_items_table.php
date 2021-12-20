@@ -13,7 +13,7 @@ class AddAdminIdToItemsTable extends Migration
      */
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
+        Schema::table('item', function (Blueprint $table) {
             $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('id')->on('admins');
         });
@@ -26,7 +26,7 @@ class AddAdminIdToItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
+        Schema::table('item', function (Blueprint $table) {
             $table->dropForeign('items_admin_id_foreign');
         });
     }
