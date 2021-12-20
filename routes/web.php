@@ -35,6 +35,20 @@ Route::post('/admin/deedCreateAccount', 'AccountController@deedCreateAccountActi
 //  item_create
 Route::get(' admin/{id}/item/deedCreateItem','ItemController@deedCreateitem');
 
-//     register_item(already_registered_account)
+//  register_item(already_registered_account)
 Route::post('/admin/{id}/item/deedCreateItem', 'ItemController@deedCreateItemAction');
 
+//  item_edit
+Route::get(' admin/{id}/item/deedEditItem','ItemController@deedEdititem');
+
+// item_update_function
+Route::put(' admin/{id}/item/deedEditItem','ItemController@deedUpdateitem');
+
+// item_delete
+Route::get(' admin/{id}/item/deedEditItem/{id}','ItemController@deedDeleteitem');
+
+// item_delete_function
+Route::delete(' admin/{id}/item/deedDeleteItem{id}','ItemController@deedDeleteComplete');
+
+// item_search
+Route::get('/item/SearchResult', 'ItemController@ItemSearchResult');
