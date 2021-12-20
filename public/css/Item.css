@@ -1,0 +1,14 @@
+
+.item_header {
+    width: 100%;
+    padding-top: 39px;
+    padding-right: 30px;
+    height: 90px;
+}
+
+.item_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
