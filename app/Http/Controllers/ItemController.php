@@ -10,4 +10,17 @@ class ItemController extends Controller
 
         return view('item/deedCreateItem');
     }
+
+    public function deedEdititem (Request $request, $id){
+
+
+        return view('item/deedEditItem');
+    }
+
+    public function deedDeleteitem (Request $request, $id){
+
+
+        return view('item/deedDeleteItem');
+    }
+
 }
