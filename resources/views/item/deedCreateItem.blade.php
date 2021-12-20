@@ -10,7 +10,8 @@
     @include('layouts/ItemHeader')
 </header>
 <main class="create_main">
-    <h1 class="account_mot"></h1>
+    <h1 class="account_mot">Item Create Page</h1>
+
 </main>
 <footer>
   @include('layouts/ItemFooter')
