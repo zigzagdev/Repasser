@@ -7,25 +7,21 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function  deedCreateitem (Request $id) {
+    public function  deedCreateitem () {
 
         return view('item/deedCreateItem');
     }
 
-    public function deedCreateItemAction (Request $request) {
+    public function deedCreateItemAction (Request $request,$id) {
 
         $items = new Items;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
         $items->item_content = $request->item_content;
-        $items->item_content = $request->item_content;
+        $items->item_content = $request->recommend_flag;
         $items->save();
 
-//        Session::get('id', 'xxx');
-//        Session::get('user_name');
-//        Session::forget('email');
-//        Session::forget('password');
-        return redirect('admin/deedAccountShow/'.$items->admin_id);
+        return redirect('admin/deedAccountShow/'.$id);
     }
 
     public function deedEdititem (Request $request, $id){

@@ -23,12 +23,12 @@
             </div>
         @endif
 
-        <div class="account_form">
-            <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
+        <div class="item_name">
+            <form method="post" action="">
                 @csrf
                 <div class="admin_name">
-                    <label for="user_name">Account Name</label>
-                    <input type="text" id="user_name" name="user_name" class="name_css" placeholder="15文字以内">
+                    <label for="item_name">Item Name</label>
+                    <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" placeholder="15文字以内">
                 </div>
                 <div class="password_around">
                     <label for="admin_password">Password</label>
@@ -37,12 +37,6 @@
                 <div class="email_around">
                     <label for="admin_email">E-mail</label>
                     <input type="email" id="email" name="email" class="email_css" placeholder="ex).test@com">
-                </div>
-                <div class="base_button">
-                    <button type="submit" class="btn-primary">Submit</button>
-                    <a href="/">
-                        <button type="submit" class="btn-secondary">Return Top</button>
-                    </a>
                 </div>
             </form>
         </div>
