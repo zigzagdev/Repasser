@@ -31,8 +31,13 @@
                     <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" placeholder="15文字以内">
                 </div>
                 <div class="password_around">
-                    <label for="admin_password">Password</label>
-                    <input type="password" id="password" name="password" class="password_css" placeholder="半角英数字20字以内">
+                    <label for="admin_password">Item Category</label>
+                    <select name="index">
+                        @foreach(config('category') as $index => $name)
+                            <option
+                                value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="email_around">
                     <label for="admin_email">E-mail</label>
