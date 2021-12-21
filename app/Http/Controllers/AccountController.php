@@ -36,8 +36,9 @@ class AccountController extends Controller
     public function deedAccountShow(Request $request, $id)
     {
         $datas = DB::table('admins')->find($id);
+        $itemdatas = DB::table('items')->get();
 
-        return view('admin/deedAccountShow', compact('datas'));
+        return view('admin/deedAccountShow', compact('datas','itemdatas'));
     }
 
     public function deedEditAccount(Request $request, $id)

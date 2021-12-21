@@ -32,7 +32,9 @@
     </div>
       {{--    Item_Display  --}}
       <div class="item_display">
-
+        @foreach($itemdatas as $itemdata)
+          {{$itemdata -> admin_id}}
+        @endforeach
       </div>
   </main>
   {{--  <footer class="showaccount_footer">--}}
