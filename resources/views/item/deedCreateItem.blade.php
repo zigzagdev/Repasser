@@ -56,6 +56,10 @@
                         no
                     </label>
                 </div>
+                <div class="email_around">
+                    <p style="font-size: 30px; ">Upload the image </p>
+                    <input type="file" name="image" accept="image/jpeg, image/png">
+                </div>
             </form>
         </div>
     </div>
