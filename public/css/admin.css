@@ -55,9 +55,10 @@ li {
 
 .create_main {
     background-color: #ced4da;
-    min-height: 73vh;
+    min-height: 123vh;
     padding-bottom: 60px;
     position: relative;
+
     /*how to fix header footer calc in height ? */
 }
 

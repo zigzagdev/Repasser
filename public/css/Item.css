@@ -14,11 +14,12 @@
 }
 
 .item_name {
-    background-color: lightblue;
-    width: 400px;
+    background-color: ghostwhite;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+
 }
 
 .item_image {

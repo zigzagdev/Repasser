@@ -32,7 +32,7 @@
                 </div>
                 <div class="password_around">
                     <label for="admin_password">Item Category</label>
-                    <select name="index">
+                    <select name="index" style="margin-left: 30px">
                         @foreach(config('category') as $index => $name)
                             <option
                                 value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>
@@ -40,13 +40,26 @@
                     </select>
                 </div>
                 <div class="email_around">
-                    <label for="admin_email">E-mail</label>
-                    <input type="email" id="email" name="email" class="email_css" placeholder="ex).test@com">
+                    <label for="item_content">Product Description</label>
+                    <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description"></textarea>
+                </div>
+                <div class="email_around">
+                    <p style="font-size: 30px; ">Recommend for customer or not</p>
+                    <input class="form-check-input" type="radio" name="recommend_flag" id="r_flag"
+                           value="1" checked="checked" {{ old('recommend_flag','1') == 'yes' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="exampleRadios1">
+                        yes
+                    </label>
+                    <input class="form-check-input" type="radio" name="recommend_flag" id="r_flag"
+                           value="2" {{ old('recommend_flag') == 'no' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="exampleRadios2">
+                        no
+                    </label>
                 </div>
             </form>
         </div>
     </div>
 </main>
-<footer>
-  @include('layouts/ItemFooter')
-</footer>
+{{--<footer>--}}
+{{--  @include('layouts/ItemFooter')--}}
+{{--</footer>--}}
