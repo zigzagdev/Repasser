@@ -28,7 +28,7 @@
                 @csrf
                 <div class="admin_name">
                     <label for="item_name">Item Name</label>
-                    <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" placeholder="15文字以内">
+                    <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" placeholder="20文字以内">
                 </div>
                 <div class="password_around">
                     <label for="admin_password">Item Category</label>

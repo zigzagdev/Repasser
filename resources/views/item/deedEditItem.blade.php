@@ -8,13 +8,13 @@
 </head>
 <main>
     <div class="account_register">
-        <h1 class="account_name">Item Register</h1>
+        <h1 class="account_name">Update your Item information</h1>
         {{--        validation_error  --}}
         @if($errors->any())
             <div class="error_message">
                 <ul>
                     @foreach($errors->all() as $error)
-                        <li style="color: #ff6666; text-align: center">{{$error}}</li>
+                        <li style=" color: #ff6666; text-align: center">{{$error}}</li>
                     @endforeach
                 </ul>
             </div>
@@ -26,14 +26,13 @@
                 <div class="admin_name">
                     <label for="item_name">Item Name</label>
                     <input type="text" id="item_name" name="item_name" class="name_css"
-                           style="width: 320px; height: 30px" placeholder="15文字以内">
+                           style="width: 320px; height: 30px" placeholder="20文字以内">
                 </div>
                 <div class="password_around">
                     <label for="admin_password">Item Category</label>
                     <select name="index" style="margin-left: 30px">
                         @foreach(config('category') as $index => $name)
-                            <option
-                                value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>
+                            <option value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>
