@@ -24,7 +24,7 @@
         @endif
 
         <div class="item_name">
-            <form method="post" action="">
+            <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
                 @csrf
                 <div class="admin_name">
                     <label for="item_name">Item Name</label>
@@ -59,6 +59,12 @@
                 <div class="email_around">
                     <p style="font-size: 30px; ">Upload the image </p>
                     <input type="file" name="image" accept="image/jpeg, image/png">
+                </div>
+                <div class="base_button">
+                    <button type="submit" class="item_btn_first">Submit</button>
+                    <a href="/">
+                        <button type="submit" class="item_btn_second">Return Your Account Page.</button>
+                    </a>
                 </div>
             </form>
         </div>

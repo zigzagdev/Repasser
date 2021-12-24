@@ -25,7 +25,7 @@
 
         <div class="account_form">
 {{--            In Laravel8, form_action is need to write every Route. --}}
-          <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
+          <form method="post" action="{{action('App\Http\Controllers\ItemController@deedCreateAccountAction')}}">
           @csrf
             <div class="admin_name">
               <label for="user_name">Account Name</label>
@@ -41,7 +41,7 @@
             </div>
             <div class="base_button">
               <button type="submit" class="btn-primary">Submit</button>
-                <a href="/">
+                <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
                   <button type="submit" class="btn-secondary">Return Top</button>
                 </a>
             </div>

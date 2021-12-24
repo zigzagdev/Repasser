@@ -26,7 +26,7 @@
         <a href="{{ url('admin/deedDeleteAccount/'.$datas->id) }}">
             <button type="submit" class="delete_btn">Delete Account</button>
         </a>
-        <a href="{{url('admin/'.$datas->id.'/item/deedCreateItem')}}">
+        <a href="{{url('admin/item/deedCreateItem/'.$datas->id )}}">
             <button type="submit" class="create_btn">Item Create</button>
         </a>
     </div>

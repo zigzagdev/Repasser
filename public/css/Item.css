@@ -25,3 +25,20 @@
 .item_image {
 
 }
+
+.item_btn_second {
+    width: 116px;
+    height: 36px;
+    background-color: seashell;
+    vertical-align: middle;
+    margin: 20px 0  30px 19px;
+}
+
+.item_btn_first {
+    vertical-align: middle;
+    width: 116px;
+    height: 36px;
+    background-color: mediumpurple;
+    margin: 20px 0 30px 180px;
+
+}
