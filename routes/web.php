@@ -33,14 +33,10 @@ Route::get('/admin/SearchResult', 'AccountController@SearchResult');
 Route::post('/admin/deedCreateAccount', 'AccountController@deedCreateAccountAction');
 
 //  item_create
-Route::get( 'admin/item/deedCreateItem/{id}',function ($id){
-    return view('item/deedCreateItem');
-});
+Route::get( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItem');
 
 //  register_item(already_registered_account)
-Route::post( 'admin/item/deedCreateItem/{id}',function ($id){
-    return view('item/deedCreateItem');
-});
+Route::post( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItemAction');
 
 //  show_item
 Route::get('admin/item/deedShowItem/{id}/{item_name}', 'ItemController@deedShowItem');

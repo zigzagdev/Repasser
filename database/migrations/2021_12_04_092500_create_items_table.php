@@ -16,11 +16,15 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item_name','20')->comment('商品名');
-            $table->string('item_category','5')->comment('商品カテゴリー');
+            $table->string('item_category','5')->comment('商品カテゴリー')->default('0');
             $table->string('item_content','40')->comment('商品説明');
             $table->string('recommend_flag')->comment('商品おすすめフラグ')->default('0');
+            $table->string('image')->comment('商品イメージ画像');
+            $table->unsignedBigInteger('admin_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
         });
     }
 

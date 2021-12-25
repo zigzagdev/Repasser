@@ -24,7 +24,7 @@
         @endif
 
         <div class="item_name">
-            <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
+            <form method="post" action="">
                 @csrf
                 <div class="admin_name">
                     <label for="item_name">Item Name</label>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="password_around">
                     <label for="admin_password">Item Category</label>
-                    <select name="index" style="margin-left: 30px">
+                    <select name="item_category" style="margin-left: 30px">
                         @foreach(config('category') as $index => $name)
                             <option
                                 value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>

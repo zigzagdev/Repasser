@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,11 +11,18 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function  deedCreateitem (Request $id) {
+    public function deedShowItem (Request  $id, $item_name) {
+        $ids   = DB::table('admins')->find($id);
+        $names = DB::table('items')->find($item_name);
+
+        return view('item/deedShowItem',compact('ids', 'names'));
+    }
+
+    public function  deedCreateItem (Request $id) {
 
         $admin_id = DB::table('admins')->find($id);
 
-        return redirect('admin/item/deedCreateItem/'.$id);
+        return view('item/deedCreateItem',compact($id));
     }
 
     public function deedCreateItemAction (Request $request, $id) {
@@ -24,13 +30,14 @@ class ItemController extends Controller
         $admin_id = DB::table('admins')->find($id);
 
         $items = new Item;
-        $items->item_name = $request->item_name;
+        $items->item_name     = $request->item_name;
         $items->item_category = $request->item_category;
-        $items->item_content = $request->item_content;
-        $items->item_content = $request->recommend_flag;
+        $items->item_content  = $request->item_content;
+        $items->item_content  = $request->recommend_flag;
+        $items->image         = $request->image;
         $items->save();
 
-        return redirect('admin/deedAccountShow/'.$id);
+        return redirect('admin/deedAccountShow/'.$items->admin_id);
     }
 
     public function deedEdititem (Request $request, $id){
