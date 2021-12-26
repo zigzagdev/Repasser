@@ -31,6 +31,10 @@ class ItemController extends Controller
 
     public function deedCreateItemAction(Request $request, $eachdata)
     {
+//        formRequestで送られてくるプロパティ等は基本的に全てstring変更されてしまう。(例え、それがid(int)指定してても)
+//        →その為、必ずidを送る際やstring以外での形で送る際は型変更をしてあげること。
+//        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
+
         $admin_id =  intval($eachdata);
 
         $items = new Item;
