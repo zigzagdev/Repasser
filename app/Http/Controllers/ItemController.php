@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,33 +12,37 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem (Request  $id, $item_name) {
-        $ids   = DB::table('admins')->find($id);
+    public function deedShowItem (Request  $datas, $item_name) {
+        $ids   = DB::table('admins')->find($datas->id);
         $names = DB::table('items')->find($item_name);
+
 
         return view('item/deedShowItem',compact('ids', 'names'));
     }
 
-    public function  deedCreateItem (Request $id) {
+    public function  deedCreateItem (Request $datas) {
 
-        $admin_id = DB::table('admins')->find($id);
+        $eachdata = DB::table('admins')->find($datas->id);
 
-        return view('item/deedCreateItem',compact($id));
+
+        return view('item/deedCreateItem',compact('eachdata'));
+
     }
 
-    public function deedCreateItemAction (Request $request, $id) {
-
-        $admin_id = DB::table('admins')->find($id);
+    public function deedCreateItemAction(Request $request, $eachdata)
+    {
+        $admin_id =  intval($eachdata);
 
         $items = new Item;
-        $items->item_name     = $request->item_name;
+        $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
-        $items->item_content  = $request->item_content;
-        $items->item_content  = $request->recommend_flag;
-        $items->image         = $request->image;
-        $items->save();
+        $items->item_content = $request->item_content;
+        $items->recommend_flag = $request->recommend_flag;
+        $items->image = $request->image;
+        $items->admin_id = $admin_id;
 
-        return redirect('admin/deedAccountShow/'.$items->admin_id);
+        $items->save();
+        return view('item/deedShowItem',compact('items'));
     }
 
     public function deedEdititem (Request $request, $id){

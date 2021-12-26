@@ -1,4 +1,4 @@
 
 <div class="variable_name">
-    {{$names->item_name}}
+    {{$items->item_name}}
 </div>

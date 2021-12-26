@@ -20,11 +20,11 @@ class CreateItemsTable extends Migration
             $table->string('item_content','40')->comment('商品説明');
             $table->string('recommend_flag')->comment('商品おすすめフラグ')->default('0');
             $table->string('image')->comment('商品イメージ画像');
-            $table->unsignedBigInteger('admin_id')->unsigned();
+//            $table->integer('admin_id')->unsigned()->comment('ユーザーIDとの紐付き');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+//            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
         });
     }
 

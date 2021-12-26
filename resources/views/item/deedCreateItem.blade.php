@@ -24,7 +24,9 @@
         @endif
 
         <div class="item_name">
-            <form method="post" action="">
+            <form method="post"
+                  action="{{action('App\Http\Controllers\ItemController@deedCreateItemAction',$eachdata->id)}}">
+                <?php var_dump($eachdata->id); ?>
                 @csrf
                 <div class="admin_name">
                     <label for="item_name">Item Name</label>

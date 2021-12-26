@@ -38,6 +38,8 @@ class AccountController extends Controller
         $datas = DB::table('admins')->find($id);
         $itemdatas = DB::table('items')->get();
 
+        var_dump($datas);
+
         return view('admin/deedAccountShow', compact('datas','itemdatas'));
     }
 

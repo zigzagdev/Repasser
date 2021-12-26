@@ -33,7 +33,9 @@
       {{--    Item_Display  --}}
       <div class="item_display">
         @foreach($itemdatas as $itemdata)
-          {{$itemdata -> admin_id}}
+          @if($itemdata->admin_id == $datas->id)
+            {{$itemdata->item_name}}
+          @endif
         @endforeach
       </div>
   </main>
