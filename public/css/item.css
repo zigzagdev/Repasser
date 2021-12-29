@@ -36,9 +36,18 @@
 
 .item_btn_first {
     vertical-align: middle;
-    width: 116px;
-    height: 36px;
+    width: 156px;
+    height: 37px;
     background-color: mediumpurple;
-    margin: 20px 0 30px 180px;
-
+    margin: 30px 30px 30px 130px;
+    border-radius: 3px;
+}
+.a {
+    vertical-align: middle;
+    color: #fff;
+    background: #5876a3;
+    padding: 7px 20px;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
 }

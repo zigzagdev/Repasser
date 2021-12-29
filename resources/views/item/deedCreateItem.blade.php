@@ -3,7 +3,7 @@
 <head>
     {{--   // config/app.phpの修正を行った。第一引数に.envのapp_nameを渡している。--}}
     <title>{{ config('app.name','Repasser') }}</title>
-    <link href="{{asset('css/Item.css')}}" rel="stylesheet">
+    <link href="{{asset('css/item.css')}}" rel="stylesheet">
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <header>
@@ -61,10 +61,8 @@
                     <input type="file" name="image" accept="image/jpeg, image/png">
                 </div>
                 <div class="base_button">
-                    <button type="submit" class="item_btn_first">Submit</button>
-                    <a href="/">
-                        <button type="submit" class="item_btn_second">Return Your Account Page.</button>
-                    </a>
+                  <button type="submit" class="item_btn_first">Submit</button>
+                  <a type="button" class="a" href="{{ url('admin/deedAccountShow/'.$item_id) }}">Return to Account</a>
                 </div>
             </form>
         </div>

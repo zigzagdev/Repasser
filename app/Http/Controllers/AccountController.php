@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Item;
 use http\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -26,25 +27,24 @@ class AccountController extends Controller
         $datas->email = $request->email;
         $datas->save();
 
-//        Session::get('id', 'xxx');
-//        Session::get('user_name');
-//        Session::forget('email');
-//        Session::forget('password');
         return redirect('admin/deedAccountShow/'.$datas->id);
     }
 
-    public function deedAccountShow(Request $request, $id)
+    public function deedAccountShow($id)
     {
-        $datas = DB::table('admins')->find($id);
-        $itemdatas = DB::table('items')->get();
+        $admin_id = intval($id);
+//        Admin_id=3
+        $admin = DB::table('admins')->find($admin_id);
 
+        $item = DB::table('items')->get();
 
-        return view('admin/deedAccountShow', compact('datas','itemdatas'));
+        return view('admin/deedAccountShow', compact('admin','item'));
     }
 
     public function deedEditAccount(Request $request, $id)
     {
-        $datas = DB::table('admins')->find($id);
+        $datas = DB::table('admins');
+        var_dump($datas);
 
         return \view('admin/deedEditAccount', compact('datas'));
     }
