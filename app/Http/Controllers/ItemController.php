@@ -12,20 +12,19 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem (Request  $datas, $item_name) {
-        $ids   = DB::table('admins')->find($datas->id);
-        $names = DB::table('items')->find($item_name);
+    public function deedShowItem ($id) {
+        $items = DB::table('items')->find($id);
+        $admin_id = intval($id);
+        var_dump($items->id);
 
-
-        return view('item/deedShowItem',compact('ids', 'names'));
+        return view('item/deedShowItem', compact('items','admin_id'));
     }
 
-    public function  deedCreateItem (Request $datas) {
+    public function  deedCreateItem ($id) {
 
-        $eachdata = DB::table('admins')->find($datas->id);
-
-
-        return view('item/deedCreateItem',compact('eachdata'));
+        $item_id = intval($id);
+        var_dump($item_id);
+        return view('item/deedCreateItem',compact('item_id'));
 
     }
 
@@ -37,6 +36,7 @@ class ItemController extends Controller
 
         $admin_id =  intval($eachdata);
 
+
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
@@ -44,15 +44,15 @@ class ItemController extends Controller
         $items->recommend_flag = $request->recommend_flag;
         $items->image = $request->image;
         $items->admin_id = $admin_id;
-
         $items->save();
-        return view('item/deedShowItem',compact('items'));
+
+        return redirect('admin/deedAccountShow/'.$items->admin_id);
     }
 
     public function deedEdititem (Request $request, $id){
 
 
-        return view('item/deedEditItem');
+        return view('item/deedShowItem');
     }
 
     public function deedDeleteitem (Request $request, $id){
