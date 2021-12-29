@@ -35,7 +35,7 @@ class AccountController extends Controller
         $admin_id = intval($id);
 //        Admin_id=3
         $admin = DB::table('admins')->find($admin_id);
-
+//       id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
         $item = DB::table('items')->get();
 
         return view('admin/deedAccountShow', compact('admin','item'));
