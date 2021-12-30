@@ -41,7 +41,7 @@
                 <h3 class="title" style="display: inline-block; margin-left: 30px">
                   <td style="margin-left: 20px">{{$itemdata->id}}</td>
                   <td>{{$itemdata->item_name}}</td>
-                  <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Move</a></td>
+                  <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
                 </h3>
 
             @endif
