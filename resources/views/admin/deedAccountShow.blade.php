@@ -32,16 +32,21 @@
         </a>
     </div>
       {{--    Item_Display  --}}
-      <div class="item_display">
-        @foreach($item as $itemdata)
+      <div class="card-4">
+          @foreach($item as $itemdata)
+            @if($itemdata->admin_id == $admin->id)
+              <div class="content-img">
+                <img src="https://see-ss.com/img/card_img@2x.png"/>
+              </div>
+                <h3 class="title" style="display: inline-block; margin-left: 30px">
+                  <td style="margin-left: 20px">{{$itemdata->id}}</td>
+                  <td>{{$itemdata->item_name}}</td>
+                  <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Move</a></td>
+                </h3>
 
-          @if($itemdata->admin_id == $admin->id)
-            <td>{{$itemdata->id}}</td>
-            <td>{{$itemdata->item_name}}</td>
-            <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Move</a>
-            </td>
-          @endif
-        @endforeach
+            @endif
+          @endforeach
+      </div>
       </div>
   </main>
   {{--  <footer class="showaccount_footer">--}}
