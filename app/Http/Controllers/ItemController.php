@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem ($id, $item_name) {
-        $admin_id = intval($id);
-        var_dump($item_name);
-        var_dump($admin_id);
+    public function deedShowItem ($itemdata) {
 
-        return redirect('admin/'.$admin_id.'/deedShowItem/'.$item_name);
+        $itemdataint = intval($itemdata);
+        $items = DB::table('items')->find($itemdataint);
+
+        return view('item/deedShowItem', compact('items'));
     }
 
     public function  deedCreateItem ($id) {

@@ -9,13 +9,13 @@
 <header>
     @include('layouts/ItemHeader')
 </header>
-<main>
+<main class="create_main">
     <h1 class="account_mot">Detail your account & Items</h1>
-    <h2 class="showaccount_name">Account Name</h2>
+    <h2 class="showaccount_name">Item Name</h2>
     <div class="variable_name">
-        {{$items->itemname}}
+        {{$items->item_name}}
     </div>
-    <h3 class="showaccount_email">Account Email</h3>
+    <h3 class="showaccount_email">Content</h3>
     <div class="variable_email">
         {{$items->item_content}}
     </div>

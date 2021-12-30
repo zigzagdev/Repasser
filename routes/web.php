@@ -40,7 +40,7 @@ Route::get( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItem');
 Route::post( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItemAction');
 
 //  show_item
-Route::get('admin/{admin_id}/deedShowItem/{item_name}', 'ItemController@deedShowItem');
+Route::get('admin/deedShowItem/{id}', 'ItemController@deedShowItem');
 
 //  item_edit
 Route::get(' admin/item/deedEditItem/{id}','ItemController@deedEdititem');

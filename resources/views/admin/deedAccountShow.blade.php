@@ -33,10 +33,11 @@
       {{--    Item_Display  --}}
       <div class="item_display">
         @foreach($item as $itemdata)
+
           @if($itemdata->admin_id == $admin->id)
             <td>{{$itemdata->id}}</td>
             <td>{{$itemdata->item_name}}</td>
-            <td><a type="button" class="a" href="{{url('admin/'.$itemdata->admin_id.'/deedShowItem/'.$itemdata->item_name)}}">Move</a>
+            <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Move</a>
             </td>
           @endif
         @endforeach
