@@ -23,7 +23,7 @@ class ItemController extends Controller
     public function  deedCreateItem ($id) {
 
         $item_id = intval($id);
-        var_dump($item_id);
+
         return view('item/deedCreateItem',compact('item_id'));
 
     }
