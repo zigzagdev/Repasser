@@ -8,5 +8,5 @@
 </head>
 
 <footer>
-    @include('layouts/ItemFooter')
+    @include('layouts.Itemfooter')
 </footer>

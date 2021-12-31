@@ -30,7 +30,6 @@
             </div>
             <div class="password_around">
                 <label for="admin_password">Item Category</label>
-
                 <select name="index" style="margin-left: 30px">
                     @foreach(config('category') as $index => $name)
                         <option

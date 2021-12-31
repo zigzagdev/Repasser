@@ -7,7 +7,7 @@
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <header>
-    @include('layouts/ItemHeader')
+    @include('layouts.Itemheader')
 </header>
 <main class="create_main">
     <h1 class="account_mot">About the Item</h1>
