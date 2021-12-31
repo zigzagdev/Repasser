@@ -39,9 +39,8 @@
             </select>
           </div>
           <div class="email_around">
-              <?php var_dump($item); ?>
-              <label for="item_content">Product Description</label>
-              <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description">{{($item->item_content)}}</textarea>
+            <label for="item_content">Product Description</label>
+            <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description">{{($item->item_content)}}</textarea>
           </div>
           <div class="email_around">
             <p style="font-size: 30px; ">Recommend for customer or not</p>
