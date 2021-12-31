@@ -34,17 +34,15 @@
       {{--    Item_Display  --}}
       <div class="card-4">
           @foreach($item as $itemdata)
-            @if($itemdata->admin_id == $admin->id)
-              <div class="content-img">
-                <img src="https://see-ss.com/img/card_img@2x.png"/>
-              </div>
-                <h3 class="title" style="display: inline-block; margin-left: 30px">
-                  <td style="margin-left: 20px">{{$itemdata->id}}</td>
-                  <td>{{$itemdata->item_name}}</td>
-                  <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
-                </h3>
-
-            @endif
+              @if($itemdata->admin_id == $admin->id)
+                  <div class="content-img">
+                      <img src="https://see-ss.com/img/card_img@2x.png"/>
+                  </div>
+                  <h3 class="title" style="display: inline-block; margin:0 50px 0 40px">
+                      <td>{{$itemdata->item_name}}</td>
+                      <td style="padding-left: 30px"><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
+                  </h3>
+              @endif
           @endforeach
       </div>
       </div>

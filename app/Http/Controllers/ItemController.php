@@ -49,35 +49,38 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/'.$items->admin_id);
     }
 
-    public function deedEdititem (Request $request, $id){
+    public function deedEditItem ($id){
 
-
-        return view('item/deedShowItem');
+        $items = DB::table('items')->get();
+        $update = [];
+        foreach ($items as $item) {
+            array_push($update, $item);
+        }
+        return view('item/deedEditItem', compact('item'));
     }
 
-    public function deedDeleteitem (Request $request, $id){
-
+    public function deedDeleteItem (Request $request, $id){
 
         return view('item/deedDeleteItem');
     }
 
-    public function deedUpdateitem (Request $request, $id) {
+    public function deedUpdateItem (Request $request, $item) {
 
-        $datas = Item::find($id);
-
+        $items = Item::find($request->id);
+var_dump($items);
         $message = 'Item did not extist';
-        if ($datas === null) {
+        if ($items === null) {
             print $message;
         } else {
 
-            $datas->item_name     = $request->item_name;
-            $datas->item_category = $request->item_category;
-            $datas->item_content  = $request->item_content;
-            $datas->item_content  = $request->recommend_flag;
-            $datas->image         = $request->image;
-            $datas->save();
+            $items->item_name     = $request->item_name;
+            $items->item_category = $request->item_category;
+            $items->item_content  = $request->item_content;
+            $items->item_content  = $request->recommend_flag;
+            $items->image         = $request->image;
+            $items->save();
         }
-        return redirect('admin/deedAccountShow/' . $datas->account_id);
+        return redirect('admin/deedAccountShow/' . $items->account_id);
     }
 
     public function deedDeleteComplete (Request $id) {

@@ -97,7 +97,7 @@ li {
 }
 
 .account_mot {
-    margin-left: 40px;
+    margin-left: 140px;
     font-family: Arial;
     padding-top: 27px;
 }
@@ -190,12 +190,12 @@ li {
 }
 
 .showaccount_name {
-    margin: 10px 0px 0px 80px;
+    margin: 10px 0px 0px 190px;
     font-size: 28px;
 }
 
 .showaccount_email {
-    margin: 50px 0px 0px 80px;
+    margin: 50px 0px 0px 190px;
     font-size: 28px;
 }
 
@@ -248,12 +248,12 @@ li {
 }
 
 .variable_email {
-    margin: 20px 0 0 120px;
+    margin: 20px 0 0 250px;
     font-size: 28px;
 }
 
 .variable_name {
-    margin: 20px 0 0 120px;
+    margin: 20px 0 0 250px;
     font-size: 28px;
 }
 

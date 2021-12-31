@@ -43,16 +43,16 @@ Route::post( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItemActi
 Route::get('admin/deedShowItem/{id}', 'ItemController@deedShowItem');
 
 //  item_edit
-Route::get(' admin/item/deedEditItem/{id}','ItemController@deedEdititem');
+Route::get(' admin/item/deedEditItem/{admin_id}/{item_name}','ItemController@deedEditItem');
 
 // item_update_function
-Route::put(' admin/item/deedEditItem/{id}/{item_name}','ItemController@deedUpdateitem');
+Route::put(' admin/item/deedEditItem/{admin_id}/{item_name}','ItemController@deedUpdateitem');
 
 // item_delete
-Route::get(' admin/item/deedEditItem/{id}/{item_name}','ItemController@deedDeleteitem');
+Route::get(' admin/item/deedDeleteItem/{admin_id}/{item_name}','ItemController@deedDeleteItem');
 
 // item_delete_function
-Route::delete(' admin/item/deedDeleteItem/{id}/{item_name}','ItemController@deedDeleteComplete');
+Route::delete(' admin/item/deedDeleteItem/{admin_id}/{item_name}','ItemController@deedDeleteComplete');
 
 // item_search
 Route::get('SearchItem', 'SearchController@SearchItem');
