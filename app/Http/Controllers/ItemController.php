@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem ($itemdata) {
+    public function deedShowItem ( int $itemdata) {
 
-        $itemdataint = intval($itemdata);
-        $items = DB::table('items')->find($itemdataint);
+        $items = DB::table('items')->find($itemdata);
 
         return view('item/deedShowItem', compact('items'));
     }
@@ -60,6 +59,7 @@ class ItemController extends Controller
                 array_push($item, $eachitem);
             }
         }
+//        item変数はここでarrayになってきている
         return view('item/deedEditItem', compact('item'));
     }
 
@@ -68,24 +68,19 @@ class ItemController extends Controller
         return view('item/deedDeleteItem');
     }
 
-    public function deedUpdateItem (Request $request, $items) {
+    public function deedUpdateItem (Request $request, $id) {
 
-        $admin_id =  intval($items);
+            $item = Item::find($id);
 
-        $message = 'Item did not found';
-        if ($items == null) {
-            print $message;
-        } else {
-            $items->item_name = $request->item_name;
-            $items->item_category = $request->item_category;
-            $items->item_content = $request->item_content;
-            $items->item_content = $request->recommend_flag;
-            $items->image = $request->image;
-            $items->admin_id = $admin_id;
-            $items->save();
-        }
+            $item->item_name = $request->item_name;
+            $item->item_category = $request->item_category;
+            $item->item_content = $request->item_content;
+            $item->item_content = $request->recommend_flag;
+            $item->image = $request->image;
+            $item->admin_id = $item->admin_id;
+            $item->save();
 
-        return redirect('admin/deedShowItem/'.$items->id);
+        return view('item/deedShowItem',compact('item'));
     }
 
     public function deedDeleteComplete (Request $id) {

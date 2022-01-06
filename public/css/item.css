@@ -101,3 +101,14 @@ textarea {
     font-size: 15px;
     width: 320px;
 }
+
+.a_edit {
+    color: #fff;
+    background: #5876a3;
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 110px;
+    height: 29px;
+}
