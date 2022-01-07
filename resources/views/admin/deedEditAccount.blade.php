@@ -26,6 +26,8 @@
     {{--        </div>--}}
     {{--    @endif--}}
 
+{{--    ここの$datasには配列形式でidに紐づく情報が読み込まれている。その為、formのactitonにはURLで必要とする変数のプロパティを--}}
+{{--    指定してあげて、渡してあげる。--}}
       <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount', $datas->id)}}" method="post">
         @csrf
         @method('PUT')
