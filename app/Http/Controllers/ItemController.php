@@ -77,7 +77,6 @@ class ItemController extends Controller
             $item->item_content = $request->item_content;
             $item->item_content = $request->recommend_flag;
             $item->image = $request->image;
-            $item->admin_id = $item->admin_id;
             $item->save();
 
         return view('item/deedShowItem',compact('item'));

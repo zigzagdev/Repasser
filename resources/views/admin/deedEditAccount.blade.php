@@ -26,7 +26,7 @@
     {{--        </div>--}}
     {{--    @endif--}}
 
-    <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount',$datas)}}" method="post">
+      <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount', $datas->id)}}" method="post">
         @csrf
         @method('PUT')
         <h2 class="showaccount_name">Account Name</h2>
@@ -55,7 +55,7 @@
             </a>
             <button type="button" class="editac2_btn" onClick="history.back()">Return to previous page</button>
         </div>
-    </form>
+      </form>
 </main>
 {{--  <footer>--}}
 {{--    @include('layouts/footer')--}}
