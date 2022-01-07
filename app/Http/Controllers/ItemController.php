@@ -48,19 +48,14 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/'.$items->admin_id);
     }
 
-    public function deedEditItem ($items){
+    public function deedEditItem ($id){
     //EditItemBladeページにて、処理する変数の受け渡し等の処理をここにて書く。 $item == str(20)
     //$itemにはeachで取ってきた各recordを取ってきている。またその中でidが一緒になっているものを入れている。
-       $q = DB::table('items')->get();
-       $intitem = intval($items);
-       $item = [];
-        foreach ($q as $eachitem) {
-            if ($intitem == $eachitem->id) {
-                array_push($item, $eachitem);
-            }
-        }
+       $datas =  DB::table('items')->find($id);
+
+       dd($datas);
 //        item変数はここでarrayになってきている
-        return view('item/deedEditItem', compact('item'));
+        return view('item/deedEditItem', compact('datas'));
     }
 
     public function deedDeleteItem (Request $request, $id){
