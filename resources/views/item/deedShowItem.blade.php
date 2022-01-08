@@ -20,10 +20,10 @@
         {{$items->item_content}}
     </div>
     <div class="account_btn">
-      <a href="{{url('admin/item/deedEditItem/'.$items->id)}}">
+      <a href="{{url('item/deedEditItem/'.$items->id)}}">
         <button type="submit" class="edit_btn" style="background-color: darkblue">Edit Item</button>
       </a>
-      <a href="{{ url('admin/item/deedDeleteItem/'.$items->id)}}">
+      <a href="{{ url('item/deedDeleteItem/'.$items->id)}}">
         <button type="submit" class="delete_btn" style="background-color: #e83e8c">Delete Item</button>
       </a>
       <a href="{{url('admin/deedAccountShow/'.$items->admin_id )}}">

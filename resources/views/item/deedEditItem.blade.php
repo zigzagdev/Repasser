@@ -24,15 +24,15 @@
     @endif
 
       <div class="item_name">
-          <form method="post" action="{{action('App\Http\Controllers\ItemController@deedUpdateItem',$item->id)}}">
-          @method('put')
-          @csrf
-            <div class="admin_name">
-              <label for="item_name">Item Name</label>
+        <form method="post" action="{{action('App\Http\Controllers\ItemController@deedUpdateItem',$item->id)}}">
+        @csrf
+        @method('PUT')
+          <div class="admin_name">
+            <label for="item_name">Item Name</label>
               {{--              因みに、$itemにはControllerで取ってきた配列が入っている。--}}
-              <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" value="{{old("item_name.$item->item_name")}}" placeholder="20文字以内">
-            </div>
-            <div class="password_around">
+            <input type="text" id="item_name" name="item_name" class="name_css" style="width: 320px; height: 30px" value="{{old("item_name.$item->item_name")}}" placeholder="20文字以内">
+          </div>
+          <div class="password_around">
               <label for="admin_password">Item Category</label>
               <select name="index" style="margin-left: 30px">
               @foreach(config('category') as $index => $name)
@@ -60,8 +60,8 @@
               <input type="file" name="image" accept="image/jpeg, image/png">
             </div>
             <div class="base_button" style="margin-top: 10px">
-              <a href="{{url('admin/deedShowItem/'.$item->id)}}" class="a_edit" type="submit">
-                <p style="margin-top: 3px;">Submit</p>
+              <a href="{{ action('App\Http\Controllers\ItemController@deedUpdateItem',$item->id)}}" style="margin-left: 80px">
+                <button type="submit" class="editac_btn">Edit Submit</button>
               </a>
               <button type="button" class="editac2_btn" onClick="history.back()" style="border-radius: 5px;">Return to previous page</button>
             </div>

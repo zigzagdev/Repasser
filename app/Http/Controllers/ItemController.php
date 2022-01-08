@@ -46,35 +46,46 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/'.$items->admin_id);
     }
 
-    public function deedEditItem ($id){
-       $item =  DB::table('items')->find($id);
+    public function deedEditItem($id)
+    {
+        $item = DB::table('items')->find($id);
 
         return view('item/deedEditItem', compact('item'));
     }
 
-    public function deedDeleteItem (Request $request, $id){
+    public function deedDeleteItem($id)
+    {
 
         return view('item/deedDeleteItem');
     }
 
-    public function deedUpdateItem (Request $request, $id) {
+    public function deedUpdateItem(Request $request, $id)
+    {
+        $item = DB::table('items')->find($id);
 
-            $item =  DB::table('items')->find($id);
-
+        $message = 'User not extist';
+        if ($item === null) {
+            print $message;
+        } else {
             $item->item_name = $request->item_name;
             $item->item_category = $request->item_category;
             $item->item_content = $request->item_content;
             $item->item_content = $request->recommend_flag;
             $item->image = $request->image;
+            dd($item);
             $item->save();
-
-        return redirect(' admin/deedShowItem'.$item->id);
+        }
+        return redirect(' admin/deedShowItem' . $item->id);
     }
 
-    public function deedDeleteComplete (Request $id) {
+    public function deedDeleteComplete($id)
+    {
+        $data = DB::table('items')->where($id);
+        $data->delete();
 
-        $datas = Item::find($id);
-
+        $admin_id = DB::table('items')->where($id);
+        session()->flash('message', 'Your Item was deleted');
+        return redirect('admin/deedAccountShow/'.$admin_id->id);
     }
 
 }

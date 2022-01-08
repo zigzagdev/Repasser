@@ -58,6 +58,7 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
+//        ddを行うと、しっかりIDを取って、ddを行えている。
         $datas = Admin::find($id);
         $message = 'User not extist';
         if ($datas === null) {
@@ -71,7 +72,7 @@ class AccountController extends Controller
         return redirect('admin/deedAccountShow/' . $datas->id);
     }
 
-    public function deedDeleteComplete(Request $request, $id)
+    public function deedDeleteComplete($id)
     {
         $data = DB::table('admins')->where('id', $id);
         $data->delete();
