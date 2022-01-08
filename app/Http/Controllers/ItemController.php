@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem ( int $itemdata) {
+    public function deedShowItem ($id) {
 
-        $items = DB::table('items')->find($itemdata);
+        $items = DB::table('items')->find($id);
 
         return view('item/deedShowItem', compact('items'));
     }
@@ -32,9 +32,7 @@ class ItemController extends Controller
 //        formRequestで送られてくるプロパティ等は基本的に全てstring変更されてしまう。(例え、それがid(int)指定してても)
 //        →その為、必ずidを送る際やstring以外での形で送る際は型変更をしてあげること。
 //        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
-
         $admin_id =  intval($eachdata);
-
 
         $items = new Item;
         $items->item_name = $request->item_name;
@@ -49,13 +47,9 @@ class ItemController extends Controller
     }
 
     public function deedEditItem ($id){
-    //EditItemBladeページにて、処理する変数の受け渡し等の処理をここにて書く。 $item == str(20)
-    //$itemにはeachで取ってきた各recordを取ってきている。またその中でidが一緒になっているものを入れている。
-       $datas =  DB::table('items')->find($id);
+       $item =  DB::table('items')->find($id);
 
-       dd($datas);
-//        item変数はここでarrayになってきている
-        return view('item/deedEditItem', compact('datas'));
+        return view('item/deedEditItem', compact('item'));
     }
 
     public function deedDeleteItem (Request $request, $id){
@@ -65,7 +59,7 @@ class ItemController extends Controller
 
     public function deedUpdateItem (Request $request, $id) {
 
-            $item = Item::find($id);
+            $item =  DB::table('items')->find($id);
 
             $item->item_name = $request->item_name;
             $item->item_category = $request->item_category;
@@ -74,7 +68,7 @@ class ItemController extends Controller
             $item->image = $request->image;
             $item->save();
 
-        return view('item/deedShowItem',compact('item'));
+        return redirect(' admin/deedShowItem'.$item->id);
     }
 
     public function deedDeleteComplete (Request $id) {
