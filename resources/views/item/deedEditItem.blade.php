@@ -42,7 +42,7 @@
             </div>
             <div class="email_around">
               <label for="item_content">Product Description</label>
-              <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description"></textarea>
+              <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description">{{old('item_content')}}</textarea>
             </div>
             <div class="email_around">
               <p style="font-size: 30px; ">Recommendation  or Not</p>
@@ -60,7 +60,7 @@
               <input type="file" name="image" accept="image/jpeg, image/png">
             </div>
             <div class="base_button" style="margin-top: 10px">
-              <a href="{{ action('App\Http\Controllers\ItemController@deedUpdateItem',$item->id)}}" style="margin-left: 80px">
+              <a href="{{url('admin/deedShowItem/'.$item->id)}}" style="margin-left: 80px">
                 <button type="submit" class="editac_btn">Edit Submit</button>
               </a>
               <button type="button" class="editac2_btn" onClick="history.back()" style="border-radius: 5px;">Return to previous page</button>

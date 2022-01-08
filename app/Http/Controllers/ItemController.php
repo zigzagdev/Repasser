@@ -61,7 +61,9 @@ class ItemController extends Controller
 
     public function deedUpdateItem(Request $request, $id)
     {
-        $item = DB::table('items')->find($id);
+//        一旦、インスタンス化をl.65で行い、その後インスタンス化したものにidを当てはめるのがl.66になる。
+        $items = new Item;
+        $item = $items::find($id);
 
         $message = 'User not extist';
         if ($item === null) {
@@ -70,12 +72,11 @@ class ItemController extends Controller
             $item->item_name = $request->item_name;
             $item->item_category = $request->item_category;
             $item->item_content = $request->item_content;
-            $item->item_content = $request->recommend_flag;
+            $item->recommend_flag = $request->recommend_flag;
             $item->image = $request->image;
-            dd($item);
             $item->save();
         }
-        return redirect(' admin/deedShowItem' . $item->id);
+        return redirect('admin/deedShowItem/'.$item->id);
     }
 
     public function deedDeleteComplete($id)
