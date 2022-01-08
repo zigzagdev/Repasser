@@ -42,7 +42,7 @@
             </div>
             <div class="email_around">
               <label for="item_content">Product Description</label>
-              <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description">{{$item->item_content}}</textarea>
+              <textarea rows="8" cols="40" name="item_content" placeholder="Write some product description"></textarea>
             </div>
             <div class="email_around">
               <p style="font-size: 30px; ">Recommendation  or Not</p>

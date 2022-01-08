@@ -71,8 +71,8 @@ class ItemController extends Controller
             $item->item_category = $request->item_category;
             $item->item_content = $request->item_content;
             $item->item_content = $request->recommend_flag;
-            dd($item);
             $item->image = $request->image;
+            dd($item);
             $item->save();
         }
         return redirect(' admin/deedShowItem' . $item->id);
