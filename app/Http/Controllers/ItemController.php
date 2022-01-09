@@ -16,6 +16,8 @@ class ItemController extends Controller
 
         $items = DB::table('items')->find($id);
 
+        $category = DB::table('categories')->get();
+        var_dump($category);
         return view('item/deedShowItem', compact('items'));
     }
 

@@ -20,6 +20,9 @@
         {{$items->item_content}}
     </div>
     <h3 class="showaccount_email">Category</h3>
+    <div class="variable_email">
+        {{$items->image}}
+    </div>
     <div class="account_btn">
       <a href="{{url('item/deedEditItem/'.$items->id)}}">
         <button type="submit" class="edit_btn" style="background-color: darkblue">Edit Item</button>
