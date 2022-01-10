@@ -38,9 +38,9 @@
                   <div class="content-img">
                       <img src="/storage/{{$itemdata->image}}">
                   </div>
-                  <h3 class="title" style="display: inline-block; margin:0 50px 0 40px">
-                      <td>{{$itemdata->item_name}}</td>
-                      <td style="padding-left: 30px"><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
+                  <h3 class="title" style="display: block; text-align: center;padding-top: 5px;">
+                      <td>{{$itemdata->item_name}}</td><br>
+                      <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
                   </h3>
               @endif
           @endforeach

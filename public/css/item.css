@@ -64,7 +64,7 @@ img {
     cursor: pointer;
     border: 0.5px solid #e9eaea;
     border-radius: 3px;
-
+    display: flex
 }
 
 .content-img {
