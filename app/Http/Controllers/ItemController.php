@@ -59,7 +59,7 @@ class ItemController extends Controller
     {
         $item = DB::table('items')->find($id);
 
-        return view('item/deedDeleteItem');
+        return view('item/deedDeleteItem',compact('item'));
     }
 
     public function deedUpdateItem(Request $request, $id)
