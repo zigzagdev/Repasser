@@ -11,12 +11,7 @@ class TopController extends Controller
 {
     public function index()
     {
-
-        $item = DB::table('items')->where(['recommend_flag', '=', '1'])->get();
-        dd($item);
-        return view('index',[
-            'item' => $item
-        ]);
+        return view('index');
     }
 
 }

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
-    public function deedShowItem ($id) {
+    public function deedShowItem($id)
+    {
 
         $items = DB::table('items')->find($id);
 
@@ -21,11 +22,12 @@ class ItemController extends Controller
         return view('item/deedShowItem', compact('items'));
     }
 
-    public function  deedCreateItem ($id) {
+    public function deedCreateItem($id)
+    {
 
         $item_id = intval($id);
 
-        return view('item/deedCreateItem',compact('item_id'));
+        return view('item/deedCreateItem', compact('item_id'));
 
     }
 
@@ -34,7 +36,7 @@ class ItemController extends Controller
 //        formRequestで送られてくるプロパティ等は基本的に全てstring変更されてしまう。(例え、それがid(int)指定してても)
 //        →その為、必ずidを送る際やstring以外での形で送る際は型変更をしてあげること。
 //        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
-        $admin_id =  intval($eachdata);
+        $admin_id = intval($eachdata);
 
         $items = new Item;
         $items->item_name = $request->item_name;
@@ -45,7 +47,7 @@ class ItemController extends Controller
         $items->admin_id = $admin_id;
         $items->save();
 
-        return redirect('admin/deedAccountShow/'.$items->admin_id);
+        return redirect('admin/deedAccountShow/' . $items->admin_id);
     }
 
     public function deedEditItem($id)
@@ -59,7 +61,7 @@ class ItemController extends Controller
     {
         $item = DB::table('items')->find($id);
 
-        return view('item/deedDeleteItem',compact('item'));
+        return view('item/deedDeleteItem', compact('item'));
     }
 
     public function deedUpdateItem(Request $request, $id)
@@ -79,7 +81,7 @@ class ItemController extends Controller
             $item->image = $request->image;
             $item->save();
         }
-        return redirect('admin/deedShowItem/'.$item->id);
+        return redirect('admin/deedShowItem/' . $item->id);
     }
 
     public function deedDeleteComplete($id)
@@ -90,19 +92,12 @@ class ItemController extends Controller
         $message = 'This Item was not found in here';
 
         if ($item == null) {
-          echo $message;
+            echo $message;
         } else {
             $item->delete();
         }
         session()->flash('message', 'Your Item was deleted');
-        return redirect('admin/deedAccountShow/'.$item->admin_id);
+        return redirect('admin/deedAccountShow/' . $item->admin_id);
     }
-
-//    public function Recommendation($id)
-//    {
-//        $recommends = DB::table('items')->find($id);
-//
-//        return redirect('/',compact('recommends'));
-//    }
 
 }

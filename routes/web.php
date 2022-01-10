@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-// TopPage (QueryBuildler内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
-Route::get('/', function() {
+// TopPage (QueryBuilder内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
+Route::get('/', function () {
     $item = DB::table('items')->where('recommend_flag', '1')->get();
 
-    return view('index',['item' => $item]);
+    return view('index', ['item' => $item]);
 });
 
 //    all_accounts_index
