@@ -24,11 +24,9 @@ class ItemController extends Controller
 
     public function deedCreateItem($id)
     {
-
         $item_id = intval($id);
 
         return view('item/deedCreateItem', compact('item_id'));
-
     }
 
     public function deedCreateItemAction(Request $request, $eachdata)
@@ -38,6 +36,12 @@ class ItemController extends Controller
 //        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
         $admin_id = intval($eachdata);
 
+        $validations = [
+            'item_name' => ['required', 'integer','max:30'],
+            'item_content' => ['required','string','max:100']
+        ];
+
+        $this->validate($request, $validations);
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
