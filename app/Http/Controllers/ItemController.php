@@ -57,6 +57,7 @@ class ItemController extends Controller
 
     public function deedDeleteItem($id)
     {
+        $item = DB::table('items')->find($id);
 
         return view('item/deedDeleteItem');
     }
@@ -83,12 +84,18 @@ class ItemController extends Controller
 
     public function deedDeleteComplete($id)
     {
-        $data = DB::table('items')->where($id);
-        $data->delete();
+        $items = new Item;
+        $item = $items::find($id);
 
-        $admin_id = DB::table('items')->where($id);
+        $message = 'This Item was not found in here';
+
+        if ($item == null) {
+          echo $message;
+        } else {
+            $item->delete();
+        }
         session()->flash('message', 'Your Item was deleted');
-        return redirect('admin/deedAccountShow/'.$admin_id->id);
+        return redirect('admin/deedAccountShow/'.$item->admin_id);
     }
 
 }
