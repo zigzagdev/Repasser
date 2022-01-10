@@ -98,4 +98,11 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/'.$item->admin_id);
     }
 
+//    public function Recommendation($id)
+//    {
+//        $recommends = DB::table('items')->find($id);
+//
+//        return redirect('/',compact('recommends'));
+//    }
+
 }

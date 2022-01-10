@@ -32,18 +32,13 @@
         </a>
     </div>
       {{--    Item_Display  --}}
+    @foreach ($item as $itemdata)
       <div class="card-4">
-          @foreach($item as $itemdata)
-              @if($itemdata->admin_id == $admin->id)
-                  <div class="content-img">
-                      <img src="/storage/{{$itemdata->image}}">
-                  </div>
-                  <h3 class="title" style="display: block; text-align: center;padding-top: 5px;">
-                      <td>{{$itemdata->item_name}}</td><br>
-                      <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
-                  </h3>
-              @endif
-          @endforeach
+        <h3 class="title" style="display: block; text-align: center;padding-top: 5px;">
+          <td>{{$itemdata->item_name}}</td>
+          <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
+        </h3>
+     @endforeach
       </div>
       </div>
   </main>

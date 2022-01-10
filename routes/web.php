@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', function() {
+    $item = DB::table('items')->where('recommend_flag', '1')->get();
+
+    return view('index',['item' => $item]);
 });
 
 //    all_accounts_index
@@ -57,5 +59,3 @@ Route::delete('item/deedDeleteItem/{id}','ItemController@deedDeleteComplete');
 // item_search
 Route::get('SearchItem', 'SearchController@SearchItem');
 
-// recommendation_item
-Route::get('/', 'TopController@Recommendation');

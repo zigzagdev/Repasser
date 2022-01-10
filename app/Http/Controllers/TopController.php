@@ -5,19 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function Sodium\compare;
 
 class TopController extends Controller
 {
     public function index()
     {
-        return redirect()->route('index');
-    }
 
-    public function Recommendation($id)
-    {
-        $recommend = DB::table('items')->get();
-
-        return redirect('/');
+        $item = DB::table('items')->where(['recommend_flag', '=', '1'])->get();
+        dd($item);
+        return view('index',[
+            'item' => $item
+        ]);
     }
 
 }
