@@ -36,7 +36,7 @@
           @foreach($item as $itemdata)
               @if($itemdata->admin_id == $admin->id)
                   <div class="content-img">
-                      <img src="https://see-ss.com/img/card_img@2x.png"/>
+                      <img src="/storage/{{$itemdata->image}}">
                   </div>
                   <h3 class="title" style="display: inline-block; margin:0 50px 0 40px">
                       <td>{{$itemdata->item_name}}</td>
