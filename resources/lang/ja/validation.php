@@ -58,7 +58,7 @@ return [
         'array'   => ':attributeには、:value個以上のアイテムを指定してください。',
     ],
     'h_alpha_num'          => ':attributeはアルファベット数字(空欄あり)がご利用できます。',
-    'h_alpha_num_note'     => ':attributeはアルファベット数字記号(空欄あり)がご利用できます。）',
+    'h_alpha_num_note'     => ':attributeはアルファベット数字記号(空欄あり)がご利用できます。',
     'image'                => ':attributeには画像ファイルを指定してください。',
     'in'                   => '選択された:attributeは正しくありません。',
     'in_array'             => ':attributeには:otherの値を指定してください。',
@@ -97,9 +97,8 @@ return [
     'not_regex'            => ':attributeの形式が正しくありません。',
     'numeric'              => ':attributeには、数字を指定してください。',
     'postal'               => ':attributeには、半角の郵便番号ハイフン(-)ありで入力してください。',
-    'present'              => ':attributeが存在していません。',
     'regex'                => ':attributeに正しい形式を指定してください。',
-    'required'             => ':attributeは必ず指定してください。',
+    'required'             => ':attributeは必須です。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
     'required_with'        => ':valuesを指定する場合は、:attributeも指定してください。',
@@ -150,6 +149,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        ''
+
+    ],
 
 ];

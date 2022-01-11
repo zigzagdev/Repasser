@@ -37,8 +37,8 @@ class ItemController extends Controller
         $admin_id = intval($eachdata);
 
         $validations = [
-            'item_name' => ['required', 'integer','max:30'],
-            'item_content' => ['required','string','max:100']
+            'アイテム名' => ['required', 'size:20'],
+            '商品の説明欄' => ['required', 'size:100']
         ];
 
         $this->validate($request, $validations);
@@ -69,8 +69,14 @@ class ItemController extends Controller
     }
 
     public function deedUpdateItem(Request $request, $id)
+
     {
+        $validations = [
+            'アイテム名' => ['required', 'size:20'],
+            '商品の説明欄' => ['required', 'size:100']
+        ];
 //        一旦、インスタンス化をl.65で行い、その後インスタンス化したものにidを当てはめるのがl.66になる。
+        $this->validate($request, $validations);
         $items = new Item;
         $item = $items::find($id);
 
