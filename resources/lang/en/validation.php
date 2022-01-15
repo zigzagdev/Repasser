@@ -60,6 +60,8 @@ return [
         'string' => 'The :attribute must be greater than or equal to :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
+    'h_alpha_num' => 'The :attribute can use letters and numbers containing space.',
+    'h_alpha_num_note' => 'The :attribute can use letters,numbers and notes containing space.',
     'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
@@ -98,6 +100,7 @@ return [
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
+    'postal' => 'The :attribute must be filled with half size postal-code with hyphen(-)',
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'prohibited' => 'The :attribute field is prohibited.',
@@ -126,6 +129,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'tel_mobile' => 'The :attribute must be filled with mobile phone without hyphen.',
 
     /*
     |--------------------------------------------------------------------------

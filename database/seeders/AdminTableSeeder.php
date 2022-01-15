@@ -19,11 +19,9 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'user_name' => Str::random(10),
-            'item_name' => Str::random(10),
-            'description' => Str::random(10),
-            'recommend_flag' => 0,
-            'item_category' => 1
+            'user_name'      => Str::random(10),
+            'password'       => Str::random(10),
+            'email'          => Str::random(15).'@gmail.com'
         ]);
     }
 }
