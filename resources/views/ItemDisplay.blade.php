@@ -5,3 +5,9 @@
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
+<header>
+    @include('layouts.Itemheader')
+</header>
+<main class="create_main">
+
+</main>
