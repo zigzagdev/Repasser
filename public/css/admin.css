@@ -1,16 +1,16 @@
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.html,body {
+.html, body {
     height: 100%;
 }
 
 .header_content {
     width: 100%;
-    padding-top:39px;
+    padding-top: 39px;
     padding-right: 30px;
     height: 90px;
 }
@@ -19,16 +19,19 @@
     padding-right: 80px;
     text-decoration: none;
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-content: space-between;
 }
+
 li {
     display: inline-block;
 }
+
 .body_wrapper {
     width: 100%;
-    position:relative;
+    position: relative;
     height: 100%;
 }
 
@@ -52,21 +55,21 @@ li {
 
 .create_main {
     background-color: #ced4da;
-    min-height: 200vh;
+    min-height: 123vh;
     padding-bottom: 60px;
-    min-height: 100vh;
     position: relative;
+
     /*how to fix header footer calc in height ? */
 }
 
-.index_recommend{
-  padding-top: 97px;
+.index_recommend {
+    padding-top: 97px;
 }
 
-.index_recommend_spell{
-  text-align: center;
-  color: #7886d7;
-  size: 38px;
+.index_recommend_spell {
+    text-align: center;
+    color: #7886d7;
+    size: 38px;
 }
 
 .search_index {
@@ -75,51 +78,51 @@ li {
 }
 
 .search_form {
-    padding-top:10px;
+    padding-top: 10px;
     margin-top: 10px;
     text-align: center;
-    font-size:0;
+    font-size: 0;
 }
 
 .form_content {
     text-align: center;
-    font-size:25px;
+    font-size: 25px;
     width: 35%;
     display: inline-block;
 }
 
 .search_btn_info {
     display: inline-block;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .account_mot {
-    margin-left: 40px;
+    margin-left: 140px;
     font-family: Arial;
     padding-top: 27px;
 }
 
-.account_register{
-  padding: 20px 40px;
+.account_register {
+    padding: 20px 40px;
 
 }
 
 .account_name {
-  color: #16181b;
-  font-family: "Tamil MN";
-  font-size: 30px;
+    color: #16181b;
+    font-family: "Tamil MN";
+    font-size: 30px;
 }
 
 .account_form {
-  background-color: snow;
-  width: 40%;
-  margin-left: 380px;
-  height: 310px;
+    background-color: snow;
+    width: 40%;
+    margin-left: 380px;
+    height: 310px;
 }
 
 .admin_name {
     margin-left: 39px;
-    padding-top:42px;
+    padding-top: 42px;
     font-size: 30px;
 }
 
@@ -154,7 +157,7 @@ li {
 }
 
 .btn-primary {
-    width: 96px;
+    width: 116px;
     height: 36px;
     background-color: mediumpurple;
     margin-left: 180px;
@@ -162,7 +165,7 @@ li {
 }
 
 .btn-secondary {
-    width: 96px;
+    width: 116px;
     height: 36px;
     background-color: seashell;
     margin-left: 19px;
@@ -172,8 +175,8 @@ li {
     display: inline-block;
 }
 
-.showaccount_footer{
-    position:absolute;
+.showaccount_footer {
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: black;
@@ -187,12 +190,12 @@ li {
 }
 
 .showaccount_name {
-  margin: 10px 0px 0px 80px ;
-  font-size: 28px;
+    margin: 10px 0px 0px 190px;
+    font-size: 28px;
 }
 
 .showaccount_email {
-    margin: 50px 0px 0px 80px ;
+    margin: 50px 0px 0px 190px;
     font-size: 28px;
 }
 
@@ -244,12 +247,13 @@ li {
     margin-left: 40px;
 }
 
-.variable_email{
-    margin: 20px 0 0 120px;
+.variable_email {
+    margin: 20px 0 0 250px;
     font-size: 28px;
 }
+
 .variable_name {
-    margin: 20px 0 0 120px;
+    margin: 20px 0 0 250px;
     font-size: 28px;
 }
 
@@ -286,7 +290,15 @@ li {
     text-align: center;
 
 }
+
 .alert-alert-danger {
     color: #5a6268;
     font-size: 40px;
+}
+
+.item_display {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }

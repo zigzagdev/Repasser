@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+// TopPage (QueryBuilder内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
 Route::get('/', function () {
-    return view('index');
+    $item = DB::table('items')->where('recommend_flag', '1')->paginate(10);
+
+    return view('index', ['item' => $item]);
 });
 
 //    all_accounts_index
@@ -24,20 +27,36 @@ Route::get('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteAccount
 //    delete_action
 Route::delete('/admin/deedDeleteAccount/{id}', 'AccountController@deedDeleteComplete');
 
-//     register_item(already_registered_account)
-Route::post('/admin/item/deedCreateAccount', 'ItemController@deedCreateAccount');
-
 //     account_register_form
 Route::get('/admin/deedCreateAccount', 'AccountController@deedCreateAccount');
 
 //  account_search
 Route::get('/admin/SearchResult', 'AccountController@SearchResult');
+
 //     account_register_function
 Route::post('/admin/deedCreateAccount', 'AccountController@deedCreateAccountAction');
 
-////     ItemSearch
-//    Route::get('/SearchItem', [SearchController::class, function(){
-//    return view('/SearchItem');
-//}   ]);
+//  item_create
+Route::get( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItem');
 
+//  register_item(already_registered_account)
+Route::post( 'admin/item/deedCreateItem/{id}','ItemController@deedCreateItemAction');
+
+//  show_item
+Route::get('admin/deedShowItem/{id}', 'ItemController@deedShowItem');
+
+//  item_edit
+Route::get('item/deedEditItem/{id}','ItemController@deedEditItem');
+
+// item_update_function
+Route::put('item/deedEditItem/{id}','ItemController@deedUpdateItem');
+
+// item_delete
+Route::get('item/deedDeleteItem/{id}','ItemController@deedDeleteItem');
+
+// item_delete_function
+Route::delete('item/deedDeleteItem/{id}','ItemController@deedDeleteComplete');
+
+// item_search
+Route::get('SearchItem', 'SearchController@SearchItem');
 

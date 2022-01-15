@@ -29,9 +29,14 @@ class ItemTableSeeder extends Seeder
 
         $datas = [
             [
-                'item_name'=>'iPhoneX','item_category'  => 1,'item_content'=>'iPhoneXです。',
-                'recommend_flag'=>'0', 'admin_id'=>$admin->id,'created_at'=>date('Y-m-d H:i:s'),
-                'updated_at'=>date('Y-m-d H:i:s')
+                'item_name'=>'iPhoneX',
+                'item_category'  => 1,
+                'item_content'=>'iPhoneXです。',
+                'recommend_flag'=>'0',
+                'image' => 'test.png',
+                'created_at'=>date('Y-m-d H:i:s'),
+                'updated_at'=>date('Y-m-d H:i:s'),
+                'admin_id'=>$admin->id
             ],
         ];
 

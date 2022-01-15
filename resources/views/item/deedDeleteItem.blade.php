@@ -10,31 +10,29 @@
     @include('../layouts/header')
 </header>
 <main class="create_main">
-    <h1 class="account_mot">Here is Delete Account Page</h1>
-    <h2 class="showaccount_name">Account Name</h2>
+    <h1 class="account_mot">Here is Delete Item Page</h1>
+    <h2 class="showaccount_name">Item Name</h2>
     <div class="variable_name">
-        {{$datas->user_name}}
+        {{$item->item_name}}
     </div>
     <h3 class="showaccount_email">Account Email</h3>
     <div class="variable_email">
-        {{$datas->email}}
+        {{$item->item_content}}
     </div>
 
-    <form action="{{action('App\Http\Controllers\AccountController@deedDeleteComplete',$datas->id)}}" method="post">
+    <form action="{{action('App\Http\Controllers\ItemController@deedDeleteComplete',$item->id)}}" method="post">
         @csrf
         @method('DELETE')
         <div class="account_btn">
-            <a href="/">
+            <a href="{{ url('admin/deedAccountShow/', $item->admin_id) }}">
                 <button type="submit" id="delete" class="editac_btn">Delete Account</button>
             </a>
-            <a href="{{ url('admin/deedAccountShow/'.$datas->id) }}">
+            <a href="{{ url('admin/deedShowItem/'.$item->id) }}">
                 <button type="submit" class="editac2_btn">Return to Account Page</button>
             </a>
         </div>
     </form>
-    @if (session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @endif
 </main>
+<footer>
+    @include('layouts.Itemfooter')
+</footer>

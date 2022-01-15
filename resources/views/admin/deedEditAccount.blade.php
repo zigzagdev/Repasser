@@ -3,7 +3,7 @@
 <head>
     {{--       // config/app.phpの修正を行った。第一引数に.envのapp_nameを渡している。--}}
     <title>{{ config('app.name','Repasser') }}</title>
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -26,7 +26,9 @@
     {{--        </div>--}}
     {{--    @endif--}}
 
-    <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount',$datas->id)}}" method="post">
+{{--    ここの$datasには配列形式でidに紐づく情報が読み込まれている。その為、formのactitonにはURLで必要とする変数のプロパティを--}}
+{{--    指定してあげて、渡してあげる。--}}
+      <form action="{{ action('App\Http\Controllers\AccountController@deedUpdateAccount', $datas->id)}}" method="post">
         @csrf
         @method('PUT')
         <h2 class="showaccount_name">Account Name</h2>
@@ -55,7 +57,7 @@
             </a>
             <button type="button" class="editac2_btn" onClick="history.back()">Return to previous page</button>
         </div>
-    </form>
+      </form>
 </main>
 {{--  <footer>--}}
 {{--    @include('layouts/footer')--}}

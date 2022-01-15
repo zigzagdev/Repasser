@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Item;
 use http\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -26,21 +27,27 @@ class AccountController extends Controller
         $datas->email = $request->email;
         $datas->save();
 
-//        Session::get('id', 'xxx');
-//        Session::get('user_name');
-//        Session::forget('email');
-//        Session::forget('password');
         return redirect('admin/deedAccountShow/'.$datas->id);
     }
 
-    public function deedAccountShow(Request $request, $id)
+    public function deedAccountShow($id)
     {
-        $datas = DB::table('admins')->find($id);
+        $admin = DB::table('admins')->find($id);
+//       id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
+        $admin_id = $admin->id;
 
-        return view('admin/deedAccountShow', compact('datas'));
+        $items = DB::table('items')->get();
+
+//        $itemの配列にadmin_idと4itemのidの一致内容のものを入れている。
+        $item = [];
+        foreach ($items as $each)
+          if ($each->admin_id == $admin_id) {
+            array_push($item, $each);
+          }
+        return view('admin/deedAccountShow', compact('admin','item'));
     }
 
-    public function deedEditAccount(Request $request, $id)
+    public function deedEditAccount($id)
     {
         $datas = DB::table('admins')->find($id);
 
@@ -57,6 +64,7 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
+//        ddを行うと、しっかりIDを取って、ddを行えている。
         $datas = Admin::find($id);
         $message = 'User not extist';
         if ($datas === null) {
@@ -70,7 +78,7 @@ class AccountController extends Controller
         return redirect('admin/deedAccountShow/' . $datas->id);
     }
 
-    public function deedDeleteComplete(Request $request, $id)
+    public function deedDeleteComplete($id)
     {
         $data = DB::table('admins')->where('id', $id);
         $data->delete();
