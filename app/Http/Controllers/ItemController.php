@@ -111,4 +111,8 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/' . $item->admin_id);
     }
 
+    public function Display () {
+
+    }
+
 }

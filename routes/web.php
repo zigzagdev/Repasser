@@ -60,3 +60,5 @@ Route::delete('item/deedDeleteItem/{id}','ItemController@deedDeleteComplete');
 // item_search
 Route::get('SearchItem', 'SearchController@SearchItem');
 
+// item_display
+Route::get('EveryItem', 'ItemController@Display');
