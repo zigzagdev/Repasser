@@ -8,7 +8,7 @@
 <body>
 <div class="body_wrapper">
     <header>
-        @include('layouts/header')
+        @include('layouts.Header')
     </header>
     <main class="main_body">
         <div class="admin_rgst">
@@ -29,7 +29,7 @@
     </main>
 </div>
 <footer>
-    @include('layouts/footer')
+    @include('layouts.Footer')
 </footer>
 </body>
 

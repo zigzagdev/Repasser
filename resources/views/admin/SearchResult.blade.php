@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    @include('layouts/header')
+    @include('layouts.Header')
 </header>
 <main class="create_main">
     <h1 class="index">Your Search Results.</h1>

@@ -50,6 +50,6 @@
     </div>
   </main>
   <footer>
-    @include('layouts/footer')
+    @include('layouts.Footer')
   </footer>
 </body>
