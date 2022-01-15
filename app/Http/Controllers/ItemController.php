@@ -112,9 +112,9 @@ class ItemController extends Controller
     }
 
     public function Display ($id) {
-        $display = DB::table('items')->find($id);
+        $items = DB::table('items')->find($id);
 
-        return view('ItemDisplay',compact('display'));
+        return view('ItemDisplay',compact('items'));
     }
 
 }
