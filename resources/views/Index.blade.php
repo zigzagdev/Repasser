@@ -26,8 +26,7 @@
               <h3 class="index_recommend_spell">Recommend Items</h3>
                 @foreach( $item as $recommend)
                   <div class="rec_item">
-{{--                      href page needs to send to item page not in deedShowItemPage--}}
-                    <a href="{{ url('admin/deedShowItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
+                    <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
                   </div>
                 @endforeach
             </div>
