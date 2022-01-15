@@ -34,5 +34,5 @@
     </form>
 </main>
 <footer>
-    @include('layouts.ItemFooter')
+    @include('layouts.Itemfooter')
 </footer>

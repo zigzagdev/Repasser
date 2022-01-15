@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Admin;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -38,7 +39,7 @@ class ItemController extends Controller
         $validations = [
             'アイテム名' => ['required', 'size:20'],
             '商品の説明欄' => ['required', 'size:100'],
-            'アップロード画像' => ['required', 'uploaded']
+            'アップロード画像' => ['required','uploaded']
         ];
 
         $this->validate($request, $validations);
@@ -108,13 +109,6 @@ class ItemController extends Controller
         }
         session()->flash('message', 'Your Item was deleted');
         return redirect('admin/deedAccountShow/' . $item->admin_id);
-    }
-
-    public function Display($id)
-    {
-        $items = DB::table('items')->find($id);
-
-        return view('ItemDisplay', compact('items'));
     }
 
 }
