@@ -38,9 +38,8 @@
           <td>{{$itemdata->item_name}}</td>
           <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
         </h3>
-     @endforeach
       </div>
-      </div>
+    @endforeach
   </main>
   {{--  <footer class="showaccount_footer">--}}
   {{--    <h1 class="showaccount_mot"></h1>--}}

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // TopPage (QueryBuilder内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
 Route::get('/', function () {
-    $item = DB::table('items')->where('recommend_flag', '1')->get();
+    $item = DB::table('items')->where('recommend_flag', '1')->paginate(10);
 
     return view('index', ['item' => $item]);
 });

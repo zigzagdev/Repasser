@@ -32,12 +32,18 @@ class AccountController extends Controller
 
     public function deedAccountShow($id)
     {
-        $admin_id = intval($id);
-//        Admin_id=3
-        $admin = DB::table('admins')->find($admin_id);
+        $admin = DB::table('admins')->find($id);
 //       id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
-        $item = DB::table('items')->get();
+        $admin_id = $admin->id;
 
+        $items = DB::table('items')->get();
+
+//        $itemの配列にadmin_idと4itemのidの一致内容のものを入れている。
+        $item = [];
+        foreach ($items as $each)
+          if ($each->admin_id == $admin_id) {
+            array_push($item, $each);
+          }
         return view('admin/deedAccountShow', compact('admin','item'));
     }
 

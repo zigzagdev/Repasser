@@ -38,7 +38,8 @@ class ItemController extends Controller
 
         $validations = [
             'アイテム名' => ['required', 'size:20'],
-            '商品の説明欄' => ['required', 'size:100']
+            '商品の説明欄' => ['required', 'size:100'],
+            'アップロード画像' => ['required','uploaded']
         ];
 
         $this->validate($request, $validations);
