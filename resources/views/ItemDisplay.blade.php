@@ -6,8 +6,11 @@
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <header>
-    @include('layouts.Itemheader')
+  @include('layouts.ItemHeader')
 </header>
 <main class="create_main">
 
 </main>
+<footer>
+  @include('layouts.ItemFooter')
+</footer>
