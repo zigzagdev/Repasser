@@ -61,4 +61,4 @@ Route::delete('item/deedDeleteItem/{id}','ItemController@deedDeleteComplete');
 Route::get('SearchItem', 'SearchController@SearchItem');
 
 // item_display
-Route::get('EveryItem', 'ItemController@Display');
+Route::get('EveryItem/{id}', 'ItemController@Display');

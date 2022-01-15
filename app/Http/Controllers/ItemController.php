@@ -111,8 +111,10 @@ class ItemController extends Controller
         return redirect('admin/deedAccountShow/' . $item->admin_id);
     }
 
-    public function Display () {
+    public function Display ($id) {
+        $display = DB::table('items')->find($id);
 
+        return view('ItemDisplay',compact('display'));
     }
 
 }
