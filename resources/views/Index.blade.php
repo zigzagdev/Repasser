@@ -24,11 +24,13 @@
             </form>
             <div class="index_recommend">
               <h3 class="index_recommend_spell">Recommend Items</h3>
-                @foreach( $item as $recommend)
-                  <div class="rec_item">
-                    <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                  </div>
-                @endforeach
+                <ul class="flexContainer">
+                  @foreach( $item as $recommend)
+                    <div class="rec_item">
+                      <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
+                    </div>
+                  @endforeach
+                </ul>
             </div>
         </div>
     </main>

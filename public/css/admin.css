@@ -302,3 +302,10 @@ li {
     flex-wrap: wrap;
     flex-direction: row;
 }
+
+.lexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}

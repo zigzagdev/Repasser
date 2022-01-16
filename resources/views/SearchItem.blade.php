@@ -5,4 +5,12 @@
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
-<body>
+<main>
+    @foreach($results as $result)
+        <tr>
+            <td style="font-size: 28px; color: #040505; padding-left: 75px">・</td>
+            <td style="font-size: 28px; color: #040505; padding-left: 30px">{{$result->item_name}}</td>
+            <td style="font-size: 28px; color: #040505; padding-left: 60px">{{$result->item_content}}</td>
+        </tr>
+    @endforeach
+</main>
