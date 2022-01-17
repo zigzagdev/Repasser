@@ -57,7 +57,7 @@ class ItemController extends Controller
         $request->validate($validateRule);
 
 
-        $this->validate($request, $validations);
+        $this->validate($request, $validateRule);
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;

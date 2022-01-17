@@ -1,3 +1,1 @@
-<div class="footer_content">
-    <p class="footer_mot">Matthew-Masa</p>
-</div>
+<p style="text-align: right; margin-right: 50px">Matthew-Masa</p>
