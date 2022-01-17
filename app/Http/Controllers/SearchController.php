@@ -26,7 +26,7 @@ class SearchController extends Controller
             echo $message;
         }
         $results = $query->get();
-dd($query);
+
         return view('SearchItem',compact('results', 'q', 'message'));
     }
 }
