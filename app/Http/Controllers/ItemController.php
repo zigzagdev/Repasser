@@ -35,11 +35,27 @@ class ItemController extends Controller
 //        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
         $admin_id = intval($eachdata);
 
-        $validations = [
-            'アイテム名' => ['required', 'size:20'],
-            '商品の説明欄' => ['required', 'size:100'],
-            'アップロード画像' => ['required', 'uploaded']
+        $validateRule = [
+
+            // アイテム名
+            'item_name' => ['required', 'c_alpha_num', 'size:10'],
+
+            // アイテム内容
+            'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
+
+            // 商品おすすめフラグ
+            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+            'item_category' => ['required'],
+
+            // 商品画像
+            'image' => ['required']
+
         ];
+
+        $request->validate($validateRule);
+
 
         $this->validate($request, $validations);
         $items = new Item;

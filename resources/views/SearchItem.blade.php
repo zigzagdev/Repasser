@@ -6,6 +6,7 @@
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
 </head>
 <main>
+  @if(!empty($results))
     @foreach($results as $result)
         <tr>
             <td style="font-size: 28px; color: #040505; padding-left: 75px">・</td>
@@ -13,4 +14,7 @@
             <td style="font-size: 28px; color: #040505; padding-left: 60px">{{$result->item_content}}</td>
         </tr>
     @endforeach
+  @else
+    <?php dd($message); ?>
+  @endif
 </main>
