@@ -29,33 +29,6 @@
                     <div class="rec_item">
                       <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
                     </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
-                      <div class="rec_item">
-                          <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                      </div>
                   </ul>
                 @endforeach
             </div>
