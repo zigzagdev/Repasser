@@ -19,9 +19,9 @@
     <div class="variable_email">
       {{$items->item_content}}
     </div>
-    <h3 class="showaccount_email">Category</h3>
+    <h3 class="showaccount_email">Image</h3>
     <div class="variable_email">
-      <img src="{{ asset('storage/'.$items->image) }}" />
+      <img src="{{ asset('storage/'.$items->image) }}" style="width: 250px; height: 280px"/>
     </div>
   </main>
   <footer class="footer_content" style="background-color: black">
