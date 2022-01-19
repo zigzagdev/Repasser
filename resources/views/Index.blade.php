@@ -4,15 +4,16 @@
     {{--   // config/app.phpの修正を行った。第一引数に.envのapp_nameを渡している。--}}
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
+    <link href="{{asset('css/item.css')}}" rel="stylesheet">
 </head>
 <body>
-<div class="body_wrapper">
-    <header>
-        @include('layouts.Header')
-    </header>
+  <header>
+    @include('layouts.Header')
+  </header>
+
     <main class="main_body">
         <div class="admin_rgst">
-            <a href="admin/deedCreateAccount" class="admin_rgst_mot ">Only Staff here.</a>
+            <a href="admin/deedCreateAccount" class="admin_rgst_mot">Only Staff here.</a>
         </div>
         <div class="initial_body">
             <h2 class="search_index">Search Item</h2>
@@ -24,17 +25,24 @@
             </form>
             <div class="index_recommend">
               <h3 class="index_recommend_spell">Recommend Items</h3>
-                @foreach( $item as $recommend)
-                  <div class="rec_item">
-                    <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}"><h4>{{ $recommend->item_name}}</h4></a>
-                  </div>
-                @endforeach
+                <div class="flexContainer">
+                  @foreach($item as $recommend)
+                    <div class="rec_item">
+                      <div class="card_content">
+                        <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}" style="text-decoration: none; color: #0062cc">
+                          <h4 style="margin: 14px 0 0 61px;">{{ $recommend->item_name}}</h4>
+                          <img src="{{ asset('storage/'.$recommend->image) }}" class="img_rcm"/>
+                          <p style="padding-top: 4px; margin-left: 61px">¥{{$recommend->price}}</p>
+                        </a>
+                      </div>
+                    </div>
+                  @endforeach
+                </div>
             </div>
         </div>
     </main>
-</div>
-<footer>
-    @include('layouts.Footer')
-</footer>
-</body>
 
+  <footer class="footer_content">
+    @include('layouts/Footer')
+  </footer>
+</body>

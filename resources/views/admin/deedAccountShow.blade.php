@@ -32,14 +32,19 @@
         </a>
     </div>
       {{--    Item_Display  --}}
-    @foreach ($item as $itemdata)
-      <div class="card-4">
-        <h3 class="title" style="display: block; text-align: center;padding-top: 5px;">
-          <td>{{$itemdata->item_name}}</td>
-          <td><a type="button" class="a" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></td>
-        </h3>
+    <div class="index_recommend">
+      <div class="flexContainer">
+        @foreach($item as $itemdata)
+          <div class="rec_item">
+            <ul class="card_content">
+              <p style="text-align: center; margin: 7px; color: #1a202c">{{$itemdata->item_name}}</p>
+              <p><img src="{{ asset('storage/'.$itemdata->image) }}" class="img_rcm"/></p>
+              <p><a type="button" class="a1" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></p>
+            </ul>
+          </div>
+        @endforeach
       </div>
-    @endforeach
+    </div>
   </main>
   {{--  <footer class="showaccount_footer">--}}
   {{--    <h1 class="showaccount_mot"></h1>--}}

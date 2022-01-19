@@ -17,7 +17,7 @@ class ItemController extends Controller
         $items = DB::table('items')->find($id);
 
         $category = DB::table('categories')->get();
-        var_dump($category);
+
         return view('item/deedShowItem', compact('items'));
     }
 
@@ -35,17 +35,36 @@ class ItemController extends Controller
 //        型変更が多い場合はFormRequestファイルにて一括でまとめる方法が良いのかも。下みたいにcastするのめんどくさいし。
         $admin_id = intval($eachdata);
 
-        $validations = [
-            'アイテム名' => ['required', 'size:20'],
-            '商品の説明欄' => ['required', 'size:100'],
-            'アップロード画像' => ['required', 'uploaded']
+        $validateRule = [
+
+//            // アイテム名
+//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+//
+//            // アイテム内容
+//            'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
+//
+//            'item_price' => ['required'],
+//
+//            // 商品おすすめフラグ
+//            'recommend_flag' => ['required'],
+//
+//            // 商品カテゴリー
+//            'item_category' => ['required'],
+//
+//            // 商品画像
+//            'image' => ['required']
+
         ];
 
-        $this->validate($request, $validations);
+        $request->validate($validateRule);
+
+
+        $this->validate($request, $validateRule);
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
         $items->item_content = $request->item_content;
+        $items->price = $request->price;
         $items->recommend_flag = $request->recommend_flag;
         $items->image = $request->image;
         $items->admin_id = $admin_id;
@@ -87,6 +106,7 @@ class ItemController extends Controller
             $item->item_name = $request->item_name;
             $item->item_category = $request->item_category;
             $item->item_content = $request->item_content;
+            $items->price = $request->price;
             $item->recommend_flag = $request->recommend_flag;
             $item->image = $request->image;
             $item->save();
@@ -113,8 +133,17 @@ class ItemController extends Controller
     public function Display($id)
     {
         $items = DB::table('items')->find($id);
+        $categories = DB::table('items')
+                  ->select('items.id', 'item_name', 'item_content', 'price', 'categories.category_name')
+                  ->join('categories', 'categories.id','=', 'items.item_category' )
+                  ->get();
+        $pass = [];
+        foreach ($categories as $category)
+          if ($category->id == $items->id){
+              array_push($pass,$category);
+          }
 
-        return view('ItemDisplay', compact('items'));
+        return view('ItemDisplay', compact('items', 'pass'));
     }
 
 }

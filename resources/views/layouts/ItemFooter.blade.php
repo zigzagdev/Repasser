@@ -1,4 +1,2 @@
 
-<div class="item_footer">
-  <h1 style="color: lightslategrey; text-align: right; margin-right: 20px">® Matthew</h1>
-</div>
+<p style="text-align: right; margin-right: 50px; padding-top: 30px; color: #edf2f7">® Matthew</p>

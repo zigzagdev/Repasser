@@ -58,11 +58,11 @@ class ValidatorServiceProvider extends ServiceProvider
         Validator::extend('price', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/^[1-9][0-9]*$/', $value);
         });
-//
-//
-//        Validator::extend('',function ($attribute,$value,$parameters,$validator){
-//            return preg_match('',$value);
-//        });
+//　　　　　　
+        Validator::extend('c_num', function ($attribute, $value, $parameters, $validator) {
+            return preg_match('/^[0-9]+$/', $value);
+        });
+
 //
 //
 //        Validator::extend('',function ($attribute,$value,$parameters,$validator){
