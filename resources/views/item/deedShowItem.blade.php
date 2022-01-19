@@ -19,7 +19,11 @@
   <div class="variable_email">
     {{$items->item_content}}
   </div>
-  <h3 class="showaccount_email">Category</h3>
+  <h4 class="showaccount_email">Price</h4>
+  <div class="variable_email">
+    ¥{{$items->price}}円
+  </div>
+  <h5 class="showaccount_email">Category</h5>
   <div class="variable_email">
     {{$items->image}}
   </div>

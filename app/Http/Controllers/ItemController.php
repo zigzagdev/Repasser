@@ -37,22 +37,22 @@ class ItemController extends Controller
 
         $validateRule = [
 
-            // アイテム名
-            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
-
-            // アイテム内容
-            'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
-
-            'item_price' => ['required'],
-
-            // 商品おすすめフラグ
-            'recommend_flag' => ['required'],
-
-            // 商品カテゴリー
-            'item_category' => ['required'],
-
-            // 商品画像
-            'image' => ['required']
+//            // アイテム名
+//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+//
+//            // アイテム内容
+//            'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
+//
+//            'item_price' => ['required'],
+//
+//            // 商品おすすめフラグ
+//            'recommend_flag' => ['required'],
+//
+//            // 商品カテゴリー
+//            'item_category' => ['required'],
+//
+//            // 商品画像
+//            'image' => ['required']
 
         ];
 
