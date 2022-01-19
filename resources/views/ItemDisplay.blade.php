@@ -21,7 +21,7 @@
     </div>
     <h3 class="showaccount_email">Price</h3>
     <div class="variable_email">
-      ¥
+      ¥{{$items->price}}
     </div>
     <h5 class="showaccount_email">Image</h5>
     <div class="variable_email">
