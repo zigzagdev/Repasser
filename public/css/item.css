@@ -125,3 +125,16 @@ textarea {
     padding-top: 5px;
     margin-left: 20px;
 }
+
+.a1 {
+    vertical-align: middle;
+    color: #fff;
+    background: #5876a3;
+    padding: 7px 23px;
+    margin-left: 24px;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+}
