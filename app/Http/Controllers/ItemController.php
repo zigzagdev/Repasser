@@ -129,8 +129,17 @@ class ItemController extends Controller
     public function Display($id)
     {
         $items = DB::table('items')->find($id);
+        $categories = DB::table('items')
+                  ->select('items.id', 'item_name', 'item_content', 'categories.category_name')
+                  ->join('categories', 'categories.id','=', 'items.item_category' )
+                  ->get();
+        $pass = [];
+        foreach ($categories as $category)
+          if ($category->id == $items->id){
+              array_push($pass,$category);
+          }
 
-        return view('ItemDisplay', compact('items'));
+        return view('ItemDisplay', compact('items', 'pass'));
     }
 
 }
