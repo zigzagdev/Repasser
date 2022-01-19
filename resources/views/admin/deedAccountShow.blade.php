@@ -22,22 +22,23 @@
         </div>
     <div class="account_btn">
       <a href="{{ url('admin/deedEditAccount/'.$admin->id) }}">
-          <button type="submit" class="edit_btn">Edit Account</button>
+        <button type="submit" class="edit_btn">Edit Account</button>
       </a>
         <a href="{{ url('admin/deedDeleteAccount/'.$admin->id) }}">
-            <button type="submit" class="delete_btn">Delete Account</button>
+          <button type="submit" class="delete_btn">Delete Account</button>
         </a>
         <a href="{{url('admin/item/deedCreateItem/'.$admin->id )}}">
-            <button type="submit" class="create_btn">Item Create</button>
+          <button type="submit" class="create_btn">Item Create</button>
         </a>
     </div>
       {{--    Item_Display  --}}
     <div class="index_recommend">
+      <P class="showaccount_item">Your Register Items</P>
       <div class="flexContainer">
         @foreach($item as $itemdata)
           <div class="rec_item">
             <ul class="card_content">
-              <p style="text-align: center; margin: 7px; color: #1a202c">{{$itemdata->item_name}}</p>
+              <p style="text-align: center; margin: 3px; color: #1a202c">{{$itemdata->item_name}}</p>
               <p><img src="{{ asset('storage/'.$itemdata->image) }}" class="img_rcm"/></p>
               <p><a type="button" class="a1" href="{{url('admin/deedShowItem/'.$itemdata->id)}}">Detail</a></p>
             </ul>
@@ -46,9 +47,9 @@
       </div>
     </div>
   </main>
-  {{--  <footer class="showaccount_footer">--}}
-  {{--    <h1 class="showaccount_mot"></h1>--}}
-  {{--  </footer>--}}
+  <footer class="footer_content">
+      @include('layouts/ItemFooter')
+  </footer>
 </body>
 
 

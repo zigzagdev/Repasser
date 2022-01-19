@@ -53,7 +53,7 @@ li {
 }
 
 .index_recommend {
-    padding-top: 97px;
+    padding-top: 60px;
 }
 
 .index_recommend_spell {
@@ -297,5 +297,10 @@ li {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+}
+
+.showaccount_item {
+    margin: 0px 0px 0px 130px;
+    font-size: 28px;
 }
 
