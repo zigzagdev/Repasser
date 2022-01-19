@@ -13,3 +13,5 @@ return array(
     '10' => 'Books',
     '11' => 'Music'
 );
+
+//INSERT INTO `categories`(`id`, `item_category_cd`, `category_name`, `created_at`, `updated_at`, `deleted_at`) VALUES ('1','1','EveryItems',now(), now(),null);
