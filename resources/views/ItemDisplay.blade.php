@@ -19,11 +19,15 @@
     <div class="variable_email">
       {{$items->item_content}}
     </div>
-    <h4 class="showaccount_email">Image</h4>
+    <h3 class="showaccount_email">Price</h3>
+    <div class="variable_email">
+      ¥
+    </div>
+    <h5 class="showaccount_email">Image</h5>
     <div class="variable_email">
       <img src="{{ asset('storage/'.$items->image) }}" style="width: 250px; height: 280px"/>
     </div>
-    <h5 class="showaccount_email">ItemCategory</h5>
+    <h6 class="showaccount_email">ItemCategory</h6>
     <div class="variable_email">
       @foreach($pass as $eachcategory)
         {{$eachcategory->category_name}}
