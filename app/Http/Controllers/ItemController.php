@@ -17,7 +17,7 @@ class ItemController extends Controller
         $items = DB::table('items')->find($id);
 
         $category = DB::table('categories')->get();
-        var_dump($category);
+
         return view('item/deedShowItem', compact('items'));
     }
 
@@ -43,6 +43,8 @@ class ItemController extends Controller
             // アイテム内容
             'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
 
+            'item_price' => ['required'],
+
             // 商品おすすめフラグ
             'recommend_flag' => ['required'],
 
@@ -62,6 +64,7 @@ class ItemController extends Controller
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
         $items->item_content = $request->item_content;
+        $items->price = $request->price;
         $items->recommend_flag = $request->recommend_flag;
         $items->image = $request->image;
         $items->admin_id = $admin_id;
@@ -103,6 +106,7 @@ class ItemController extends Controller
             $item->item_name = $request->item_name;
             $item->item_category = $request->item_category;
             $item->item_content = $request->item_content;
+            $items->price = $request->price;
             $item->recommend_flag = $request->recommend_flag;
             $item->image = $request->image;
             $item->save();
