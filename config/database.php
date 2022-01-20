@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Str;
 
-$hash_password = env('DB_PASSWORD', '');
-$af_password = exec("decode_password.exe $hash_password");
 
 return [
 
