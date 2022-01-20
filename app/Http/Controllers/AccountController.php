@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class AccountController extends Controller
@@ -23,7 +25,7 @@ class AccountController extends Controller
 
         $datas = new Admin;
         $datas->user_name = $request->user_name;
-        $datas->password = $request->password;
+        $datas->password = Hash::make($request->password);
         $datas->email = $request->email;
         $datas->save();
 
