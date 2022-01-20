@@ -66,7 +66,6 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
-//        ddを行うと、しっかりIDを取って、ddを行えている。
         $datas = Admin::find($id);
         $message = 'User not extist';
         if ($datas === null) {
