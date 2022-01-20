@@ -28,13 +28,11 @@
                 <div class="flexContainer">
                   @foreach($item as $recommend)
                     <div class="rec_item">
-                      <div class="card_content">
-                        <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}" style="text-decoration: none; color: #0062cc">
-                          <h4 style="margin: 14px 0 0 61px;">{{ $recommend->item_name}}</h4>
-                          <img src="{{ asset('storage/'.$recommend->image) }}" class="img_rcm"/>
-                          <p style="padding-top: 4px; margin-left: 61px">¥{{$recommend->price}}</p>
-                        </a>
-                      </div>
+                      <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}" style="text-decoration: none; color: #0062cc">
+                        <h4 style="margin: 14px 0 0 61px;">{{ $recommend->item_name}}</h4>
+                        <img src="{{ asset('storage/'.$recommend->image) }}" class="img_rcm"/>
+                        <p style="padding-top: 4px; margin-left: 61px">¥{{$recommend->price}}</p>
+                      </a>
                     </div>
                   @endforeach
                 </div>

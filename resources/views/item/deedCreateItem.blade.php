@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     {{--   // config/app.phpの修正を行った。第一引数に.envのapp_nameを渡している。--}}
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/item.css')}}" rel="stylesheet">
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
-</head>
+  </head>
 <body>
   <header>
     @include('layouts.ItemHeader')
@@ -76,3 +76,4 @@
     @include('layouts/ItemFooter')
   </footer>
 </body>
+</html>
