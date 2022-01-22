@@ -13,7 +13,7 @@ class SearchController extends Controller
 //          inner_joinの結果のSQL
 //        SELECT item_name,item_content,image,categories.category_name FROM `items` INNER JOIN `categories` ON items.item_category = categories.id
 
-        $message = 'Fill out some words in box';
+        $message = 'Nothing was found... Please change search words';
         $q = $request->input('keyword');
         $query = Item::query();
 

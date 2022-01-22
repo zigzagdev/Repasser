@@ -33,11 +33,6 @@
         {{$eachcategory->category_name}}
       @endforeach
     </div>
-      <div class="variable_email">
-          @foreach($pass as $eachcategory)
-              {{$eachcategory->category_name}}
-          @endforeach
-      </div>
   </main>
   <footer class="footer_content" style="background-color: black">
       @include('layouts/ItemFooter')

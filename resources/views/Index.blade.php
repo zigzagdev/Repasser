@@ -36,6 +36,9 @@
                     </div>
                   @endforeach
                 </div>
+                <div class="page">
+                  {{ $item->links('vendor/pagination/pagination') }}
+                </div>
             </div>
         </div>
     </main>
@@ -44,3 +47,4 @@
     @include('layouts/Footer')
   </footer>
 </body>
+
