@@ -1,8 +1,8 @@
 {{--pagination_area--}}
 
-<p style="font-size: 21px">Now you are {{$paginator->currentPage()}} page.</p>
+<p style="font-size: 21px; margin-bottom: 10px">Now you are {{$paginator->currentPage()}} page.</p>
 @if ($paginator->hasPages())
-  <ul class="pagination" role="navigation">
+  <ul style="font-size: 21px" role="navigation">
     <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
       <a class="page-link" href="{{ $paginator->url(1) }}">&laquo;</a>
     </li>
@@ -31,3 +31,5 @@
     </li>
   </ul>
 @endif
+
+{{--paginationは次へ全体ページ表示の内容を表記する必要がある。--}}

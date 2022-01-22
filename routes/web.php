@@ -6,7 +6,7 @@ use Illuminate\Pagination\Paginator;
 
 // TopPage (QueryBuilder内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
 Route::get('/', function () {
-    $item = DB::table('items')->where('recommend_flag', '1')->paginate(5);
+    $item = DB::table('items')->where('recommend_flag', '1')->paginate(4);
 
     return view('index', compact('item'));
 });

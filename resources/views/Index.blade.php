@@ -29,7 +29,7 @@
                   @foreach($item as $recommend)
                     <div class="rec_item">
                       <a href="{{ url('EveryItem', ["id" => $recommend->id]) }}" style="text-decoration: none; color: #0062cc">
-                        <h4 style="margin: 14px 0 0 61px;">{{ $recommend->item_name}}</h4>
+                        <h4 style="margin-top: 14px; text-align: center">{{ $recommend->item_name}}</h4>
                         <img src="{{ asset('storage/'.$recommend->image) }}" class="img_rcm"/>
                         <p style="padding-top: 4px; margin-left: 61px">¥{{$recommend->price}}</p>
                       </a>
@@ -42,9 +42,8 @@
             </div>
         </div>
     </main>
-
-  <footer class="footer_content">
-    @include('layouts/Footer')
-  </footer>
+    <footer class="footer_content">
+      @include('layouts/Footer')
+    </footer>
 </body>
 
