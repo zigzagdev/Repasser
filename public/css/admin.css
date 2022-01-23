@@ -307,4 +307,14 @@ li {
     text-align: center;
 }
 
+.box {
+    padding: 0.5em 1em ;
+    margin: 2em 0 0 260px;
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+    width: 50%;
+    height: 260px;
+}
 

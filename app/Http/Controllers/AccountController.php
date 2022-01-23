@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class AccountController extends Controller
@@ -18,6 +18,25 @@ class AccountController extends Controller
     public function deedCreateAccount()
     {
         return view('admin/deedCreateAccount');
+    }
+
+    public function Login()
+    {
+        return view('admin/Login');
+    }
+
+    public function deedLogin(Request $request)
+    {
+        $data = DB::table('admins')->get();
+        $email = $request->input("email");
+        $password = $request->input("password");
+
+        foreach ($data as $admin)
+            if(Auth::attempt(['email' => $email, 'password' => $password])){
+                redirect('admin/deedAccountShow/'. $admin->id);
+            } else {
+                return redirect('/');
+            }
     }
 
     public function deedCreateAccountAction(Request $request)
@@ -40,7 +59,7 @@ class AccountController extends Controller
 
         $items = DB::table('items')->get();
 
-//        $itemの配列にadmin_idと4itemのidの一致内容のものを入れている。
+//        $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
         $item = [];
         foreach ($items as $each)
           if ($each->admin_id == $admin_id) {
@@ -115,3 +134,8 @@ class AccountController extends Controller
         return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
+
+//if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+//{
+//    return redirect('admin/deedAccountShow/');
+//}

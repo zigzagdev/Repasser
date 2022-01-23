@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('index', compact('item'));
 });
 
+//    Admin/Login
+Route::get('/admin/login', 'AccountController@Login');
+Route::post('/admin/login', 'AccountController@deedLogin');
+
 //    all_accounts_index
 Route::get('/admin/deedIndexSearch', 'AccountController@deedIndexSearch');
 
