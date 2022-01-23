@@ -1,13 +1,13 @@
 {{--pagination_area--}}
 
-<p style="font-size: 21px; margin-bottom: 10px">Now you are {{$paginator->currentPage()}} page.</p>
+
 @if ($paginator->hasPages())
   <ul style="font-size: 21px" role="navigation">
     <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->url(1) }}">&laquo;</a>
+      <a class="page-link" href="{{ $paginator->url(1) }}"><<</a>
     </li>
     <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->previousPageUrl() }}">&lsaquo;</a>
+      <a class="page-link" href="{{ $paginator->previousPageUrl() }}"><</a>
     </li>
     @foreach ($elements as $element)
       @if (is_string($element))
@@ -24,10 +24,10 @@
       @endif
     @endforeach
     <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->nextPageUrl() }}">&rsaquo;</a>
+      <a class="page-link" href="{{ $paginator->nextPageUrl() }}">></a>
     </li>
     <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">&raquo;</a>
+      <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">>></a>
     </li>
   </ul>
 @endif
