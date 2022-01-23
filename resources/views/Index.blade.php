@@ -19,7 +19,7 @@
             <h2 class="search_index">Search Item</h2>
             <form method="GET" action="{{action('App\Http\Controllers\SearchController@SearchItem')}}">
                 <div class="search_form">
-                    <input type="text" name="keyword" value="" class="form_content" placeholder="商品名か商品カテゴリーを入力してください">
+                    <input type="text" name="keyword" value="" class="form_content" placeholder="検索内容">
                     <input type="submit" value="検索" class="search_btn_info">
                 </div>
             </form>
