@@ -28,12 +28,14 @@ class AccountController extends Controller
     public function deedLogin(Request $request)
     {
         $data = DB::table('admins')->get();
-        $email = $request->input("email");
-        $password = $request->input("password");
 
-        foreach ($data as $admin)
-            if(Auth::attempt(['email' => $email, 'password' => $password])){
-                redirect('admin/deedAccountShow/'. $admin->id);
+        $credentials = [
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ];
+            if (Auth::attempt($credentials))  {
+
+                return redirect('admin/deedAccountShow/');
             } else {
                 return redirect('/');
             }

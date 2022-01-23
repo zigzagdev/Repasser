@@ -12,7 +12,7 @@
         @include('layouts.Header')
       </header>
   <main>
-    @if(!empty($results))
+    @if(count($results) > 0 )
       <div class="search_query">
         Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($results)}}</span> found.<br>
         Click each items if you interested in.
@@ -28,8 +28,12 @@
           </div>
         @endforeach
       </div>
-      @else
-        <?php echo($message); ?>
+    @else
+        <div class="search_query">
+          Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($results)}}</span> found.<br>
+          Change the Search word to find something...<br>
+          <a href="/" style="text-decoration: none; ">Click Here</a>
+        </div>
       @endif
     </main>
     <footer class="footer_content" style="background-color: black; position: absolute; bottom: 0; margin-top: 10px; width: 100%">
