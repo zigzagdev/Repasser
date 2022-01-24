@@ -28,10 +28,13 @@
           </div>
         @endforeach
       </div>
+      <div class="page">
+        {{ $results->links('vendor/pagination/pagination') }}
+      </div>
     @elseif (count($results) == 1 )
       <div class="search_query">
-        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($results)}}</span> found.<br>
-        Click the one if you interested in.
+        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{$total}}</span> found.<br>
+        Click it if you interested in.
       </div>
       <div class="flexContainer">
         @foreach($results as $result)
@@ -46,8 +49,8 @@
       </div>
     @else
       <div class="search_query">
-        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($results)}}</span> found.<br>
-        Change the Search word to find something...<br>
+        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($results)}}.</span><br>
+        {{$message}}<br>
         <a href="/" style="text-decoration: none; ">Click Here</a>
       </div>
     @endif
