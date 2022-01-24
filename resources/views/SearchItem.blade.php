@@ -23,7 +23,7 @@
             <a href="{{ url('EveryItem', ["id" => $result->id]) }}" style="text-decoration: none; color: #0062cc">
               <h4 style="margin: 14px 0 0 61px;">{{ $result->item_name}}</h4>
               <img src="{{ asset('storage/'.$result->image) }}" class="img_rcm"/>
-              <p style="padding-top: 4px; margin-left: 61px">¥{{$result->price}}</p>
+              <p style="padding-top: 4px; text-align: center">¥{{$result->price}}</p>
             </a>
           </div>
         @endforeach
