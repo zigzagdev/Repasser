@@ -158,3 +158,8 @@ textarea {
     box-sizing: border-box;
     /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
 }
+
+.index_selectbox {
+    width: 200px;
+    height: 31px;
+}
