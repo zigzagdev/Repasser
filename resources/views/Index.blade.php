@@ -23,7 +23,7 @@
                   <select name="item_category" class="index_selectbox" >
                     <option value="">カテゴリー選択順</option>
                     @foreach(config('category') as $index => $name)
-                      <option value="{{ $index }}">
+                      <option value="{{ $name }}">
                         {{ $name }}
                       </option>
                     @endforeach
