@@ -22,6 +22,18 @@
                     <input type="text" name="keyword" value="" class="form_content" placeholder="検索内容">
                     <input type="submit" value="検索" class="search_btn_info">
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-2">商品カテゴリ</label>
+                    <div class="col-sm-3">
+                        <select name="item_category" class="form-control" >
+                            @foreach(config('category') as $index => $name)
+                                <option value="{{ $index }}">
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </form>
             <div class="index_recommend">
               <h3 class="index_recommend_spell">Recommend Items</h3>

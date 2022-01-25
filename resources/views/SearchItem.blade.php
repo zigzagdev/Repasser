@@ -33,7 +33,7 @@
       </div>
     @elseif (count($results) == 1 )
       <div class="search_query">
-        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{$total}}</span> found.<br>
+        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($results)}}</span> found.<br>
         Click it if you interested in.
       </div>
       <div class="flexContainer">
