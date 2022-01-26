@@ -37,4 +37,6 @@ jobs:
       - run: php artisan key:generate
       - run: php artisan migrate
 
-      - run: ./vendor/bin/phpunit
+      - run:
+          name: Run PHPUnit
+          command: vendor/bin/phpunit
