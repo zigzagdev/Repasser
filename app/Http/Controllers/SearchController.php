@@ -24,9 +24,16 @@ class SearchController extends Controller
                 ->orWhere('item_content', 'like', '%' . $q . '%')
                 ->get();
         }
+
         if (empty($q) && !empty($q2)) {
             $query->where('category_name','like', '%' . $q2 . '%')
                   ->get();
+        }
+
+        if (!empty($q) && !empty($q2)) {
+            $query->where('category_name', 'like', '%' . $q2);
+            $query->where('item_name', 'like', '%' . $q . '%')
+                ->orwhere('item_content', 'like', '%' . $q . '%');
         }
 
         $results = $query->paginate(4);
