@@ -35,8 +35,7 @@ jobs:
 
       - run: echo "APP_KEY=" > .env.testing
       - run:
-          name: run key generate
-          working_directory: backend
+          name: Generate php artisan key
           command: php artisan key:generate
       - run: php artisan migrate
 
