@@ -1,19 +1,20 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/php:8.0-node-browsers
-        environment:
-          - APP_DEBUG: true
-          - APP_ENV: local
-          - DB_CONNECTION: mysql
-          - DB_DATABASE: repas
-          - DB_USERNAME: root
+version: 2.0
+  jobs:
+    build:
+      docker:
+          - image: circleci/php:8.0-node-browsers
+            environment:
+              - APP_DEBUG: true
+              - APP_ENV: local
+              - DB_CONNECTION: mysql
+              - DB_DATABASE: repas
+              - DB_USERNAME: root
 
-      - image: circleci/mysql:5.7-ram
-        environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: true
-          - MYSQL_DATABASE: repas
+              - image: circleci/mysql:5.7-ram
+                environment:
+                  - MYSQL_ALLOW_EMPTY_PASSWORD: true
+                  - MYSQL_DATABASE: repas
+
             steps:
               - checkout
 
@@ -25,9 +26,7 @@ jobs:
                     - v1-dependencies-{{ checksum "composer.json" }}
                     - v1-dependencies-
 
-              - run:
-                  name: composer install
-                  working_directory: laravel
+              - run: composer install -n --prefer-dist
 
               - save_cache:
                   key: v1-dependencies-{{ checksum "composer.json" }}
@@ -38,6 +37,4 @@ jobs:
               - run: php artisan key:generate
               - run: php artisan migrate
 
-              - run:
-                  name: Run PHPUnit
-                  command: vendor/bin/phpunit
+              - run: ./vendor/bin/phpunit
