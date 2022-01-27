@@ -38,4 +38,4 @@ jobs:
 
       - run: ./vendor/bin/phpunit
 
-      - run: ./vendor/bin/phpstan resources
+      - run: ./vendor/bin/phpstan app --level1
