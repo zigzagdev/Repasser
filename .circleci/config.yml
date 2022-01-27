@@ -1,11 +1,11 @@
-version: 2.0
+version: 2
 jobs:
   build:
     docker:
       - image: circleci/php:8.0-node-browsers
         environment:
           - APP_DEBUG: true
-          - APP_ENV: testing
+          - APP_ENV: local
           - DB_CONNECTION: mysql
           - DB_DATABASE: repas
           - DB_USERNAME: root
@@ -14,36 +14,35 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: repas
+            steps:
+              - checkout
 
-    steps:
-      - checkout
+              - run: sudo apt update
+              - run: sudo docker-php-ext-install pdo_mysql
 
-      - run: sudo apt update
-      - run: sudo docker-php-ext-install pdo_mysql
+              - restore_cache:
+                  keys:
+                    - v1-dependencies-{{ checksum "composer.json" }}
+                    - v1-dependencies-
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "composer.json" }}
-            - v1-dependencies-
+              - run:
+                  name: composer install
+                  working_directory: laravel
 
-      - run:
-          name: composer install
-          working_directory: laravel
+              - save_cache:
+                  key: v1-dependencies-{{ checksum "composer.json" }}
+                  paths:
+                    - ./vendor
 
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
+              - run: echo "APP_KEY=" > .env.testing
+              - run: php artisan key:generate
+              - run: php artisan migrate
 
-      - run: echo "APP_KEY=" > .env.testing
-      - run: php artisan key:generate
-      - run: php artisan migrate
+              - run:
+                  name: Run PHPUnit
+                  command: vendor/bin/phpunit
 
-      - run:
-          name: Run PHPUnit
-          command: vendor/bin/phpunit
-
-      - run:
-          name: run phpstan
-          working_directory: backend
-          command: ./vendor/bin/phpstan --memory-limit=1G analyse
+              - run:
+                  name: run phpstan
+                  working_directory: backend
+                  command: ./vendor/bin/phpstan --memory-limit=1G analyse
