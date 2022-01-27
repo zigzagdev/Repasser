@@ -21,11 +21,6 @@ jobs:
       - run: sudo apt update
       - run: sudo docker-php-ext-install pdo_mysql
 
-      - run:
-          name: run cp env file
-          working_directory: backend
-          command: cp .env.example .env
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "composer.json" }}
