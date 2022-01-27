@@ -19,7 +19,13 @@
             <h2 class="search_index">Search Item</h2>
             <form method="GET" action="{{action('App\Http\Controllers\SearchController@SearchItem')}}">
                 <div class="search_form">
-                  <label class="col-sm-2">chose Category</label>
+                  <label class="order_by">関連順番</label>
+                  <select name="price_order" class="index_selectbox">
+                    <option value="" style="text-align: center; color: #0069d9">関連順番</option>
+                    <option value="asc">価格の安い順</option>
+                    <option value="desc">価格の高い順</option>
+                  </select>
+                  <label class="col-sm-2">choose Category</label>
                   <select name="item_category" class="index_selectbox" >
                     <option value="" style="text-align: center; color: #0062cc">カテゴリー選択</option>
                     @foreach(config('category') as $index => $name)

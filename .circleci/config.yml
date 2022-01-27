@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/php:8.0-node-browsers
+      - image: circleci/mysql:8.0.17
+        command: mysqld --default-authentication-plugin=mysql_native_password
         environment:
           - APP_DEBUG: true
           - APP_ENV: testing
@@ -26,7 +28,9 @@ jobs:
             - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
 
-      - run: composer install
+      - run:
+          name: composer install
+          working_directory: laravel
 
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
@@ -40,3 +44,13 @@ jobs:
       - run:
           name: Run PHPUnit
           command: vendor/bin/phpunit
+
+      - run:
+          name: Migration & Seeding
+          working_directory: laravel
+          command: php artisan migrate --seed
+
+      - run:
+          name: run phpstan
+          working_directory: backend
+          command: ./vendor/bin/phpstan --memory-limit=1G analyse
