@@ -88,7 +88,7 @@ class AccountController extends Controller
     public function deedUpdateAccount(Request $request, $id)
     {
         $datas = Admin::find($id);
-        $message = 'User not extist';
+        $message = 'User not exist';
         if ($datas === null) {
             print $message;
         } else {

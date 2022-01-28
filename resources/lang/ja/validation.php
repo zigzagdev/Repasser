@@ -153,9 +153,11 @@ return [
         'email'          => 'メールアドレス',
         'password'       => 'パスワード',
         'username'       => 'ユーザー名',
-        'item_name'       => 'アイテム名',
-        'content'        => '商品説明欄',
+        'item_name'      => 'アイテム名',
+        'item_content'   => '商品説明欄',
         'image'          => '商品イメージ',
+        'item_price'     => '商品価格',
+
 
     ],
 

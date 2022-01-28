@@ -44,9 +44,9 @@ class ValidatorServiceProvider extends ServiceProvider
             return preg_match('/^[A-Za-z\d_\s]+$/', $value);
         });
 
-        // 半角数字＋スペースチェック
-        Validator::extend('c_num_sp', function ($attribute, $value, $parameters, $validator) {
-            return preg_match('/^[0-9\s]+$/', $value);
+        // 半角数字のみ
+        Validator::extend('c_num_on', function ($attribute, $value, $parameters, $validator) {
+            return preg_match('/^[0-9]+$/', $value);
         });
 
         // ファイルフォーマットチェック（画像 or PDF）

@@ -37,12 +37,13 @@ class ItemController extends Controller
 
         $validateRule = [
             // アイテム名
-            'item_name' => ['required', 'c_alpha_num', 'c_alpha_num', 'min:3', 'max:40'],
+            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
 
             // アイテム内容
             'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
-//
-//            'item_price' => ['required'],
+
+            //アイテム価格
+            'item_price' => ['required', 'c_num_on'],
 //
 //            // 商品おすすめフラグ
 //            'recommend_flag' => ['required'],
@@ -95,8 +96,9 @@ class ItemController extends Controller
 
             // アイテム内容
             'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
-//
-//            'item_price' => ['required'],
+
+           //アイテム価格
+            'item_price' => ['required', 'c_num_on'],
 //
 //            // 商品おすすめフラグ
 //            'recommend_flag' => ['required'],
