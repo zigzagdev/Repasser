@@ -10,23 +10,44 @@ class SearchController extends Controller
 {
     public function SearchItem(Request $request)
     {
-//          inner_joinの結果のSQL
-//        SELECT item_name,item_content,image,categories.category_name FROM `items` INNER JOIN `categories` ON items.item_category = categories.id
+        $message = 'Nothing was found... Please change search words';
 
-        $message = 'Fill out some words in box';
         $q = $request->input('keyword');
-        $query = Item::query();
+        $q2 = $request->input('item_category');
 
-        if (!empty($q)) {
-//         アイテム名かカテゴリー分類の名前で検索を行い、クエリを発行する。　joinさせて一緒の内容で出させるかのSQL文作成に関してはまだ未
+        $query = DB::table('items')
+            ->join('categories', 'items.item_category', '=', 'categories.id')
+            ->select('item_name', 'item_content', 'image', 'category_name', 'items.id', 'price');
+
+        if (!empty($q) && empty($q2) && empty($q3)) {
             $query->where('item_name', 'like', '%' . $q . '%')
                 ->orWhere('item_content', 'like', '%' . $q . '%')
                 ->get();
-        } else {
-            echo $message;
         }
-        $results = $query->get();
 
-        return view('SearchItem',compact('results', 'q', 'message'));
+        if (empty($q) && !empty($q2) && empty($q3)) {
+            $query->where('category_name','like', '%' . $q2 . '%')
+                  ->get();
+        }
+
+        if (!empty($q) && !empty($q2) && empty($q3)) {
+            $query->where('category_name', 'like', '%' . $q2);
+            $query->where('item_name', 'like', '%' . $q . '%')
+                ->orwhere('item_content', 'like', '%' . $q . '%');
+        }
+
+        if (!empty($q) && !empty($q2) ) {
+            $query->where('category_name', 'like', '%' . $q2);
+            $query->where('item_name', 'like', '%' . $q . '%')
+                ->orwhere('item_content', 'like', '%' . $q . '%');
+        }
+
+        $result = $query->get();
+        $results = $query->paginate(4);
+
+        return view('SearchItem', compact('results', 'q', 'message', 'q2', 'result'));
     }
+
+
 }
+//        SELECT item_name,item_content,image,categories.category_name FROM `items` INNER JOIN `categories` ON items.item_category = categories.id

@@ -1,13 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Pagination\Paginator;
+
 
 // TopPage (QueryBuilder内にて、recommend_flagで正を表しているアイテムだけを$itemの中に入れている)
 Route::get('/', function () {
-    $item = DB::table('items')->where('recommend_flag', '1')->paginate(10);
+    $item = DB::table('items')->where('recommend_flag', '1')->paginate(4);
 
-    return view('index', ['item' => $item]);
+    return view('index', compact('item'));
 });
+
+//    Admin/Login
+Route::get('/admin/login', 'AccountController@Login');
+Route::post('/admin/login', 'AccountController@deedLogin');
 
 //    all_accounts_index
 Route::get('/admin/deedIndexSearch', 'AccountController@deedIndexSearch');

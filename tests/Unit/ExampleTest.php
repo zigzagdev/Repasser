@@ -11,6 +11,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
+//    一番粒度が細かいテスト
     public function test_example()
     {
         $this->assertTrue(true);

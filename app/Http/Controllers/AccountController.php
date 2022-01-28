@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class AccountController extends Controller
@@ -18,12 +20,33 @@ class AccountController extends Controller
         return view('admin/deedCreateAccount');
     }
 
+    public function Login()
+    {
+        return view('admin/Login');
+    }
+
+    public function deedLogin(Request $request)
+    {
+        $data = DB::table('admins')->get();
+
+        $credentials = [
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ];
+            if (Auth::attempt($credentials))  {
+
+                return redirect('admin/deedAccountShow/');
+            } else {
+                return redirect('/');
+            }
+    }
+
     public function deedCreateAccountAction(Request $request)
     {
 
         $datas = new Admin;
         $datas->user_name = $request->user_name;
-        $datas->password = $request->password;
+        $datas->password = Hash::make($request->password);
         $datas->email = $request->email;
         $datas->save();
 
@@ -38,7 +61,7 @@ class AccountController extends Controller
 
         $items = DB::table('items')->get();
 
-//        $itemの配列にadmin_idと4itemのidの一致内容のものを入れている。
+//        $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
         $item = [];
         foreach ($items as $each)
           if ($each->admin_id == $admin_id) {
@@ -64,7 +87,6 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
-//        ddを行うと、しっかりIDを取って、ddを行えている。
         $datas = Admin::find($id);
         $message = 'User not extist';
         if ($datas === null) {
@@ -114,3 +136,8 @@ class AccountController extends Controller
         return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
+
+//if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+//{
+//    return redirect('admin/deedAccountShow/');
+//}

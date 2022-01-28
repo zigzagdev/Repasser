@@ -34,7 +34,6 @@
       @endforeach
     </div>
   </main>
-
   <footer class="footer_content" style="background-color: black">
       @include('layouts/ItemFooter')
   </footer>

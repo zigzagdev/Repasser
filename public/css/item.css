@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 
 .item_header {
     width: 100%;
@@ -114,10 +119,11 @@ textarea {
 }
 
 .rec_item {
-    margin: 40px 40px 0 80px;
+    margin: 40px 40px 30px 90px;
     width: 192px;
     height: 260px;
     border: 1px solid black;
+
 }
 .img_rcm {
     width: 150px;
@@ -137,4 +143,23 @@ textarea {
     text-decoration: none;
     width: 100px;
     text-align: center;
+}
+
+.search_query {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 14px;
+}
+
+.footerFixed{
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 60px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+    /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
+}
+
+.index_selectbox {
+    width: 200px;
+    height: 31px;
 }

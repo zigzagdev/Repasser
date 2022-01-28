@@ -1,28 +1,63 @@
 <!DOCTYPE html>
-<body>
-<head>
+<html style="height: 100%">
+  <head>
     {{--   // config/app.phpの修正を行った。第一引数に.envのapp_nameを渡している。--}}
     <title>{{ config('app.name','Repasser') }}</title>
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
-</head>
-<body>
-  <header style="background-color: #edf2f7">
-    @include('layouts.Header')
-  </header>
+    <link href="{{asset('css/item.css')}}" rel="stylesheet">
+  </head>
+  <body style="background-color: #C9C9C9">
+    <div class="footerFixed">
+      <header style="background-color: #F9F9F9; ">
+        @include('layouts.Header')
+      </header>
   <main>
-    @if(!empty($results))
-      @foreach($results as $result)
-        <tr>
-            <td style="font-size: 28px; color: #040505; padding-left: 75px">・</td>
-            <td style="font-size: 28px; color: #040505; padding-left: 30px">{{$result->item_name}}</td>
-            <td style="font-size: 28px; color: #040505; padding-left: 60px">{{$result->item_content}}</td>
-        </tr>
-      @endforeach
+    @if(count($result) > 1 )
+      <div class="search_query">
+        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($result)}}</span> found.<br>
+        Click each items if you interested in.
+      </div>
+      <div class="flexContainer">
+        @foreach($results as $each)
+          <div class="rec_item">
+            <a href="{{ url('EveryItem', ["id" => $each->id]) }}" style="text-decoration: none; color: #0062cc">
+              <h4 style="margin: 14px 0 0 61px;">{{ $each->item_name}}</h4>
+              <img src="{{ asset('storage/'.$each->image) }}" class="img_rcm"/>
+              <p style="padding-top: 4px; text-align: center">¥{{$each->price}}</p>
+            </a>
+          </div>
+        @endforeach
+      </div>
+      <div class="page">
+        {{ $results->links('vendor/pagination/pagination') }}
+      </div>
+    @elseif (count($result) == 1 )
+      <div class="search_query">
+        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($result)}}</span> found.<br>
+        Click it if you interested in.
+      </div>
+      <div class="flexContainer">
+        @foreach($results as $each)
+          <div class="rec_item">
+            <a href="{{ url('EveryItem', ["id" => $each->id]) }}" style="text-decoration: none; color: #0062cc">
+              <h4 style="margin: 14px 0 0 61px;">{{ $each->item_name}}</h4>
+              <img src="{{ asset('storage/'.$each->image) }}" class="img_rcm"/>
+              <p style="padding-top: 4px; margin-left: 61px">¥{{$each->price}}</p>
+            </a>
+          </div>
+        @endforeach
+      </div>
     @else
-    <?php dd($message); ?>
+      <div class="search_query">
+        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($result)}}.</span><br>
+        {{$message}}<br>
+        <a href="/" style="text-decoration: none; ">Click Here</a>
+      </div>
     @endif
-  </main>
-  <footer class="footer_content">
-      @include('layouts/Footer')
-  </footer>
-</body>
+    </main>
+    <footer class="footer_content" style="background-color: black; position: absolute; bottom: 0; margin-top: 10px; width: 100%">
+      @include('layouts/ItemFooter')
+    </footer>
+    </div>
+  </body>
+</html>

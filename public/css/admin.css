@@ -45,21 +45,20 @@ li {
 
 .create_main {
     background-color: #ced4da;
-    min-height: 123vh;
     padding-bottom: 60px;
     position: relative;
-
-    /*how to fix header footer calc in height ? */
+    min-height: 100vh;
+    flex: 1;
 }
 
 .index_recommend {
-    padding-top: 97px;
+    padding-top: 60px;
 }
 
 .index_recommend_spell {
     text-align: center;
     color: #7886d7;
-    size: 38px;
+    font-size: 31px;
 }
 
 .search_index {
@@ -76,8 +75,9 @@ li {
 
 .form_content {
     text-align: center;
+    margin-left: 120px;
     font-size: 25px;
-    width: 35%;
+    width: 29%;
     display: inline-block;
 }
 
@@ -297,5 +297,25 @@ li {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+}
+
+.showaccount_item {
+    margin-left: 130px;
+    font-size: 28px;
+}
+
+.page {
+    text-align: center;
+}
+
+.box {
+    padding: 0.5em 1em ;
+    margin: 2em 0 0 260px;
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+    width: 50%;
+    height: 260px;
 }
 
