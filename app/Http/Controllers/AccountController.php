@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-use App\Models\Item;
-use http\Message;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -43,6 +40,30 @@ class AccountController extends Controller
 
     public function deedCreateAccountAction(Request $request)
     {
+        $validateRule = [
+              // アイテム名
+//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+
+             // アイテム内容
+//            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+
+            //アイテム価格
+//            'item_price' => ['required', 'c_num_on'],
+
+            // 商品おすすめフラグ
+//            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+//            'item_category' => ['required'],
+
+            // 商品画像
+//            'image' => ['required']
+        ];
+
+        $request->validate($validateRule);
+
+
+        $this->validate($request, $validateRule);
 
         $datas = new Admin;
         $datas->user_name = $request->user_name;
@@ -87,6 +108,27 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
+        $validateRule = [
+            // アイテム名
+//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+
+            // アイテム内容
+//            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+
+            //アイテム価格
+//            'item_price' => ['required', 'c_num_on'],
+
+            // 商品おすすめフラグ
+//            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+//            'item_category' => ['required'],
+
+            // 商品画像
+//            'image' => ['required']
+        ];
+
+        $request->validate($validateRule);
         $datas = Admin::find($id);
         $message = 'User not exist';
         if ($datas === null) {
