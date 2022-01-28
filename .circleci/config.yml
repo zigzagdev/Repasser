@@ -37,5 +37,5 @@ jobs:
       - run: php artisan migrate
 
       - run: ./vendor/bin/phpunit
-          command: git diff --name-only --diff-filter=ACMR origin/develop..origin/${CIRCLE_BRANCH} -- '*.php' | xargs -r composer phpstan analyze
+
 
