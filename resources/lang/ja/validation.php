@@ -153,7 +153,7 @@ return [
         'email'          => 'メールアドレス',
         'password'       => 'パスワード',
         'username'       => 'ユーザー名',
-        'itemname'       => 'アイテム名',
+        'item_name'       => 'アイテム名',
         'content'        => '商品説明欄',
         'image'          => '商品イメージ',
 

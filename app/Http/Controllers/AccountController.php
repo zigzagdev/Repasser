@@ -136,8 +136,3 @@ class AccountController extends Controller
         return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
-
-//if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
-//{
-//    return redirect('admin/deedAccountShow/');
-//}
