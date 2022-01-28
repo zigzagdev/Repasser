@@ -44,16 +44,15 @@ class ItemController extends Controller
 
             //アイテム価格
             'item_price' => ['required', 'c_num_on'],
-//
-//            // 商品おすすめフラグ
-//            'recommend_flag' => ['required'],
-//
-//            // 商品カテゴリー
-//            'item_category' => ['required'],
-//
-//            // 商品画像
-//            'image' => ['required']
 
+            // 商品おすすめフラグ
+            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+            'item_category' => ['required'],
+
+            // 商品画像
+           'image' => ['required']
         ];
 
         $request->validate($validateRule);
@@ -97,21 +96,21 @@ class ItemController extends Controller
             // アイテム内容
             'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
 
-           //アイテム価格
+            //アイテム価格
             'item_price' => ['required', 'c_num_on'],
-//
-//            // 商品おすすめフラグ
-//            'recommend_flag' => ['required'],
-//
-//            // 商品カテゴリー
-//            'item_category' => ['required'],
-//
-//            // 商品画像
-//            'image' => ['required']
+
+            // 商品おすすめフラグ
+            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+            'item_category' => ['required'],
+
+            // 商品画像
+            'image' => ['required']
 
         ];
 //        一旦、インスタンス化をl.65で行い、その後インスタンス化したものにidを当てはめるのがl.66になる。
-        $this->validate($request, $validations);
+        $this->validate($request, $validateRule);
         $items = new Item;
         $item = $items::find($id);
 
