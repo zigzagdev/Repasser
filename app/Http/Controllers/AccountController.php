@@ -41,23 +41,15 @@ class AccountController extends Controller
     public function deedCreateAccountAction(Request $request)
     {
         $validateRule = [
-              // アイテム名
-//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+              // admin名
+           'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
 
-             // アイテム内容
-//            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+             // パスワード
+           'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
 
-            //アイテム価格
-//            'item_price' => ['required', 'c_num_on'],
+            //メールアドレス
+            'email' => ['required', 'email']
 
-            // 商品おすすめフラグ
-//            'recommend_flag' => ['required'],
-
-            // 商品カテゴリー
-//            'item_category' => ['required'],
-
-            // 商品画像
-//            'image' => ['required']
         ];
 
         $request->validate($validateRule);
@@ -98,7 +90,7 @@ class AccountController extends Controller
         return \view('admin/deedEditAccount', compact('datas'));
     }
 
-    public function deedDeleteAccount(Request $request, $id)
+    public function deedDeleteAccount($id)
     {
         $datas = DB::table('admins')->find($id);
 
@@ -109,23 +101,15 @@ class AccountController extends Controller
     public function deedUpdateAccount(Request $request, $id)
     {
         $validateRule = [
-            // アイテム名
-//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
+            // 管理者名
+            'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
 
-            // アイテム内容
-//            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+            // パスワード
+            'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
 
             //アイテム価格
-//            'item_price' => ['required', 'c_num_on'],
+           'email' => ['required', 'email']
 
-            // 商品おすすめフラグ
-//            'recommend_flag' => ['required'],
-
-            // 商品カテゴリー
-//            'item_category' => ['required'],
-
-            // 商品画像
-//            'image' => ['required']
         ];
 
         $request->validate($validateRule);

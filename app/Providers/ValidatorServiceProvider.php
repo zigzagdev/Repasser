@@ -69,9 +69,15 @@ class ValidatorServiceProvider extends ServiceProvider
             return preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $value);
         });
 
+        //全角(平仮名・カタカナ・漢字)
         Validator::extend('c_every', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/', $value);
         });
+
+        //メールアドレス
+        Validator::extend('email', function ($attribute, $value, $parameters, $validator) {
+            return preg_match("/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $value);
+    });
 
     }
 }

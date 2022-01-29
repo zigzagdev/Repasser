@@ -152,7 +152,7 @@ return [
     'attributes' => [
         'email'          => 'メールアドレス',
         'password'       => 'パスワード',
-        'username'       => 'ユーザー名',
+        'user_name'       => '管理者名',
         'item_name'      => 'アイテム名',
         'item_content'   => '商品説明欄',
         'image'          => '商品画像',

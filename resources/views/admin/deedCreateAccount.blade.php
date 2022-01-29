@@ -24,12 +24,11 @@
         @endif
 
         <div class="account_form">
-{{--            In Laravel8, form_action is need to write every Route. --}}
           <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
           @csrf
             <div class="admin_name">
               <label for="user_name">Account Name</label>
-              <input type="text" id="user_name" name="user_name" class="name_css" placeholder="15文字以内">
+              <input type="text" id="user_name" name="user_name" class="name_css" placeholder="15文字以内" value="{{old('user_name')}}">
             </div>
             <div class="password_around">
               <label for="admin_password">Password</label>
@@ -37,7 +36,7 @@
             </div>
             <div class="email_around">
               <label for="admin_email">E-mail</label>
-              <input type="email" id="email" name="email" class="email_css" placeholder="ex).test@com">
+              <input type="email" id="email" name="email" class="email_css" placeholder="ex).test@com" value="{{old('email')}}">
             </div>
             <div class="base_button">
               <button type="submit" class="btn-primary">Submit</button>
