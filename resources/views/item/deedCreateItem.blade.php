@@ -34,6 +34,7 @@
                 <div class="password_around">
                   <label for="admin_password">Item Category</label>
                     <select name="item_category" style="margin-left: 30px">
+                      <option value="">Select Item Category</option>
                       @foreach(config('category') as $index => $name)
                         <option value="{{ $index }}" {{ old('index') === $index? "selected" : ""}}>{{ $name }}</option>
                       @endforeach

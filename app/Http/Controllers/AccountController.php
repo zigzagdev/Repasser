@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 
 class AccountController extends Controller
@@ -41,20 +42,16 @@ class AccountController extends Controller
     public function deedCreateAccountAction(Request $request)
     {
         $validateRule = [
-              // admin名
-           'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
+            //admin名
+            'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
 
-             // パスワード
-           'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
+            //パスワード
+            'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
+            'password_confirmation' => 'required|same:password',
 
             //メールアドレス
-            'email' => ['required', 'email']
-
+            'email' => ['required', 'email'],
         ];
-
-        $request->validate($validateRule);
-
-
         $this->validate($request, $validateRule);
 
         $datas = new Admin;
