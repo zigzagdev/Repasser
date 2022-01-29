@@ -156,7 +156,7 @@ return [
         'item_name'      => 'アイテム名',
         'item_content'   => '商品説明欄',
         'image'          => '商品画像',
-        'item_price'     => '商品価格',
+        'price'          => '商品価格',
         'item_category'  => '商品カテゴリー'
 
     ],

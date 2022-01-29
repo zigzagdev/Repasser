@@ -39,17 +39,17 @@ class ItemController extends Controller
             // アイテム名
             'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
 
+            // 商品カテゴリー
+            'item_category' => ['required'],
+
             // アイテム内容
-            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+            'item_content' => ['required', 'min:5', 'max:255'],
 
             //アイテム価格
-            'item_price' => ['required', 'c_num_on'],
+            'price' => ['required'],
 
             // 商品おすすめフラグ
             'recommend_flag' => ['required'],
-
-            // 商品カテゴリー
-            'item_category' => ['required'],
 
             // 商品画像
            'image' => ['required']
@@ -57,8 +57,6 @@ class ItemController extends Controller
 
         $request->validate($validateRule);
 
-
-        $this->validate($request, $validateRule);
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
@@ -67,6 +65,7 @@ class ItemController extends Controller
         $items->recommend_flag = $request->recommend_flag;
         $items->image = $request->image;
         $items->admin_id = $admin_id;
+        $this->validate($request, $validateRule);
         $items->save();
 
         return redirect('admin/deedAccountShow/' . $items->admin_id);
@@ -97,7 +96,7 @@ class ItemController extends Controller
             'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
 
             //アイテム価格
-            'item_price' => ['required', 'c_num_on'],
+            'price' => ['required', 'c_num_on'],
 
             // 商品おすすめフラグ
             'recommend_flag' => ['required'],

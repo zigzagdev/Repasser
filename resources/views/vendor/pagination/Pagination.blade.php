@@ -1,5 +1,3 @@
-{{--pagination_area--}}
-
 
 @if ($paginator->hasPages())
   <ul style="font-size: 21px" role="navigation">
