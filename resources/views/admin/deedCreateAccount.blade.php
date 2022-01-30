@@ -35,7 +35,7 @@
               <input type="password" id="password" name="password" class="password_css" placeholder="半角英数字20字以内">
             </div>
             <div class="password_around">
-              <label for="admin_password">Password_Confirmation</label>
+              <label for="admin_password">Password(Confirm)</label>
               <input type="password" id="password_confirmation" name="password_confirmation" class="password_css" placeholder="半角英数字20字以内" required>
             </div>
             <div class="email_around">

@@ -101,12 +101,8 @@ class AccountController extends Controller
             // 管理者名
             'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
 
-            // パスワード
-            'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
-
             //アイテム価格
-           'email' => ['required', 'email']
-
+            'email' => ['required', 'email']
         ];
 
         $request->validate($validateRule);
@@ -120,7 +116,7 @@ class AccountController extends Controller
             $datas->email = $request->email;
             $datas->save();
         }
-        return redirect('admin/deedAccountShow/' . $datas->id);
+        return redirect('admin/deedAccountShow/'. $datas->id);
     }
 
     public function deedDeleteComplete($id)
@@ -128,7 +124,7 @@ class AccountController extends Controller
         $data = DB::table('admins')->where('id', $id);
         $data->delete();
 
-        return redirect('/')->with('message','Your account was deleted.');;
+        return redirect('/')->with('message', 'Your account was deleted.');
 
     }
 

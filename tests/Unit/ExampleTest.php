@@ -2,17 +2,25 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Models\Admin;
+use Illuminate\Foundation\TestingRefreshDatabase;
+use Database\Seeders\AdminTableSeeder;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    use TestingRefreshDatabase;
+
+    public function test_管理者作成が出来るかどうか()
     {
-        $this->assertTrue(true);
+        $datas = new Admin;
+        $datas -> user_name = "yamada";
+        $datas -> password = Hash::make($datas->password);
+        $datas -> email = "test123@hoge.com";
+        $datas -> save();
+
+        $response = $this->get(redirect('admin/deedAccountShow/'.$datas->id));
+
+        $response->assertStatus(201);
     }
 }
