@@ -37,6 +37,10 @@ jobs:
       - run: php artisan key:generate
       - run: php artisan migrate
 
-      - run:
-          name: Run PHPUnit
-          command: phpunit tests/Unit/ExampleTest.php
+    - run:
+        name: "Create database and run migration"
+        command: php artisan migrate:refresh --database=repasser
+
+    - run:
+        name: "Run Http Tests"
+        command: vendor/bin/phpunit
