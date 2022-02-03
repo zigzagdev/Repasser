@@ -37,10 +37,10 @@ jobs:
       - run: php artisan key:generate
       - run: php artisan migrate
 
-    - run:
+      - run:
         name: "Create database and run migration"
         command: php artisan migrate:refresh --database=repasser
 
-    - run:
+      - run:
         name: "Run Http Tests"
         command: vendor/bin/phpunit
