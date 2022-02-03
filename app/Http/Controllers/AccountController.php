@@ -66,12 +66,12 @@ class AccountController extends Controller
     public function deedAccountShow($id)
     {
         $admin = DB::table('admins')->find($id);
-//       id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
+//      id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
         $admin_id = $admin->id;
 
         $items = DB::table('items')->get();
 
-//        $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
+//      $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
         $item = [];
         foreach ($items as $each)
           if ($each->admin_id == $admin_id) {
@@ -125,7 +125,6 @@ class AccountController extends Controller
         $data->delete();
 
         return redirect('/')->with('message', 'Your account was deleted.');
-
     }
 
     public function deedIndexSearch(Request $request)

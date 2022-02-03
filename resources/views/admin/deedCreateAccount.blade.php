@@ -25,7 +25,7 @@
 
         <div class="account_form">
           <form method="post" action="{{action('App\Http\Controllers\AccountController@deedCreateAccountAction')}}">
-          @csrf
+            @csrf
             <div class="admin_name">
               <label for="user_name">Account Name</label>
               <input type="text" id="user_name" name="user_name" class="name_css" placeholder="15文字以内" value="{{old('user_name')}}">

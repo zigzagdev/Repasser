@@ -3,13 +3,15 @@
 namespace Tests\Unit;
 
 use App\Models\Admin;
-use Illuminate\Foundation\TestingRefreshDatabase;
-use Database\Seeders\AdminTableSeeder;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
+use Hash;
+
 
 class ExampleTest extends TestCase
 {
-    use TestingRefreshDatabase;
+    use DatabaseTransactions;
+    private $connectionsToTransact = [ 'repasser' ];
 
     public function test_管理者作成が出来るかどうか()
     {
@@ -19,8 +21,6 @@ class ExampleTest extends TestCase
         $datas -> email = "test123@hoge.com";
         $datas -> save();
 
-        $response = $this->get(redirect('admin/deedAccountShow/'.$datas->id));
-
-        $response->assertStatus(201);
+        return redirect('admin/deedAccountShow/'.$datas->id);
     }
 }

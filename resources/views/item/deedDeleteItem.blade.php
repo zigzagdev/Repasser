@@ -10,6 +10,11 @@
       @include('../layouts/header')
     </header>
     <main class="create_main">
+      @if(session('message'))
+        <div class="flash_message alert-primary" style="font-size: 30px">
+          {{ session('message') }}
+        </div>
+      @endif
       <h1 class="account_mot">Here is Delete Item Page</h1>
       <h2 class="showaccount_name">Item Name</h2>
       <div class="variable_name">
@@ -19,7 +24,11 @@
       <div class="variable_email">
         {{$item->item_content}}
       </div>
-
+      @if (session('flash_message'))
+      　<div class="flash_message">
+        　　{{ session('flash_message') }}
+        </div>
+      @endif
       <form action="{{action('App\Http\Controllers\ItemController@deedDeleteComplete',$item->id)}}" method="post">
         @csrf
         @method('DELETE')
@@ -36,6 +45,5 @@
     <footer>
       @include('layouts.ItemFooter')
     </footer>
-    <script src="{{asset('/public/js/custom.js')}}"></script>
   </body>
 </html>

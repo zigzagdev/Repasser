@@ -11,9 +11,6 @@
       @include('layouts.Header')
     </header>
     <main class="main_body">
-      <div class="admin_rgst">
-        <a href="admin/login" class="admin_rgst_mot">Only Staff here.</a>
-      </div>
       <div class="initial_body">
         <h2 class="search_index">Search Item</h2>
         <form method="GET" action="{{action('App\Http\Controllers\SearchController@SearchItem')}}">
