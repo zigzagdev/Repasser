@@ -13,7 +13,7 @@ jobs:
       - image: circleci/mysql:5.7-ram
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
-          - MYSQL_DATABASE: repas
+          - MYSQL_DATABASE: repasser
 
     steps:
       - checkout
@@ -37,10 +37,4 @@ jobs:
       - run: php artisan key:generate
       - run: php artisan migrate
 
-      - run:
-          command: |
-            php artisan migrate --env=testing
-
-      - run:
-        name: "Run Http Tests"
-        command: vendor/bin/phpunit
+      - run: ./vendor/bin/phpunit
