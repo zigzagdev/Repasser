@@ -38,8 +38,8 @@ jobs:
       - run: php artisan migrate
 
       - run:
-        name: "Create database and run migration"
-        command: php artisan migrate:refresh --database=repasser
+          command: |
+            php artisan migrate --env=testing
 
       - run:
         name: "Run Http Tests"
