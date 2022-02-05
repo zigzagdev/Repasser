@@ -19,26 +19,33 @@ class SearchController extends Controller
             ->join('categories', 'items.item_category', '=', 'categories.id')
             ->select('item_name', 'item_content', 'image', 'category_name', 'items.id', 'price');
 
-        if (!empty($q) && empty($q2)) {
+        if (!empty($q) && empty($q2) && empty($q3)) {
             $query->where('item_name', 'like', '%' . $q . '%')
                 ->orWhere('item_content', 'like', '%' . $q . '%')
                 ->get();
         }
 
-        if (empty($q) && !empty($q2)) {
+        if (empty($q) && !empty($q2) && empty($q3)) {
             $query->where('category_name','like', '%' . $q2 . '%')
                   ->get();
         }
 
-        if (!empty($q) && !empty($q2)) {
+        if (!empty($q) && !empty($q2) && empty($q3)) {
             $query->where('category_name', 'like', '%' . $q2);
             $query->where('item_name', 'like', '%' . $q . '%')
                 ->orwhere('item_content', 'like', '%' . $q . '%');
         }
 
+        if (!empty($q) && !empty($q2) ) {
+            $query->where('category_name', 'like', '%' . $q2);
+            $query->where('item_name', 'like', '%' . $q . '%')
+                ->orwhere('item_content', 'like', '%' . $q . '%');
+        }
+
+        $result = $query->get();
         $results = $query->paginate(4);
 
-        return view('SearchItem', compact('results', 'q', 'message', 'q2'));
+        return view('SearchItem', compact('results', 'q', 'message', 'q2', 'result'));
     }
 
 
