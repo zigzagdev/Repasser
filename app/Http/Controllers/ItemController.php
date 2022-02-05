@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use function Sodium\compare;
 
 
 class ItemController extends Controller
 {
     public function deedShowItem($id)
     {
-
         $items = DB::table('items')->find($id);
-
-        $category = DB::table('categories')->get();
 
         return view('item/deedShowItem', compact('items'));
     }
@@ -36,30 +33,27 @@ class ItemController extends Controller
         $admin_id = intval($eachdata);
 
         $validateRule = [
+            // アイテム名
+            'item_name' => ['required', 'min:3', 'max:40'],
 
-//            // アイテム名
-//            'item_name' => ['required', 'c_alpha_num', 'min:3', 'max:40'],
-//
-//            // アイテム内容
-//            'item_content' => ['required', 'c_alpha_num', 'min:5', 'max:255', 'confirmed'],
-//
-//            'item_price' => ['required'],
-//
-//            // 商品おすすめフラグ
-//            'recommend_flag' => ['required'],
-//
-//            // 商品カテゴリー
-//            'item_category' => ['required'],
-//
-//            // 商品画像
-//            'image' => ['required']
+            // 商品カテゴリー
+            'item_category' => ['required'],
 
+            // アイテム内容
+            'item_content' => ['required', 'min:5', 'max:255'],
+
+            //アイテム価格
+            'price' => ['required'],
+
+            // 商品おすすめフラグ
+            'recommend_flag' => ['required'],
+
+            // 商品画像
+           'image' => ['required']
         ];
 
         $request->validate($validateRule);
 
-
-        $this->validate($request, $validateRule);
         $items = new Item;
         $items->item_name = $request->item_name;
         $items->item_category = $request->item_category;
@@ -68,9 +62,10 @@ class ItemController extends Controller
         $items->recommend_flag = $request->recommend_flag;
         $items->image = $request->image;
         $items->admin_id = $admin_id;
+        $this->validate($request, $validateRule);
         $items->save();
 
-        return redirect('admin/deedAccountShow/' . $items->admin_id);
+        return redirect('admin/deedAccountShow/'. $items->admin_id)->with('Item has been created.');
     }
 
     public function deedEditItem($id)
@@ -84,18 +79,34 @@ class ItemController extends Controller
     {
         $item = DB::table('items')->find($id);
 
-        return view('item/deedDeleteItem', compact('item'));
+        return view('item/deedDeleteItem', compact('item'))->with('flash_message', 'Item was deleted !');
     }
 
     public function deedUpdateItem(Request $request, $id)
 
     {
-        $validations = [
-            'アイテム名' => ['required', 'size:20'],
-            '商品の説明欄' => ['required', 'size:100']
+        $validateRule = [
+            // アイテム名
+            'item_name' => ['required', 'c_alpha_num', 'c_alpha_num', 'min:3', 'max:40'],
+
+            // アイテム内容
+            'item_content' => ['required', 'c_every', 'min:5', 'max:255'],
+
+            //アイテム価格
+            'price' => ['required', 'c_num_on'],
+
+            // 商品おすすめフラグ
+            'recommend_flag' => ['required'],
+
+            // 商品カテゴリー
+            'item_category' => ['required'],
+
+            // 商品画像
+            'image' => ['required']
+
         ];
 //        一旦、インスタンス化をl.65で行い、その後インスタンス化したものにidを当てはめるのがl.66になる。
-        $this->validate($request, $validations);
+        $this->validate($request, $validateRule);
         $items = new Item;
         $item = $items::find($id);
 
@@ -111,7 +122,7 @@ class ItemController extends Controller
             $item->image = $request->image;
             $item->save();
         }
-        return redirect('admin/deedShowItem/' . $item->id);
+        return redirect('admin/deedShowItem/' . $item->id, compact('message'));
     }
 
     public function deedDeleteComplete($id)
@@ -126,7 +137,6 @@ class ItemController extends Controller
         } else {
             $item->delete();
         }
-        session()->flash('message', 'Your Item was deleted');
         return redirect('admin/deedAccountShow/' . $item->admin_id);
     }
 

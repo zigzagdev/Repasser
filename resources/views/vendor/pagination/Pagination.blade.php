@@ -1,13 +1,8 @@
-{{--pagination_area--}}
-
 
 @if ($paginator->hasPages())
   <ul style="font-size: 21px" role="navigation">
     <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
       <a class="page-link" href="{{ $paginator->url(1) }}"><<</a>
-    </li>
-    <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->previousPageUrl() }}"><</a>
     </li>
     @foreach ($elements as $element)
       @if (is_string($element))
@@ -26,10 +21,5 @@
     <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
       <a class="page-link" href="{{ $paginator->nextPageUrl() }}">></a>
     </li>
-    <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-      <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">>></a>
-    </li>
   </ul>
 @endif
-
-{{--paginationは次へ全体ページ表示の内容を表記する必要がある。--}}

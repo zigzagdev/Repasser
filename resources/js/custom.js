@@ -1,7 +1,9 @@
-$('push').click(function () {
-    if (confirm('削除してよろしいですか？')) {
-        $('span').text('アカウントを削除致しました。');
-    } else {
-        return false
+
+function delete_alert(e){
+    if(!window.confirm('本当に削除しますか？')){
+        window.alert('キャンセルされました');
+        return false;
     }
-});
+    document.deleteform.submit();
+};
+

@@ -26,13 +26,14 @@ class AdminCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'h_alpha_num'        => 'h_alpha_num',
-            'f_hira'             => 'f_hira',
-            'h_alpha_num_note'   => 'h_alpha_num_note',
-            'postal'             => 'postal',
-            'tel_mobile'         => 'tel_mobile',
-            'email'              => 'email',
-
+            'h_alpha_num'           => 'h_alpha_num',
+            'f_hira'                => 'f_hira',
+            'h_alpha_num_note'      => 'h_alpha_num_note',
+            'postal'                => 'postal',
+            'tel_mobile'            => 'tel_mobile',
+            'email'                 => 'email',
+            'password'              => 'required|confirmed',
+            'password_confirmation' => 'required',
 
         ];
     }

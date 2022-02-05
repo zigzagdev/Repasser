@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-use App\Models\Item;
-use http\Message;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 
 class AccountController extends Controller
@@ -43,6 +41,18 @@ class AccountController extends Controller
 
     public function deedCreateAccountAction(Request $request)
     {
+        $validateRule = [
+            //admin名
+            'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
+
+            //パスワード
+            'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
+            'password_confirmation' => 'required|same:password',
+
+            //メールアドレス
+            'email' => ['required', 'email'],
+        ];
+        $this->validate($request, $validateRule);
 
         $datas = new Admin;
         $datas->user_name = $request->user_name;
@@ -56,12 +66,12 @@ class AccountController extends Controller
     public function deedAccountShow($id)
     {
         $admin = DB::table('admins')->find($id);
-//       id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
+//      id指定していなくても、勝手にidに紐づくitemのSQLを持ってきて来れている。
         $admin_id = $admin->id;
 
         $items = DB::table('items')->get();
 
-//        $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
+//      $itemの配列にadmin_idとitemのidの一致内容のものを入れている。
         $item = [];
         foreach ($items as $each)
           if ($each->admin_id == $admin_id) {
@@ -77,7 +87,7 @@ class AccountController extends Controller
         return \view('admin/deedEditAccount', compact('datas'));
     }
 
-    public function deedDeleteAccount(Request $request, $id)
+    public function deedDeleteAccount($id)
     {
         $datas = DB::table('admins')->find($id);
 
@@ -87,8 +97,17 @@ class AccountController extends Controller
 
     public function deedUpdateAccount(Request $request, $id)
     {
+        $validateRule = [
+            // 管理者名
+            'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
+
+            //アイテム価格
+            'email' => ['required', 'email']
+        ];
+
+        $request->validate($validateRule);
         $datas = Admin::find($id);
-        $message = 'User not extist';
+        $message = 'User not exist';
         if ($datas === null) {
             print $message;
         } else {
@@ -97,7 +116,7 @@ class AccountController extends Controller
             $datas->email = $request->email;
             $datas->save();
         }
-        return redirect('admin/deedAccountShow/' . $datas->id);
+        return redirect('admin/deedAccountShow/'. $datas->id);
     }
 
     public function deedDeleteComplete($id)
@@ -105,8 +124,7 @@ class AccountController extends Controller
         $data = DB::table('admins')->where('id', $id);
         $data->delete();
 
-        return redirect('/')->with('message','Your account was deleted.');;
-
+        return redirect('/')->with('message', 'Your account was deleted.');
     }
 
     public function deedIndexSearch(Request $request)
@@ -136,8 +154,3 @@ class AccountController extends Controller
         return view('admin/SearchResult', compact('results', 'keyword', 'counts'));
     }
 }
-
-//if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
-//{
-//    return redirect('admin/deedAccountShow/');
-//}
