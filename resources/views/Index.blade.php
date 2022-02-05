@@ -28,7 +28,6 @@
             <input type="submit" value="検索" class="search_btn_info">
           </div>
         </form>
-
         <div class="index_recommend">
           <h3 class="index_recommend_spell">Recommend Items</h3>
           <div class="flexContainer">

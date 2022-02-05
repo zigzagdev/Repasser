@@ -12,18 +12,18 @@
         @include('layouts.Header')
       </header>
   <main>
-    @if(count($results) > 1 )
+    @if(count($result) > 1 )
       <div class="search_query">
-        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($results)}}</span> found.<br>
+        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($result)}}</span> found.<br>
         Click each items if you interested in.
       </div>
       <div class="flexContainer">
-        @foreach($results as $result)
+        @foreach($results as $each)
           <div class="rec_item">
-            <a href="{{ url('EveryItem', ["id" => $result->id]) }}" style="text-decoration: none; color: #0062cc">
-              <h4 style="margin: 14px 0 0 61px;">{{ $result->item_name}}</h4>
-              <img src="{{ asset('storage/'.$result->image) }}" class="img_rcm"/>
-              <p style="padding-top: 4px; text-align: center">¥{{$result->price}}</p>
+            <a href="{{ url('EveryItem', ["id" => $each->id]) }}" style="text-decoration: none; color: #0062cc">
+              <h4 style="margin: 14px 0 0 61px;">{{ $each->item_name}}</h4>
+              <img src="{{ asset('storage/'.$each->image) }}" class="img_rcm"/>
+              <p style="padding-top: 4px; text-align: center">¥{{$each->price}}</p>
             </a>
           </div>
         @endforeach
@@ -31,25 +31,25 @@
       <div class="page">
         {{ $results->links('vendor/pagination/pagination') }}
       </div>
-    @elseif (count($results) == 1 )
+    @elseif (count($result) == 1 )
       <div class="search_query">
-        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($results)}}</span> found.<br>
+        Search Result is <span style="color: #2d3748; font-family: 'Bodoni 72'">{{count($result)}}</span> found.<br>
         Click it if you interested in.
       </div>
       <div class="flexContainer">
-        @foreach($results as $result)
+        @foreach($results as $each)
           <div class="rec_item">
-            <a href="{{ url('EveryItem', ["id" => $result->id]) }}" style="text-decoration: none; color: #0062cc">
-              <h4 style="margin: 14px 0 0 61px;">{{ $result->item_name}}</h4>
-              <img src="{{ asset('storage/'.$result->image) }}" class="img_rcm"/>
-              <p style="padding-top: 4px; margin-left: 61px">¥{{$result->price}}</p>
+            <a href="{{ url('EveryItem', ["id" => $each->id]) }}" style="text-decoration: none; color: #0062cc">
+              <h4 style="margin: 14px 0 0 61px;">{{ $each->item_name}}</h4>
+              <img src="{{ asset('storage/'.$each->image) }}" class="img_rcm"/>
+              <p style="padding-top: 4px; margin-left: 61px">¥{{$each->price}}</p>
             </a>
           </div>
         @endforeach
       </div>
     @else
       <div class="search_query">
-        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($results)}}.</span><br>
+        Search Results are <span style="color: #2d3748; font-family: 'Bodoni 72';">{{count($result)}}.</span><br>
         {{$message}}<br>
         <a href="/" style="text-decoration: none; ">Click Here</a>
       </div>
