@@ -13,8 +13,9 @@ jobs:
 
       - image: circleci/mysql:5.7-ram
         environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: repasser
+          - MYSQL_DATABASE_USERNAME: root
+          - MYSQL_DATABASE_PASSWORD: root
 
 
     steps:
