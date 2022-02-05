@@ -43,4 +43,5 @@ jobs:
           command: ./vendor/bin/phpunit
       - run:
           name: Run phpstan
-          command: ./vendor/bin/phpstan --memory-limit=1G analyse
+          command: ./vendor/bin/phpstan
+          working_directory: backend
