@@ -11,9 +11,6 @@
       <testsuite name="Feature">
         <directory suffix="ExampleTest.php">./tests/Feature</directory>
       </testsuite>
-      <testsuite name="Unit Tests">
-        <directory suffix="ValidationRequestTest.php">./tests/Request</directory>
-      </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
       <include>
