@@ -43,4 +43,4 @@ jobs:
           command: ./vendor/bin/phpunit
       - run:
           name: Run LaraStan
-          command: ./vendor/nunomaduro/larastan/extension.neon
+          command: sudo ./vendor/nunomaduro/larastan/cextension.neon
