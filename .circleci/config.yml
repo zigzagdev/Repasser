@@ -42,6 +42,5 @@ jobs:
           name: Run PHPUnit
           command: ./vendor/bin/phpunit
       - run:
-          name: Run phpstan
-          command: ./vendor/bin/phpstan
-          working_directory: backend
+          name: Run PHPStan
+          command: ./vendor/bin/phpstan -- level 5
