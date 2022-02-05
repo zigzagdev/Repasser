@@ -43,4 +43,4 @@ jobs:
           command: ./vendor/bin/phpunit
       - run:
           name: Run PHPStan
-          command:  ./vendor/bin/phpstan analyse src tests
+          command:  ./vendor/bin/phpstan analyse resources tests
