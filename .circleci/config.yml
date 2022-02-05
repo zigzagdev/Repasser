@@ -14,8 +14,7 @@ jobs:
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: repasser
-          - MYSQL_USER: root
-          - MYSQL_PASSWORD: root
+
 
     steps:
       - checkout
