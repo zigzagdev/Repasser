@@ -4,12 +4,9 @@ namespace Tests\Unit;
 
 use App\Models\Admin;
 use App\Models\Item;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
-use Hash;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Validator;
 use lluminate\Support\Collection;
 
 
@@ -33,8 +30,6 @@ class CreateTest extends TestCase
 
     public function test_管理者更新が出来るかどうか()
     {
-        $this->artisan('db:seed', ['--class' => 'AdminTableSeeder']);
-
         $admins = DB::table('admins')->get();
         $admins -> user_name = "sato";
         $admins -> email = "test999@hoge.com";
