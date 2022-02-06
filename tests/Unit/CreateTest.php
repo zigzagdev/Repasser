@@ -6,8 +6,9 @@ use App\Models\Admin;
 use App\Models\Item;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
+use Tests\Unit\Hash;
 use Illuminate\Support\Facades\DB;
-use lluminate\Support\Collection;
+use Illuminate\Support\Collection;
 
 
 class CreateTest extends TestCase
