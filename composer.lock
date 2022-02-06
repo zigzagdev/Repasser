@@ -7831,6 +7831,7 @@
         },
         {
             "name": "phpstan/phpstan",
+
             "version": "1.4.5",
             "source": {
                 "type": "git",
@@ -7871,6 +7872,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
+
                 "source": "https://github.com/phpstan/phpstan/tree/1.4.5"
             },
             "funding": [
