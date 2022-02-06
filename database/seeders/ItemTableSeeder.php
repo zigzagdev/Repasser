@@ -34,6 +34,7 @@ class ItemTableSeeder extends Seeder
                 'item_content'=>'iPhoneXです。',
                 'recommend_flag'=>'0',
                 'image' => 'test.png',
+                'price' => 2000,
                 'created_at'=>date('Y-m-d H:i:s'),
                 'updated_at'=>date('Y-m-d H:i:s'),
                 'admin_id'=>$admin->id

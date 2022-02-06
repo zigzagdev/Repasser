@@ -16,20 +16,9 @@ class CreateTest extends TestCase
     use DatabaseTransactions;
     private $connectionsToTransact = [ 'repasser' ];
 
-    public function test_管理者作成が出来るかどうか(Request $request)
+    public function test_管理者作成が出来るかどうか()
     {
-        $validateRule = [
-            //admin名
-            'user_name' => ['required', 'c_alpha_num', 'min:3', 'max:15'],
-
-            //パスワード
-            'password' => ['required', 'c_alpha_num', 'min:8', 'max:20'],
-            'password_confirmation' => 'required|same:password',
-
-            //メールアドレス
-            'email' => ['required', 'email'],
-        ];
-        $this->validate($request, $validateRule);
+        $this->artisan('db:seed', ['--class' => 'AdminTableSeeder']);
 
         $datas = new Admin;
         $datas -> user_name = "yamada";
