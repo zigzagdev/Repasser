@@ -37,8 +37,9 @@ jobs:
       - run: echo "APP_KEY=" > .env.testing
       - run: php artisan key:generate
 
-      - run: php artisan migrate:refresh --database=repasser
 
+      - run: php artisan migrate:refresh --database=repasser
+          name: Run PHPDBMigrate
       - run:
           name: Run PHPUnit
           command: ./vendor/bin/phpunit
