@@ -32,7 +32,7 @@ class CreateTest extends TestCase
     public function test_管理者更新が出来るかどうか()
     {
 
-        $admins = Admin::where('name', 'yamada')->first();
+        $admins = Admin::where('user_name', 'yamada')->first();
         $admins -> user_name = "sato";
         $admins -> email = "test999@hoge.com";
         $admins -> save();
