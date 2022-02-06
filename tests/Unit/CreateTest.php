@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
 
 
@@ -28,6 +29,19 @@ class CreateTest extends TestCase
 
         return redirect('admin/deedAccountShow/'.$datas->id);
     }
+
+    public function test_管理者更新が出来るかどうか()
+    {
+        $this->artisan('db:seed', ['--class' => 'AdminTableSeeder']);
+
+        $admins = DB::table('admins')->get();
+        $admins -> user_name = "sato";
+        $admins -> email = "test999@hoge.com";
+        $admins -> save();
+
+        return redirect('admin/deedAccountShow/'.$admins->id);
+    }
+
     public function test_商品登録が出来るかどうか()
     {
 
