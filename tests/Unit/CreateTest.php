@@ -6,7 +6,7 @@ use App\Models\Admin;
 use App\Models\Item;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
-use Tests\Unit\Hash;
+use Tests\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 
@@ -31,7 +31,7 @@ class CreateTest extends TestCase
 
     public function test_管理者更新が出来るかどうか()
     {
-        $admins = DB::table('admins')->get();
+        $admins = \User::where('name', 'yamada')->first();
         $admins -> user_name = "sato";
         $admins -> email = "test999@hoge.com";
         $admins -> save();
