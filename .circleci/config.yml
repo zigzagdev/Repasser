@@ -5,7 +5,7 @@ jobs:
       - image: circleci/php:8.0-node-browsers
         environment:
           - APP_DEBUG: true
-          - APP_ENV: testing
+          - APP_ENV: local
           - DB_CONNECTION: mysql
           - DB_DATABASE: repasser
           - DB_USERNAME: root
@@ -37,7 +37,6 @@ jobs:
       - run: echo "APP_KEY=" > .env.testing
       - run: php artisan key:generate
 
-
       - run: php artisan migrate:refresh --database=repasser
           name: Run PHPDBMigrate
       - run:
@@ -46,3 +45,4 @@ jobs:
       - run:
           name: Run PHPStan
           command:  ./vendor/bin/phpstan analyse resources
+
