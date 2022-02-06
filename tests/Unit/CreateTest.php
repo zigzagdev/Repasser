@@ -10,6 +10,7 @@ use Tests\TestCase;
 use Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
+lluminate\Support\Collection;
 
 
 class CreateTest extends TestCase
